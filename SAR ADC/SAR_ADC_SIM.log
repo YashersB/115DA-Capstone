@@ -1,0 +1,14 @@
+LTspice 26.0.1 for Windows
+Circuit: C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\SAR_ADC_SIM.net
+Start Time: Mon Mar 30 14:55:19 2026
+solver = Normal
+Maximum thread count: 6
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 0.534 seconds.
+
+Files loaded:
+C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\SAR_ADC_SIM.net
+
