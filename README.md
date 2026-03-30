@@ -1,2 +1,2 @@
 # 115DA-Capstone
-Github respitory for pulse oximeter
+Github respitory for Pulse Oximeter
