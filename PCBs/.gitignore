@@ -1,0 +1,11 @@
+# KiCad Temporary/Backup Files
+*.bak
+*.kicad_pcb-bak
+*.kicad_prl
+*-save.kicad_pcb
+_autosave-*
+fp-info-cache
+
+# Optional: Ignore Gerber outputs if you want to keep the repo light
+# *.gbr
+# *.drl

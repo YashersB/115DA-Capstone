@@ -1,0 +1,166 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "8c3d01e8-a984-4e4e-9220-7d351336a99b")
+	(paper "A4")
+	(title_block
+		(title "Pulse Oximeter Primary Board")
+		(company "ECE115DA/DW Capstone")
+	)
+	(lib_symbols)
+	(text "Pulse Oximeter Primary Board"
+		(exclude_from_sim no)
+		(at 75.184 20.32 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.381)
+				(bold yes)
+				(italic yes)
+			)
+		)
+		(uuid "687383f0-7e31-4c4c-9099-41e0808c7a25")
+	)
+	(sheet
+		(at 82.55 80.01)
+		(size 19.05 19.05)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 255 229 191 1.0000)
+		)
+		(uuid "8bef796a-ecae-4493-960e-95186824da14")
+		(property "Sheetname" "AFE"
+			(at 82.55 79.2984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.254)
+					(bold yes)
+					(italic yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "AFE.kicad_sch"
+			(at 82.55 99.6446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Primary_Board"
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 137.16 81.28)
+		(size 19.05 19.05)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 255 229 191 1.0000)
+		)
+		(uuid "bd61ebda-1522-4e1f-a5c5-93272ab69f44")
+		(property "Sheetname" "ADC"
+			(at 137.16 80.5684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.254)
+					(bold yes)
+					(italic yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ADC.kicad_sch"
+			(at 137.16 100.9146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Primary_Board"
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 194.31 81.28)
+		(size 19.05 19.05)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 255 229 191 1.0000)
+		)
+		(uuid "c9d7a52b-c624-454d-af83-5076e9ccc3d1")
+		(property "Sheetname" "MCU_Display"
+			(at 194.31 80.5684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.254)
+					(bold yes)
+					(italic yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "MCU_Display.kicad_sch"
+			(at 194.31 100.9146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Primary_Board"
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
