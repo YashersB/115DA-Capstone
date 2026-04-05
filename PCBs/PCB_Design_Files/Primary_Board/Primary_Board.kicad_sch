@@ -9,6 +9,16 @@
 		(company "ECE115DA/DW Capstone")
 	)
 	(lib_symbols)
+	(text "Have unused opamp, could use it\nas a buffer for ptat signal so it\ndoesn't go to waste"
+		(exclude_from_sim no)
+		(at 94.742 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2ed40ce7-e531-4201-b244-3e9d9a9e578c")
+	)
 	(text "Pulse Oximeter Primary Board"
 		(exclude_from_sim no)
 		(at 75.184 20.32 0)
@@ -22,9 +32,39 @@
 		)
 		(uuid "687383f0-7e31-4c4c-9099-41e0808c7a25")
 	)
+	(wire
+		(pts
+			(xy 106.68 95.25) (xy 114.3 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "311003ad-7f10-43a8-aabe-b5f9600d3c08")
+	)
+	(wire
+		(pts
+			(xy 74.93 88.9) (xy 82.55 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41addfba-0eae-4313-84f7-13f9cb9e7a3f")
+	)
+	(wire
+		(pts
+			(xy 106.68 86.36) (xy 114.3 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f28cd8dd-7e26-4d16-8b78-64ff7ef78a94")
+	)
 	(sheet
 		(at 82.55 80.01)
-		(size 19.05 19.05)
+		(size 24.13 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -51,12 +91,42 @@
 			)
 		)
 		(property "Sheetfile" "AFE.kicad_sch"
-			(at 82.55 99.6446 0)
+			(at 82.55 102.1846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "ADC_AC" output
+			(at 106.68 86.36 0)
+			(uuid "34eefd8f-e424-4e6c-a58b-8a69f95662ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "ADC_DC" output
+			(at 106.68 95.25 0)
+			(uuid "c0530559-f588-4af3-b10f-a9de90ecc9fa")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "V_bandgap" input
+			(at 82.55 88.9 180)
+			(uuid "cdd6f24a-d7d3-4850-a989-a3ddee902fd6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -68,8 +138,8 @@
 		)
 	)
 	(sheet
-		(at 137.16 81.28)
-		(size 19.05 19.05)
+		(at 137.16 80.01)
+		(size 22.86 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -84,7 +154,7 @@
 		)
 		(uuid "bd61ebda-1522-4e1f-a5c5-93272ab69f44")
 		(property "Sheetname" "ADC"
-			(at 137.16 80.5684 0)
+			(at 137.16 79.2984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -96,7 +166,7 @@
 			)
 		)
 		(property "Sheetfile" "ADC.kicad_sch"
-			(at 137.16 100.9146 0)
+			(at 137.16 102.1846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -113,8 +183,8 @@
 		)
 	)
 	(sheet
-		(at 194.31 81.28)
-		(size 19.05 19.05)
+		(at 190.5 80.01)
+		(size 22.86 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -129,7 +199,7 @@
 		)
 		(uuid "c9d7a52b-c624-454d-af83-5076e9ccc3d1")
 		(property "Sheetname" "MCU_Display"
-			(at 194.31 80.5684 0)
+			(at 190.5 79.2984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -141,7 +211,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU_Display.kicad_sch"
-			(at 194.31 100.9146 0)
+			(at 190.5 102.1846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
