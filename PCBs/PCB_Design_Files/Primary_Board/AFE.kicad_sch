@@ -2091,6 +2091,16 @@
 		)
 		(uuid d0938315-4176-4051-8130-49a4d2759e0d)
 	)
+	(text "V_bandgap=1.37V"
+		(exclude_from_sim no)
+		(at 119.634 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1edfd4b1-a3de-4eda-870a-340d18579e0d")
+	)
 	(text "Local Voltage References (+1.65V, +0.3V)\n"
 		(exclude_from_sim no)
 		(at 83.312 117.348 0)
@@ -3414,6 +3424,16 @@
 		)
 		(uuid "35345c87-c6cc-4fa4-a9bf-d976dc826829")
 	)
+	(label "PD_Out"
+		(at 30.48 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3d10c230-18a1-4455-a469-b9cf7c6c92ed")
+	)
 	(label "+1.65V"
 		(at 193.04 105.41 0)
 		(effects
@@ -4164,7 +4184,7 @@
 				)
 			)
 		)
-		(property "Value" "41.2k"
+		(property "Value" "35k"
 			(at 121.412 143.002 90)
 			(effects
 				(font

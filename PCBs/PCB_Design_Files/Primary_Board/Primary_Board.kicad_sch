@@ -227,51 +227,6 @@
 			)
 		)
 	)
-	(sheet
-		(at 36.83 80.01)
-		(size 24.13 21.59)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 255 229 191 1.0000)
-		)
-		(uuid "ccc821c2-53c1-493d-9c38-9483f64370f0")
-		(property "Sheetname" "PTAT_BANDGAP"
-			(at 36.83 79.2984 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.254)
-					(bold yes)
-					(italic yes)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "ptat_bandgap.kicad_sch"
-			(at 36.83 102.1846 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "Primary_Board"
-				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b"
-					(page "5")
-				)
-			)
-		)
-	)
 	(sheet_instances
 		(path "/"
 			(page "1")
