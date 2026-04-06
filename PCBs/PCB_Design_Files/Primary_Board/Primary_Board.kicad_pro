@@ -645,6 +645,10 @@
     [
       "c9d7a52b-c624-454d-af83-5076e9ccc3d1",
       "MCU_Display"
+    ],
+    [
+      "ccc821c2-53c1-493d-9c38-9483f64370f0",
+      "PTAT_BANDGAP"
     ]
   ],
   "text_variables": {}
