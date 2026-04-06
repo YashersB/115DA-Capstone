@@ -22,6 +22,26 @@
 		)
 		(uuid "7a0bdd54-6bb5-4043-887e-7a2e74498410")
 	)
+	(wire
+		(pts
+			(xy 228.6 85.09) (xy 237.49 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c29aeb6-bc7e-4e67-b2c8-16e55185f477")
+	)
+	(wire
+		(pts
+			(xy 228.6 92.71) (xy 237.49 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96f1963c-2deb-4250-b95b-14c58434879a")
+	)
 	(sheet
 		(at 71.12 80.01)
 		(size 22.86 20.32)
@@ -149,6 +169,26 @@
 					(bold yes)
 				)
 				(justify left top)
+			)
+		)
+		(pin "V_bandgap" output
+			(at 228.6 85.09 0)
+			(uuid "79585d4d-4dad-4190-a40d-9f09e19ff4a7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "V_ptat" output
+			(at 228.6 92.71 0)
+			(uuid "3cf99adb-0c63-45ec-bb5c-6e0036554f94")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
