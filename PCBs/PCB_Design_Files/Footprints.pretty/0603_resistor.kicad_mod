@@ -270,7 +270,7 @@
 		)
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../3D_Models/0603_resistor.step"
+	(model "${MY_3D}/0603_resistor.step"
 		(offset
 			(xyz 0 0 0)
 		)

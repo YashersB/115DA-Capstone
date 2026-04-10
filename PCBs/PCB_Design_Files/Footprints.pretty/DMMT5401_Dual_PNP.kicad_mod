@@ -579,7 +579,7 @@
 		(uuid "e5b48473-76ea-4f49-9068-a28803ba24c9")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/3D_Models/DMMT5401_Dual_PNP.step"
+	(model "${MY_3D}/DMMT5401_Dual_PNP.step"
 		(offset
 			(xyz 0 0 0)
 		)

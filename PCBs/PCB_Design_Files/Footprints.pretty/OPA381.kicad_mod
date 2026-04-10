@@ -671,7 +671,7 @@
 		(uuid "26612a94-41f9-4b1e-be90-6bc92ee4f29b")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../3D_models/OPA381.stp"
+	(model "${MY_3D}/OPA381.stp"
 		(offset
 			(xyz 0 0 0)
 		)

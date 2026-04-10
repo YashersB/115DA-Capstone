@@ -253,7 +253,7 @@
 		(uuid "5172c87d-e560-4c42-a6fc-0fd4ff5a4936")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/3D_Models/TLV2333IDGKR.stp"
+	(model "${MY_3D}/TLV2333IDGKR.stp"
 		(offset
 			(xyz 0 0 0)
 		)

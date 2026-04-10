@@ -460,7 +460,7 @@
 		(uuid "cb25a6b0-d511-498d-93bb-20f61936c2e9")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../3D_Models/SFH7018A_LEDs.stp"
+	(model "${MY_3D}/SFH7018A_LEDs.stp"
 		(offset
 			(xyz 0 0 0)
 		)

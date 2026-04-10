@@ -241,7 +241,7 @@
 		(uuid "59eb9225-1b35-41e1-9723-885f3e89e8bc")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/3D_Models/DMMT3904W_Dual_NPN.stp"
+	(model "${MY_3D}/DMMT3904W_Dual_NPN.stp"
 		(offset
 			(xyz 2.729999978 -0.7799999597 0.9399999835)
 		)

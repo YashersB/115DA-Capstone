@@ -281,7 +281,7 @@
 		)
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../3D_Models/0603_capacitor.step"
+	(model "${MY_3D}/0603_capacitor.step"
 		(offset
 			(xyz 0 0 0)
 		)

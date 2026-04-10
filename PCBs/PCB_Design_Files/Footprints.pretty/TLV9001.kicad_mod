@@ -940,7 +940,7 @@
 		(uuid "a34f1439-7db9-49bd-82c1-905ea5c5fbdd")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/../3D_Models/TLV9001.stp"
+	(model "${MY_3D}/TLV9001.stp"
 		(offset
 			(xyz 0 0 0)
 		)
