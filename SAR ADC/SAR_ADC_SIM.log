@@ -1,14 +1,33 @@
 LTspice 26.0.1 for Windows
 Circuit: C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\SAR_ADC_SIM.net
-Start Time: Mon Mar 30 14:55:19 2026
+Start Time: Mon Apr  6 17:33:23 2026
 solver = Normal
 Maximum thread count: 6
 tnom = 27
 temp = 27
 method = trap
-Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 0.534 seconds.
+WARNING: Node lsb6h is floating.
+WARNING: Node lsb6l is floating.
+WARNING: Node lsb5h is floating.
+WARNING: Node lsb5l is floating.
+WARNING: Node lsb4h is floating.
+WARNING: Node lsb4l is floating.
+WARNING: Node lsb3h is floating.
+WARNING: Node lsb3l is floating.
+WARNING: Node lsb2h is floating.
+WARNING: Node lsb2l is floating.
+WARNING: Node lsb1h is floating.
+WARNING: Node lsb1l is floating.
+WARNING: Node lsb0h is floating.
+WARNING: Node lsb0l is floating.
+
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+Total elapsed time: 0.519 seconds.
 
 Files loaded:
 C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\SAR_ADC_SIM.net
+C:\Users\oreoturkey\AppData\Local\LTspice\lib\sub\UniversalOpAmp2.lib
 
