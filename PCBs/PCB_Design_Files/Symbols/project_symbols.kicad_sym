@@ -574,8 +574,8 @@
 				)
 			)
 		)
-		(property "Value" ""
-			(at 0 0 0)
+		(property "Value" "74HC595D"
+			(at -5.334 -38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3210,16 +3210,15 @@
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "U"
-			(at 0 0 0)
+			(at 3.556 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Value" ""
-			(at 0 0 0)
+		(property "Value" "MCP6561T-E/OT"
+			(at 8.128 -11.938 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4264,8 +4263,8 @@
 				)
 			)
 		)
-		(property "Value" ""
-			(at 0 0 0)
+		(property "Value" "REF3333AIDBZR"
+			(at 1.524 -10.414 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6254,15 +6253,15 @@
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "U"
-			(at 0 0 0)
+			(at -10.668 -1.016 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" ""
-			(at 0 0 0)
+		(property "Value" "TMUX1104DGSR"
+			(at -4.318 -36.576 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6761,7 +6760,7 @@
 				)
 			)
 		)
-		(property "Value" ""
+		(property "Value" "TMUX1133PWR"
 			(at 0 0 0)
 			(effects
 				(font
