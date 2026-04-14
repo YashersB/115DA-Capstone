@@ -1958,6 +1958,60 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 12.7 52.07)
+		(end 135.89 118.11)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 4edf1597-42bd-4e3d-9f10-fd2eee5eb0c3)
+	)
+	(rectangle
+		(start 142.24 71.12)
+		(end 271.78 148.59)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 51d6f8ba-157a-4f3f-8e50-bfb50d7c4e96)
+	)
+	(text "Low Dropout Regulator\n"
+		(exclude_from_sim no)
+		(at 225.552 69.85 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4a2892d0-d5aa-4941-afb6-40ba8a5f712b")
+	)
+	(text "5V\n"
+		(exclude_from_sim no)
+		(at 134.62 84.836 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "74a98577-35bf-4718-a202-bbcfc41808ea")
+	)
+	(text "Boost Converter\n"
+		(exclude_from_sim no)
+		(at 97.282 50.546 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c6cd3bd4-ac9a-42fc-a838-3435a7842cdd")
+	)
 	(junction
 		(at 226.06 80.01)
 		(diameter 0)
@@ -1965,16 +2019,16 @@
 		(uuid "0ad4b510-fcc5-4fa6-8d3b-a11b7b796690")
 	)
 	(junction
+		(at 123.19 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0f31c645-a586-4095-a86a-ae0f2f3e703a")
+	)
+	(junction
 		(at 91.44 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "134bdbf3-e6e2-4d81-9d48-b4c85da63237")
-	)
-	(junction
-		(at 123.19 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "38ec8573-d990-483f-ab02-455a2f792b5d")
 	)
 	(junction
 		(at 242.57 110.49)
@@ -2143,16 +2197,6 @@
 			(type default)
 		)
 		(uuid "0bacfb50-e98b-4309-b94c-0217e5c9e4d6")
-	)
-	(wire
-		(pts
-			(xy 123.19 82.55) (xy 203.2 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0ed38745-4969-4cea-bc35-1d13fecf2879")
 	)
 	(wire
 		(pts
@@ -2363,16 +2407,6 @@
 			(type default)
 		)
 		(uuid "5c75009f-e812-4051-ac8a-b2418300293e")
-	)
-	(wire
-		(pts
-			(xy 203.2 82.55) (xy 203.2 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f16e409-d801-4836-824a-a3e41a55906d")
 	)
 	(wire
 		(pts
@@ -2656,6 +2690,16 @@
 	)
 	(wire
 		(pts
+			(xy 123.19 82.55) (xy 128.27 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e344982f-114b-477e-b8fa-63c5703f5669")
+	)
+	(wire
+		(pts
 			(xy 198.12 93.98) (xy 198.12 95.25)
 		)
 		(stroke
@@ -2744,16 +2788,6 @@
 		)
 		(uuid "fc135dc3-f11f-41f0-a2ee-086888a1462c")
 	)
-	(label "3V3"
-		(at 251.46 110.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "15018593-ef31-4090-9cc1-9da0eb8cf831")
-	)
 	(label "Vboost"
 		(at 226.06 78.74 0)
 		(effects
@@ -2775,7 +2809,7 @@
 		(uuid "a2e52c75-01a4-48cf-a68a-6a63f5956a66")
 	)
 	(label "Vboost"
-		(at 132.08 82.55 0)
+		(at 128.27 82.55 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2785,7 +2819,7 @@
 		)
 		(uuid "c68f0f86-e768-4767-abe2-703ac5baa1cb")
 		(property "Netclass" ""
-			(at 132.08 83.82 0)
+			(at 128.27 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2794,6 +2828,17 @@
 				(justify left)
 			)
 		)
+	)
+	(hierarchical_label "3V3"
+		(shape input)
+		(at 259.08 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3cc7f7cf-6990-4d46-9347-3ac1765a2682")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -2804,7 +2849,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "044e9c96-83f0-4609-a7bd-380cc4e2d78e")
-		(property "Reference" "R5"
+		(property "Reference" "R12"
 			(at 232.664 127 90)
 			(effects
 				(font
@@ -2820,7 +2865,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Project Footprints:0603_resistor"
 			(at 235.458 127 90)
 			(effects
 				(font
@@ -2854,6 +2899,12 @@
 			(uuid "d3ae3ec9-014f-4e33-b290-5c2f63a1ba15")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "R12")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R5")
@@ -2890,7 +2941,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+		(property "Footprint" "Project Footprints:SOT23_FAS"
 			(at 232.41 106.045 0)
 			(effects
 				(font
@@ -2930,6 +2981,12 @@
 			(uuid "bda97b0c-40f9-4d6c-b9b2-76fed6e78566")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "Q4")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "Q4")
@@ -2948,7 +3005,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "180ac2f6-6bfb-4878-ac21-dfa721b5c659")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR0108"
 			(at 27.94 45.72 0)
 			(effects
 				(font
@@ -2996,6 +3053,12 @@
 			(uuid "d02b153f-c8f0-4cc2-87cc-68110b65172f")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0108")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR04")
@@ -3014,7 +3077,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19703f71-7ee4-4ba1-a750-abbfe79754fb")
-		(property "Reference" "R3"
+		(property "Reference" "R10"
 			(at 147.32 88.8999 0)
 			(effects
 				(font
@@ -3032,7 +3095,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Project Footprints:0603_resistor"
 			(at 143.002 90.17 90)
 			(effects
 				(font
@@ -3066,6 +3129,12 @@
 			(uuid "ee3aa3d7-ace2-44d3-bb62-6b64bccadc01")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "R10")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R3")
@@ -3084,7 +3153,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "30588e90-895e-48ae-839b-3c4b38e8fb81")
-		(property "Reference" "#FLG02"
+		(property "Reference" "#FLG0101"
 			(at 36.83 37.465 0)
 			(effects
 				(font
@@ -3132,6 +3201,12 @@
 			(uuid "69bfb825-5e05-4819-aa59-c6e86da6cb31")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#FLG0101")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#FLG02")
@@ -3150,7 +3225,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4641c6d7-d339-498f-a8bc-5549ec4cbec3")
-		(property "Reference" "C1"
+		(property "Reference" "C6"
 			(at 246.38 125.7299 0)
 			(effects
 				(font
@@ -3202,6 +3277,12 @@
 			(uuid "dc75dfff-5238-482b-8e5b-e37a36f43d28")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C6")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C1")
@@ -3229,7 +3310,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "732k"
+		(property "Value" "73.2k"
 			(at 93.98 90.1699 0)
 			(effects
 				(font
@@ -3238,7 +3319,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Project Footprints:0603_resistor"
 			(at 89.662 88.9 90)
 			(effects
 				(font
@@ -3272,6 +3353,12 @@
 			(uuid "6257c5b4-506e-4eac-9ece-525764645ba4")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "R1")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R1")
@@ -3290,7 +3377,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4c17dbd8-d51e-4673-99e4-d434850bee51")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR0107"
 			(at 17.78 64.77 0)
 			(effects
 				(font
@@ -3338,6 +3425,12 @@
 			(uuid "27ebbc7d-1ec4-45f9-b7ee-4a9803b2ebf7")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0107")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR05")
@@ -3365,7 +3458,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "10k"
 			(at 93.98 101.5999 0)
 			(effects
 				(font
@@ -3374,7 +3467,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Project Footprints:0603_resistor"
 			(at 89.662 100.33 90)
 			(effects
 				(font
@@ -3408,6 +3501,12 @@
 			(uuid "ea2ca0d1-9373-4b73-95cf-f6b1d0cb5cd1")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "R2")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R2")
@@ -3426,7 +3525,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4da7c171-5044-4718-9e6e-0278576fe9f2")
-		(property "Reference" "C3"
+		(property "Reference" "C5"
 			(at 127 85.0899 0)
 			(effects
 				(font
@@ -3478,6 +3577,12 @@
 			(uuid "902eb5c9-2aec-4dab-9040-d746388b96f1")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C5")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C3")
@@ -3496,7 +3601,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e98caa9-ac8a-441f-ae38-9f162f3c97f0")
-		(property "Reference" "C6"
+		(property "Reference" "C7"
 			(at 257.81 125.7299 0)
 			(effects
 				(font
@@ -3548,6 +3653,12 @@
 			(uuid "0393c848-8123-45be-878f-711d8871c9ec")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C7")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C6")
@@ -3566,7 +3677,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5b710259-9742-4ca2-9389-35f3b5eb090a")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR0103"
 			(at 144.78 118.11 0)
 			(effects
 				(font
@@ -3614,6 +3725,12 @@
 			(uuid "26d90fbf-ac95-4f0b-a6e8-b5c49f91976b")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0103")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR06")
@@ -3648,7 +3765,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RES_CIGT201610_SAM"
+		(property "Footprint" "Project Footprints:RES_CIGT201610_SAM"
 			(at 49.53 60.96 0)
 			(effects
 				(font
@@ -3684,6 +3801,12 @@
 			(uuid "19ac58c1-02a3-4399-b7be-11858533c372")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "L1")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "L1")
@@ -3702,7 +3825,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "61b5251f-97ab-4340-8246-ca6fd073769c")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR0109"
 			(at 25.4 95.25 0)
 			(effects
 				(font
@@ -3750,6 +3873,12 @@
 			(uuid "2c0c91e6-8f4f-43e2-9fdc-bf037547398a")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0109")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR02")
@@ -3768,7 +3897,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "72428d2f-23ac-413f-a06d-64bfc2cdab43")
-		(property "Reference" "C2"
+		(property "Reference" "C4"
 			(at 116.84 85.0899 0)
 			(effects
 				(font
@@ -3820,6 +3949,12 @@
 			(uuid "71623754-e48a-457d-82c2-cebb0eb0dbc9")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C4")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C2")
@@ -3838,7 +3973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8531213a-c035-4a52-b56b-a267b6fae11a")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR0106"
 			(at 247.65 140.97 0)
 			(effects
 				(font
@@ -3886,6 +4021,12 @@
 			(uuid "b2d2086d-f009-4219-9f8b-b77dd4070569")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0106")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR010")
@@ -3904,7 +4045,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9162c314-6dfb-41a8-b271-364070e9c2f0")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR0110"
 			(at 27.94 30.48 0)
 			(effects
 				(font
@@ -3952,6 +4093,12 @@
 			(uuid "88f114e1-e10a-43f6-87d0-d578bdb0ced4")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0110")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR03")
@@ -3970,7 +4117,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "971dd17d-309b-4cb8-89f6-3c093ccc06a2")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR0101"
 			(at 31.75 99.06 0)
 			(effects
 				(font
@@ -4018,6 +4165,12 @@
 			(uuid "fe311a1d-09d2-4317-8699-ff126640f97f")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0101")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR01")
@@ -4036,7 +4189,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "975684e8-b84e-4ada-8497-f023b1e9e98e")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR0105"
 			(at 233.68 149.86 0)
 			(effects
 				(font
@@ -4084,6 +4237,12 @@
 			(uuid "08273312-5f79-4962-a7b9-c21927afde2f")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0105")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR09")
@@ -4101,7 +4260,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a4a8cea2-1517-4703-8b18-c6778924bb13")
-		(property "Reference" "R6"
+		(property "Reference" "R13"
 			(at 232.664 138.43 90)
 			(effects
 				(font
@@ -4117,7 +4276,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Project Footprints:0603_resistor"
 			(at 235.458 138.43 90)
 			(effects
 				(font
@@ -4151,6 +4310,12 @@
 			(uuid "f450fdfe-b36d-4f1e-8dcf-8f42f352d918")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "R13")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R6")
@@ -4169,7 +4334,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bf12f2d2-9b76-4927-a439-7d5dd5329963")
-		(property "Reference" "U1"
+		(property "Reference" "U5"
 			(at 55.88 67.31 0)
 			(effects
 				(font
@@ -4233,6 +4398,12 @@
 			(uuid "02b28a11-4e62-4fee-8281-2c3a11f3525c")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "U5")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "U1")
@@ -4251,7 +4422,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c277b761-db69-455b-8953-50fd060d397f")
-		(property "Reference" "#FLG01"
+		(property "Reference" "#FLG0102"
 			(at 36.83 24.765 0)
 			(effects
 				(font
@@ -4299,6 +4470,12 @@
 			(uuid "0df0a234-9017-424c-93f7-87514ea4c843")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#FLG0102")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#FLG01")
@@ -4317,7 +4494,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c665395d-9f0d-482d-b93e-974619e76f3c")
-		(property "Reference" "U2"
+		(property "Reference" "U6"
 			(at 177.8 85.09 0)
 			(effects
 				(font
@@ -4333,7 +4510,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SC70-5_DCK_TEX"
+		(property "Footprint" "Project Footprints:SC70-5_DCK_TEX"
 			(at 157.48 95.25 0)
 			(effects
 				(font
@@ -4378,6 +4555,12 @@
 			(uuid "dd23db87-e591-4d6b-ab27-568c97d8fec5")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "U6")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "U2")
@@ -4405,7 +4588,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "D_Zener"
+		(property "Value" "15N122B"
 			(at 147.32 104.1399 90)
 			(effects
 				(font
@@ -4414,7 +4597,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 144.78 102.87 0)
 			(effects
 				(font
@@ -4448,6 +4631,12 @@
 			(uuid "49c418c7-95b8-4437-ad48-52f8d87fa418")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "D1")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "D1")
@@ -4466,7 +4655,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8e3508c-76b1-4827-9ce7-80d83ed8aec6")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR0102"
 			(at 144.78 85.09 0)
 			(effects
 				(font
@@ -4514,6 +4703,12 @@
 			(uuid "b205f457-bd98-4a94-8aa0-ebc8a6679923")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0102")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR07")
@@ -4531,7 +4726,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e100eb35-b4d1-440d-9e66-4c0e440577f0")
-		(property "Reference" "R4"
+		(property "Reference" "R11"
 			(at 207.01 96.774 90)
 			(effects
 				(font
@@ -4547,7 +4742,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
+		(property "Footprint" "Project Footprints:0603_resistor"
 			(at 207.01 99.568 90)
 			(effects
 				(font
@@ -4581,6 +4776,12 @@
 			(uuid "5dac1e57-c4b5-4ca0-ba23-4687d58fe86c")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "R11")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R4")
@@ -4617,7 +4818,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+		(property "Footprint" "Project Footprints:SOT23_FAS"
 			(at 224.79 99.695 0)
 			(effects
 				(font
@@ -4657,6 +4858,12 @@
 			(uuid "1e00e305-6f7c-4246-8bc3-e1392aa540d0")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "Q3")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "Q3")
@@ -4674,7 +4881,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "eaf83f85-7c51-43d8-af10-9e48772b786f")
-		(property "Reference" "C4"
+		(property "Reference" "C2"
 			(at 14.732 81.026 0)
 			(effects
 				(font
@@ -4726,6 +4933,12 @@
 			(uuid "52d90ef9-2ee0-4f17-860a-8e617c45420b")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C2")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C4")
@@ -4744,7 +4957,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f5289d86-44b8-4afc-b587-b774007fd7c0")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR0104"
 			(at 157.48 104.14 0)
 			(effects
 				(font
@@ -4792,6 +5005,12 @@
 			(uuid "66f380e9-7ef2-4b0c-8f55-2d258b92edbb")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "#PWR08")
@@ -4828,7 +5047,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 27.94 32.766 90)
 			(effects
 				(font
@@ -4862,6 +5081,12 @@
 			(uuid "4dfe6416-bc95-453f-8da1-19f7d49048b3")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "BT1")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "BT1")
@@ -4880,7 +5105,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fd323e8a-d45a-449a-b939-7e5f2744326c")
-		(property "Reference" "C5"
+		(property "Reference" "C3"
 			(at 33.02 80.0099 0)
 			(effects
 				(font
@@ -4932,6 +5157,12 @@
 			(uuid "499eb40f-0343-4209-841b-7afe719e85e2")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C3")
+					(unit 1)
+				)
+			)
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C5")
