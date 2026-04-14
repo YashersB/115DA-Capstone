@@ -2436,7 +2436,7 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 134.62) (xy 54.61 139.7)
+			(xy 54.61 129.54) (xy 54.61 139.7)
 		)
 		(stroke
 			(width 0)
@@ -2473,6 +2473,16 @@
 			(type default)
 		)
 		(uuid "1e15d913-ce2c-4269-b3b6-c3d8549741f3")
+	)
+	(wire
+		(pts
+			(xy 54.61 129.54) (xy 63.5 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1fdd7cbf-e9e7-4e54-887a-a1f1aa3352c5")
 	)
 	(wire
 		(pts
@@ -3445,7 +3455,7 @@
 		(uuid "626f22a3-32dd-4a83-ba4f-ea9d3ca0b89a")
 	)
 	(label "+1.65V"
-		(at 54.61 134.62 0)
+		(at 54.61 129.54 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3494,6 +3504,17 @@
 			(justify left)
 		)
 		(uuid "766b49a1-718b-4e50-acf0-03c310dee98d")
+	)
+	(hierarchical_label "V_CM"
+		(shape output)
+		(at 63.5 129.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "76f84528-009a-4973-9f15-44e1dcbf1399")
 	)
 	(hierarchical_label "ADC_DC"
 		(shape output)

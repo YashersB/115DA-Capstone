@@ -2153,7 +2153,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 62.23) (xy 118.11 62.23)
+			(xy 110.49 63.5) (xy 118.11 63.5)
 		)
 		(stroke
 			(width 0)
@@ -2190,6 +2190,16 @@
 			(type default)
 		)
 		(uuid "41addfba-0eae-4313-84f7-13f9cb9e7a3f")
+	)
+	(wire
+		(pts
+			(xy 110.49 58.42) (xy 118.11 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6876ab10-bda7-4ae0-a862-1aa3b8a46c76")
 	)
 	(wire
 		(pts
@@ -3425,7 +3435,7 @@
 			)
 		)
 		(pin "ADC_DC" output
-			(at 110.49 62.23 0)
+			(at 110.49 63.5 0)
 			(uuid "c0530559-f588-4af3-b10f-a9de90ecc9fa")
 			(effects
 				(font
@@ -3444,6 +3454,16 @@
 				(justify left)
 			)
 		)
+		(pin "V_CM" output
+			(at 110.49 58.42 0)
+			(uuid "81a64f16-9e2f-4203-a195-a0f77f75ba3c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Primary_Board"
 				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b"
@@ -3453,8 +3473,8 @@
 		)
 	)
 	(sheet
-		(at 140.97 46.99)
-		(size 22.86 21.59)
+		(at 137.16 46.99)
+		(size 30.48 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -3469,7 +3489,7 @@
 		)
 		(uuid "bd61ebda-1522-4e1f-a5c5-93272ab69f44")
 		(property "Sheetname" "ADC"
-			(at 140.97 46.2784 0)
+			(at 137.16 46.2784 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3481,12 +3501,52 @@
 			)
 		)
 		(property "Sheetfile" "ADC.kicad_sch"
-			(at 140.97 69.1646 0)
+			(at 137.16 69.1646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "ADC_Input1" input
+			(at 137.16 52.07 180)
+			(uuid "2f6abc20-1cac-4a5f-8b77-60db3557f674")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ADC_Input2" input
+			(at 137.16 55.88 180)
+			(uuid "7510875e-f757-4e77-aafe-16110365ac65")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ADC_Input3" input
+			(at 137.16 59.69 180)
+			(uuid "a7027489-2638-470d-be02-b041daf4c635")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ADC_Input4" input
+			(at 137.16 63.5 180)
+			(uuid "7a55866b-ff5c-4668-8e16-03bc9294e2e4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
