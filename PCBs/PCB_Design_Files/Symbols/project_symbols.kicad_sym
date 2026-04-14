@@ -6759,7 +6759,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "U"
-			(at -10.668 -1.016 0)
+			(at -10.922 8.128 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6803,7 +6803,7 @@
 		)
 		(symbol "TMUX1104_0_0"
 			(rectangle
-				(start -11.43 -2.54)
+				(start -11.43 5.715)
 				(end 10.16 -34.925)
 				(stroke
 					(width 0.4064)
@@ -7062,7 +7062,7 @@
 		)
 		(symbol "TMUX1104_1_0"
 			(pin passive line
-				(at -16.51 -6.35 0)
+				(at -16.51 1.27 0)
 				(length 5.08)
 				(name "VDD"
 					(effects
@@ -7188,24 +7188,6 @@
 				)
 			)
 			(pin passive line
-				(at -16.51 -27.94 0)
-				(length 5.08)
-				(name "EN"
-					(effects
-						(font
-							(size 1.016 1.016)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.016 1.016)
-						)
-					)
-				)
-			)
-			(pin passive line
 				(at -16.51 -31.75 0)
 				(length 5.08)
 				(name "GND"
@@ -7216,6 +7198,24 @@
 					)
 				)
 				(number "3"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 15.24 1.27 180)
+				(length 5.08)
+				(name "EN"
+					(effects
+						(font
+							(size 1.016 1.016)
+						)
+					)
+				)
+				(number "5"
 					(effects
 						(font
 							(size 1.016 1.016)
