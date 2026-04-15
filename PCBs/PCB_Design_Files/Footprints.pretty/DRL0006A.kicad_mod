@@ -5,7 +5,7 @@
 	(layer "F.Cu")
 	(tags "TPS61023DRLR ")
 	(property "Reference" "REF**"
-		(at -0.200001 -2 0)
+		(at 0 -2 0)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "050298e4-0742-4cda-9480-3b5a27baadbd")
@@ -54,8 +54,8 @@
 	)
 	(attr smd)
 	(fp_line
-		(start -0.900001 -0.950001)
-		(end 0.499999 -0.950001)
+		(start -0.7 -1)
+		(end 0.7 -1)
 		(stroke
 			(width 0.2)
 			(type solid)

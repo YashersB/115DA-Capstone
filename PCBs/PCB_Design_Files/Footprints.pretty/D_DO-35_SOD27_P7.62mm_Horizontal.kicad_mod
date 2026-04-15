@@ -207,17 +207,6 @@
 			)
 		)
 	)
-	(fp_text user "${REFERENCE}"
-		(at 4.11 0 0)
-		(layer "F.Fab")
-		(uuid "8f99f1c8-eb2c-400e-bcae-4d37e6fde45e")
-		(effects
-			(font
-				(size 0.8 0.8)
-				(thickness 0.12)
-			)
-		)
-	)
 	(pad "1" thru_hole roundrect
 		(at 0 0)
 		(size 1.6 1.6)
