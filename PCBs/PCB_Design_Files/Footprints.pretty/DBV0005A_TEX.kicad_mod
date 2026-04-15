@@ -531,7 +531,7 @@
 		(uuid "da3bbb31-d206-4dce-842e-515ff7b4d48c")
 	)
 	(embedded_fonts no)
-	(model "C:/Users/Adam Amir/115DA-Capstone/PCBs/PCB_Design_Files/3D_Models/DBV0005A.stp"
+	(model "${MY_3D}/DBV0005A.stp"
 		(offset
 			(xyz 0 0 0)
 		)

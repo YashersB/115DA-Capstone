@@ -451,7 +451,7 @@
 		(uuid "33cec366-2405-49e0-aa2f-e4a999bd5469")
 	)
 	(embedded_fonts no)
-	(model "C:/Users/Adam Amir/115DA-Capstone/PCBs/PCB_Design_Files/3D_Models/DRL0006A.stp"
+	(model "${MY_3D}/DRL0006A.stp"
 		(offset
 			(xyz 0 0 0)
 		)
