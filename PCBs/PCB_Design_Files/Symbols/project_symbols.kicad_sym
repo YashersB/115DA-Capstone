@@ -6565,7 +6565,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Project Footprints:DBV0005A_TEX"
+		(property "Footprint" "Project Footprints:SC70-5_DCK_TEX"
 			(at 0 0 0)
 			(effects
 				(font
