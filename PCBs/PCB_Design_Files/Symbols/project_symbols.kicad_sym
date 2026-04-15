@@ -7868,8 +7868,8 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Reference" "U1"
-			(at 0 15.24 0)
+		(property "Reference" "U"
+			(at 0.254 14.986 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7877,7 +7877,7 @@
 			)
 		)
 		(property "Value" "TPS61023DRLR"
-			(at 0 12.7 0)
+			(at 0 11.43 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -7885,7 +7885,7 @@
 			)
 		)
 		(property "Footprint" "Project Footprints:DRL0006A"
-			(at 0 0 0)
+			(at -0.508 -12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7895,7 +7895,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.ti.com/lit/gpn/tps61023"
-			(at 0 0 0)
+			(at 1.27 -10.922 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8034,27 +8034,7 @@
 					)
 				)
 			)
-			(pin input line
-				(at 17.78 -5.08 180)
-				(length 5.08)
-				(name "FB"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-		(symbol "TPS61023DRLR_1_1"
-			(pin passive line
+			(pin power_in line
 				(at 17.78 5.08 180)
 				(length 5.08)
 				(name "SW"
@@ -8072,7 +8052,7 @@
 					)
 				)
 			)
-			(pin output line
+			(pin power_in line
 				(at 17.78 0 180)
 				(length 5.08)
 				(name "VOUT"
@@ -8083,6 +8063,24 @@
 					)
 				)
 				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at 17.78 -5.08 180)
+				(length 5.08)
+				(name "FB"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)
