@@ -3679,13 +3679,13 @@
 	(footprint "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
 		(layer "F.Cu")
 		(uuid "38b7699d-6f7f-4b1f-9198-daf7100ffcb9")
-		(at 78.949 83.02)
+		(at 63.5685 101.417)
 		(descr "TSSOP, 16 Pin (https://www.jedec.org/document_search?search_api_views_fulltext=MO-153), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "TSSOP SO JEDEC-MO-153-AB Texas_PW0016A Microchip-ST Toshiba-TSSOP16-P-0044-0.65A NXP-SOT403-1 Infineon-P-TSSOP-16-800")
 		(property "Reference" "U12"
 			(at 0 -3.45 0)
 			(layer "F.SilkS")
-			(uuid "4d3f14e0-d38f-426f-affd-d2deb1440bd7")
+			(uuid "fa7a0601-f585-4a5b-8ef2-0b88d0ba28e7")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -3696,7 +3696,7 @@
 		(property "Value" "TMUX1133PWR"
 			(at 0 3.45 0)
 			(layer "F.Fab")
-			(uuid "f601dc31-c64c-4edb-913b-fb7c3d361635")
+			(uuid "aa5e7d50-9de3-4ed9-95b1-85bb722f77bf")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -3708,7 +3708,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "387f7f8e-92d5-4678-9ba7-b5c425563975")
+			(uuid "0e3cc59e-f9f3-4d34-8343-634442f26655")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -3720,7 +3720,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d4a04ea3-64df-4a54-832f-ab8e7bae6195")
+			(uuid "d365cdd0-282b-41b8-b519-58c7b08e2a1b")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -5719,13 +5719,13 @@
 	(footprint "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
 		(layer "F.Cu")
 		(uuid "5688d35b-ecd2-42e7-8fa1-a09814a96353")
-		(at 78.949 89.61)
+		(at 63.5685 108.007)
 		(descr "TSSOP, 16 Pin (https://www.jedec.org/document_search?search_api_views_fulltext=MO-153), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "TSSOP SO JEDEC-MO-153-AB Texas_PW0016A Microchip-ST Toshiba-TSSOP16-P-0044-0.65A NXP-SOT403-1 Infineon-P-TSSOP-16-800")
 		(property "Reference" "U13"
 			(at 0 -3.45 0)
 			(layer "F.SilkS")
-			(uuid "d356465e-00a6-49ad-a590-69e3cd890480")
+			(uuid "42fde50d-8832-47dc-a9c7-5ad2dce66dc8")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -5736,7 +5736,7 @@
 		(property "Value" "TMUX1133PWR"
 			(at 0 3.45 0)
 			(layer "F.Fab")
-			(uuid "2f0b6ef2-45db-45b4-b375-ecf4ec6f7928")
+			(uuid "055cebaa-9756-4c25-9523-ff2a6a1dcaec")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -5748,7 +5748,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "169f8bcd-cc76-4a16-8694-99d455e1fabe")
+			(uuid "acf4fe3c-14cb-478a-8fd7-ab5f7448b917")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -5760,7 +5760,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "381f2704-1206-4fa5-9fb9-f7bc1195953f")
+			(uuid "23dddcc7-6e7b-47db-b126-404088ea3fc7")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -9833,13 +9833,13 @@
 	(footprint "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
 		(layer "F.Cu")
 		(uuid "8f6e1ae2-19a4-4865-9842-79afabff3a38")
-		(at 78.949 102.79)
+		(at 63.5685 121.187)
 		(descr "TSSOP, 16 Pin (https://www.jedec.org/document_search?search_api_views_fulltext=MO-153), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "TSSOP SO JEDEC-MO-153-AB Texas_PW0016A Microchip-ST Toshiba-TSSOP16-P-0044-0.65A NXP-SOT403-1 Infineon-P-TSSOP-16-800")
 		(property "Reference" "U15"
 			(at 0 -3.45 0)
 			(layer "F.SilkS")
-			(uuid "224fedba-a375-4a40-a997-d02841b7f487")
+			(uuid "3314acb8-9362-436a-ab3c-1099fe271a2b")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -9850,7 +9850,7 @@
 		(property "Value" "TMUX1133PWR"
 			(at 0 3.45 0)
 			(layer "F.Fab")
-			(uuid "801e530f-f928-482e-bfd5-19e2d9ef2f44")
+			(uuid "b8a6e701-9511-4385-ac0f-a29d310946d4")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -9862,7 +9862,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b00dea37-6d60-41a8-afd0-c19d89cec8a8")
+			(uuid "17a9a990-3e7a-4c8c-b0c5-3e4bd6ac6470")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -9874,7 +9874,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f7503fac-621a-4d60-8af2-ca12c7d34594")
+			(uuid "ae69fdf4-c21d-469f-aac8-c5b7e4c337c5")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -12152,13 +12152,13 @@
 	(footprint "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
 		(layer "F.Cu")
 		(uuid "b051f6b0-ddc7-4d74-820a-8404ecdce9a9")
-		(at 78.949 96.2)
+		(at 63.5685 114.597)
 		(descr "TSSOP, 16 Pin (https://www.jedec.org/document_search?search_api_views_fulltext=MO-153), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "TSSOP SO JEDEC-MO-153-AB Texas_PW0016A Microchip-ST Toshiba-TSSOP16-P-0044-0.65A NXP-SOT403-1 Infineon-P-TSSOP-16-800")
 		(property "Reference" "U14"
 			(at 0 -3.45 0)
 			(layer "F.SilkS")
-			(uuid "8626535c-3fd6-4d70-b2dd-370154ffbe09")
+			(uuid "87d1d76d-57cd-434e-822d-13aa23cf7614")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -12169,7 +12169,7 @@
 		(property "Value" "TMUX1133PWR"
 			(at 0 3.45 0)
 			(layer "F.Fab")
-			(uuid "d94cc462-aade-4de2-9d64-ff0627ed556f")
+			(uuid "ea98823e-246e-4033-a60e-bc5a75e103f2")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -12181,7 +12181,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "40118281-0dbc-44a8-9ccf-5889fd9e81de")
+			(uuid "3d7e3ed2-c090-4924-bdd3-20ad1658c2be")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -12193,7 +12193,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "34969ada-9b52-4b3d-b44a-d34b8b8f0d25")
+			(uuid "47b6fc64-d691-4368-b142-bfbaf075e350")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -15651,13 +15651,13 @@
 	(footprint "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
 		(layer "F.Cu")
 		(uuid "f476b1fd-8f09-4967-9a3a-a1202e633273")
-		(at 78.949 76.43)
+		(at 63.463 94.827)
 		(descr "TSSOP, 16 Pin (https://www.jedec.org/document_search?search_api_views_fulltext=MO-153), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "TSSOP SO JEDEC-MO-153-AB Texas_PW0016A Microchip-ST Toshiba-TSSOP16-P-0044-0.65A NXP-SOT403-1 Infineon-P-TSSOP-16-800")
 		(property "Reference" "U8"
 			(at 0 -3.45 0)
 			(layer "F.SilkS")
-			(uuid "963915e3-dccf-4c55-b83e-c2ec277611f8")
+			(uuid "e3ad1d1e-ed46-4ff8-981d-78a7d2a3a888")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -15668,7 +15668,7 @@
 		(property "Value" "TMUX1133PWR"
 			(at 0 3.45 0)
 			(layer "F.Fab")
-			(uuid "c713839d-5e55-49d5-8ab7-29efda2595b3")
+			(uuid "e5df717a-9058-4bbc-bdc3-7921d53d3f39")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -15680,7 +15680,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0dcccd05-c89d-436c-baa8-2b4a044cccc9")
+			(uuid "12568a92-47e3-46bd-90b1-f27356205887")
 			(effects
 				(font
 					(size 0.6 0.6)
@@ -15692,7 +15692,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "5199f3c5-4ccd-4338-b023-b1f347e68a6b")
+			(uuid "b78db5e0-45eb-45ad-aad5-633a070326ac")
 			(effects
 				(font
 					(size 0.6 0.6)
