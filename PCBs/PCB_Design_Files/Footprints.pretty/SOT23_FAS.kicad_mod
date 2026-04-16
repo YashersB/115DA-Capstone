@@ -424,7 +424,7 @@
 		(uuid "12b5a7d7-0d4a-47d3-a18f-f8d9b4b961bf")
 	)
 	(embedded_fonts no)
-	(model "C:/Users/Adam Amir/115DA-Capstone/PCBs/PCB_Design_Files/3D_Models/SOT23_FAS.step"
+	(model "${MY_3D}/SOT23_FAS.step"
 		(offset
 			(xyz 0 0 0)
 		)
