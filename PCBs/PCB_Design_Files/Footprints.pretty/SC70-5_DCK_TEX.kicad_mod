@@ -531,4 +531,15 @@
 		(uuid "1fdf0558-def7-496d-bdce-cfc4dce7fa00")
 	)
 	(embedded_fonts no)
+	(model "C:/Users/Adam Amir/115DA-Capstone/PCBs/PCB_Design_Files/3D_Models/TLV9101IDCKR.STEP"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
 )

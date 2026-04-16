@@ -965,6 +965,236 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Project_Symbols:TPS61023DRLR"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0.254 14.986 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "TPS61023DRLR"
+				(at 0 11.43 0)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Footprint" "Project Footprints:DRL0006A"
+				(at -0.508 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/gpn/tps61023"
+				(at 1.27 -10.922 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "TPS61023DRLR"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "DRL0006A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TPS61023DRLR_0_1"
+				(polyline
+					(pts
+						(xy -12.7 10.16) (xy -12.7 -10.16)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -12.7 -10.16) (xy 12.7 -10.16)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 10.16) (xy -12.7 10.16)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -10.16) (xy 12.7 10.16)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at -17.78 5.08 0)
+					(length 5.08)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -17.78 0 0)
+					(length 5.08)
+					(name "EN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -17.78 -5.08 0)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 17.78 5.08 180)
+					(length 5.08)
+					(name "SW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 17.78 0 180)
+					(length 5.08)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 17.78 -5.08 180)
+					(length 5.08)
+					(name "FB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "TLV9101:TLV9101IDCKR"
 			(pin_names
 				(offset 0.254)
@@ -1175,246 +1405,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "TPS61023:TPS61023DRLR"
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U1"
-				(at 0 15.24 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Value" "TPS61023DRLR"
-				(at 0 12.7 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Footprint" "DRL0006A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.ti.com/lit/gpn/tps61023"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "TPS61023DRLR"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "DRL0006A"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "TPS61023DRLR_0_1"
-				(polyline
-					(pts
-						(xy -12.7 10.16) (xy -12.7 -10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -12.7 -10.16) (xy 12.7 -10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 12.7 10.16) (xy -12.7 10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 12.7 -10.16) (xy 12.7 10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at -17.78 5.08 0)
-					(length 5.08)
-					(name "VIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 0 0)
-					(length 5.08)
-					(name "EN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -17.78 -5.08 0)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 17.78 -5.08 180)
-					(length 5.08)
-					(name "FB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "TPS61023DRLR_1_1"
-				(pin passive line
-					(at 17.78 5.08 180)
-					(length 5.08)
-					(name "SW"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 17.78 0 180)
-					(length 5.08)
-					(name "VOUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2021,6 +2011,12 @@
 		(uuid "134bdbf3-e6e2-4d81-9d48-b4c85da63237")
 	)
 	(junction
+		(at 36.83 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "399f4a88-5857-4043-aab7-665d82ab7fef")
+	)
+	(junction
 		(at 242.57 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2051,12 +2047,6 @@
 		(uuid "6a71e78e-f761-479c-a0ea-4254674a8688")
 	)
 	(junction
-		(at 36.83 87.63)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6cb6a174-e1e3-4f42-abfc-84357d905125")
-	)
-	(junction
 		(at 113.03 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2084,13 +2074,7 @@
 		(at 29.21 77.47)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ad326679-db58-4393-91b3-b89859761cc6")
-	)
-	(junction
-		(at 38.1 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "adedc23e-298b-4e94-9e19-faa94559282e")
+		(uuid "d17a6936-0bb7-4032-989b-c3e0291f5e5a")
 	)
 	(junction
 		(at 91.44 82.55)
@@ -2121,6 +2105,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "eca057e7-d46a-45ab-a4f0-887d97e35d61")
+	)
+	(junction
+		(at 36.83 77.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f7d4e9f7-ba44-4ba9-a460-5a7b49e12857")
 	)
 	(junction
 		(at 91.44 110.49)
@@ -2180,6 +2170,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 87.63) (xy 36.83 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0974dc2c-0bff-443a-b2ef-131deed6ef76")
+	)
+	(wire
+		(pts
 			(xy 157.48 95.25) (xy 144.78 95.25)
 		)
 		(stroke
@@ -2207,16 +2207,6 @@
 			(type default)
 		)
 		(uuid "10868951-d211-41b0-87dd-c89d58a0efa2")
-	)
-	(wire
-		(pts
-			(xy 38.1 77.47) (xy 38.1 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "10a66ff9-6110-415c-bcb9-5b8d26a29b76")
 	)
 	(wire
 		(pts
@@ -2360,16 +2350,6 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 87.63) (xy 36.83 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "41f7413d-2d48-4c1c-b980-c0ef1951f2c1")
-	)
-	(wire
-		(pts
 			(xy 25.4 85.09) (xy 25.4 88.9)
 		)
 		(stroke
@@ -2390,6 +2370,16 @@
 	)
 	(wire
 		(pts
+			(xy 36.83 77.47) (xy 38.1 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5be6c3ca-010e-427e-aad2-c9278bf55044")
+	)
+	(wire
+		(pts
 			(xy 144.78 95.25) (xy 144.78 99.06)
 		)
 		(stroke
@@ -2397,6 +2387,16 @@
 			(type default)
 		)
 		(uuid "5c75009f-e812-4051-ac8a-b2418300293e")
+	)
+	(wire
+		(pts
+			(xy 29.21 77.47) (xy 36.83 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d8e5ab5-faec-40b1-8c1f-7193e89be049")
 	)
 	(wire
 		(pts
@@ -2460,16 +2460,6 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 87.63) (xy 31.75 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7aabb43a-df01-4498-a381-8c6661f292c6")
-	)
-	(wire
-		(pts
 			(xy 91.44 93.98) (xy 91.44 96.52)
 		)
 		(stroke
@@ -2507,6 +2497,16 @@
 			(type default)
 		)
 		(uuid "7ee853f2-17ef-481f-b7e1-52d84b88d1a8")
+	)
+	(wire
+		(pts
+			(xy 38.1 82.55) (xy 36.83 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8686b051-a8da-4992-8a02-26d33b446155")
 	)
 	(wire
 		(pts
@@ -2610,13 +2610,13 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 77.47) (xy 38.1 77.47)
+			(xy 36.83 87.63) (xy 38.1 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b7572c91-1161-46a0-8c01-8e96e6b5cfbd")
+		(uuid "b09d32f2-2974-47cc-a5df-09f2c4d24897")
 	)
 	(wire
 		(pts
@@ -2727,6 +2727,16 @@
 			(type default)
 		)
 		(uuid "ed7ff07e-168e-4875-98f4-f888b4349f95")
+	)
+	(wire
+		(pts
+			(xy 36.83 77.47) (xy 36.83 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1d56ce7-c588-46f5-bd41-b72908532562")
 	)
 	(wire
 		(pts
@@ -4305,94 +4315,6 @@
 		)
 	)
 	(symbol
-		(lib_id "TPS61023:TPS61023DRLR")
-		(at 55.88 82.55 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bf12f2d2-9b76-4927-a439-7d5dd5329963")
-		(property "Reference" "U5"
-			(at 55.88 67.31 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "TPS61023DRLR"
-			(at 55.88 69.85 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" "Project Footprints:DRL0006A"
-			(at 55.88 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/gpn/tps61023"
-			(at 55.88 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "36d3ae6e-2fb3-448f-8cab-b28d67df6c03")
-		)
-		(pin "6"
-			(uuid "37360459-0ebe-446e-8ced-12e453fd8164")
-		)
-		(pin "3"
-			(uuid "ec0f37cb-1fca-4d6c-a377-493068d2397c")
-		)
-		(pin "4"
-			(uuid "596a436e-9d81-4041-9a04-5b25c1ea246f")
-		)
-		(pin "5"
-			(uuid "fa6c812a-1834-48c4-bb47-9282dd3fa1b4")
-		)
-		(pin "2"
-			(uuid "02b28a11-4e62-4fee-8281-2c3a11f3525c")
-		)
-		(instances
-			(project "Secondary_Board"
-				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
-					(reference "U5")
-					(unit 1)
-				)
-			)
-			(project "power_mgmt"
-				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
-					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 36.83 26.67 0)
 		(unit 1)
@@ -4853,6 +4775,88 @@
 		)
 	)
 	(symbol
+		(lib_id "Project_Symbols:TPS61023DRLR")
+		(at 55.88 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e7fc4755-41f0-4df4-a665-842ea09d155b")
+		(property "Reference" "U5"
+			(at 55.88 67.31 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "TPS61023DRLR"
+			(at 55.88 69.85 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "Project Footprints:DRL0006A"
+			(at 55.372 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/tps61023"
+			(at 57.15 93.472 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "b7ba7d49-0143-4228-8584-6800da8d535c")
+		)
+		(pin "6"
+			(uuid "f403d493-f8df-4dcd-9da5-1b6e38353919")
+		)
+		(pin "1"
+			(uuid "456955a3-b31c-42ea-8b1e-2a8526f5bf53")
+		)
+		(pin "3"
+			(uuid "8d79f6e8-0100-4a2b-95bf-a94313280c5e")
+		)
+		(pin "2"
+			(uuid "ede28f4a-44be-4352-88f3-56a571c099ef")
+		)
+		(pin "4"
+			(uuid "ab2f5628-2c0f-4687-b16e-a7190cb8a276")
+		)
+		(instances
+			(project ""
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 21.59 81.28 0)
 		(unit 1)
@@ -5027,7 +5031,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
 			(at 27.94 32.766 90)
 			(effects
 				(font
