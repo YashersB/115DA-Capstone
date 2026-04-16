@@ -4806,7 +4806,7 @@
 		)
 		(symbol "REF3333AIDBZR_1_0"
 			(pin passive line
-				(at -10.795 -3.81 0)
+				(at -11.43 -3.81 0)
 				(length 5.08)
 				(name "Vin"
 					(effects
@@ -4824,7 +4824,7 @@
 				)
 			)
 			(pin passive line
-				(at -10.795 -6.35 0)
+				(at -11.43 -6.35 0)
 				(length 5.08)
 				(name "GND"
 					(effects
@@ -4862,7 +4862,7 @@
 		)
 		(symbol "REF3333AIDBZR_1_1"
 			(rectangle
-				(start -5.715 -1.27)
+				(start -6.35 -1.27)
 				(end 5.08 -8.89)
 				(stroke
 					(width 0)

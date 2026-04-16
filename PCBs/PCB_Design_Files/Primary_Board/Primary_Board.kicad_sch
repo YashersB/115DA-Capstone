@@ -2030,7 +2030,7 @@
 	)
 	(text "Have unused opamp, could use it\nas a buffer for ptat signal so it\ndoesn't go to waste"
 		(exclude_from_sim no)
-		(at 98.552 74.93 0)
+		(at 97.79 82.55 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2123,6 +2123,16 @@
 	)
 	(wire
 		(pts
+			(xy 78.74 55.88) (xy 86.36 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d29735c-0643-4246-8b8b-703927a43edc")
+	)
+	(wire
+		(pts
 			(xy 43.18 109.22) (xy 44.45 109.22)
 		)
 		(stroke
@@ -2130,6 +2140,16 @@
 			(type default)
 		)
 		(uuid "0e7387ea-0720-4b4e-aad3-95669203e4e1")
+	)
+	(wire
+		(pts
+			(xy 110.49 58.42) (xy 125.73 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12948da5-f426-44b3-98b9-504a1962050e")
 	)
 	(wire
 		(pts
@@ -2153,16 +2173,6 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 63.5) (xy 118.11 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "311003ad-7f10-43a8-aabe-b5f9600d3c08")
-	)
-	(wire
-		(pts
 			(xy 43.18 114.3) (xy 59.69 114.3)
 		)
 		(stroke
@@ -2183,23 +2193,23 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 55.88) (xy 86.36 55.88)
+			(xy 110.49 71.12) (xy 125.73 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "41addfba-0eae-4313-84f7-13f9cb9e7a3f")
+		(uuid "4f3737fd-fa46-433f-91f0-eaf4c2a6d267")
 	)
 	(wire
 		(pts
-			(xy 110.49 58.42) (xy 118.11 58.42)
+			(xy 110.49 52.07) (xy 125.73 52.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6876ab10-bda7-4ae0-a862-1aa3b8a46c76")
+		(uuid "5e2219ea-babb-4f95-af8f-3e87d8392103")
 	)
 	(wire
 		(pts
@@ -2310,16 +2320,6 @@
 			(type default)
 		)
 		(uuid "e6ba8376-4692-4147-b701-0a8c3089144e")
-	)
-	(wire
-		(pts
-			(xy 110.49 53.34) (xy 118.11 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f28cd8dd-7e26-4d16-8b78-64ff7ef78a94")
 	)
 	(wire
 		(pts
@@ -3389,7 +3389,7 @@
 	)
 	(sheet
 		(at 86.36 46.99)
-		(size 24.13 21.59)
+		(size 24.13 27.94)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -3416,7 +3416,7 @@
 			)
 		)
 		(property "Sheetfile" "AFE.kicad_sch"
-			(at 86.36 69.1646 0)
+			(at 86.36 75.5146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3425,7 +3425,7 @@
 			)
 		)
 		(pin "ADC_AC" output
-			(at 110.49 53.34 0)
+			(at 110.49 52.07 0)
 			(uuid "34eefd8f-e424-4e6c-a58b-8a69f95662ab")
 			(effects
 				(font
@@ -3435,7 +3435,7 @@
 			)
 		)
 		(pin "ADC_DC" output
-			(at 110.49 63.5 0)
+			(at 110.49 58.42 0)
 			(uuid "c0530559-f588-4af3-b10f-a9de90ecc9fa")
 			(effects
 				(font
@@ -3455,7 +3455,7 @@
 			)
 		)
 		(pin "V_CM" output
-			(at 110.49 58.42 0)
+			(at 110.49 71.12 0)
 			(uuid "81a64f16-9e2f-4203-a195-a0f77f75ba3c")
 			(effects
 				(font
@@ -3473,8 +3473,8 @@
 		)
 	)
 	(sheet
-		(at 137.16 46.99)
-		(size 30.48 21.59)
+		(at 125.73 46.99)
+		(size 30.48 27.94)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -3489,7 +3489,7 @@
 		)
 		(uuid "bd61ebda-1522-4e1f-a5c5-93272ab69f44")
 		(property "Sheetname" "ADC"
-			(at 137.16 46.2784 0)
+			(at 125.73 46.2784 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3501,7 +3501,7 @@
 			)
 		)
 		(property "Sheetfile" "ADC.kicad_sch"
-			(at 137.16 69.1646 0)
+			(at 125.73 75.5146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3510,7 +3510,7 @@
 			)
 		)
 		(pin "ADC_Input1" input
-			(at 137.16 52.07 180)
+			(at 125.73 52.07 180)
 			(uuid "2f6abc20-1cac-4a5f-8b77-60db3557f674")
 			(effects
 				(font
@@ -3520,7 +3520,7 @@
 			)
 		)
 		(pin "ADC_Input2" input
-			(at 137.16 55.88 180)
+			(at 125.73 58.42 180)
 			(uuid "7510875e-f757-4e77-aafe-16110365ac65")
 			(effects
 				(font
@@ -3530,7 +3530,7 @@
 			)
 		)
 		(pin "ADC_Input3" input
-			(at 137.16 59.69 180)
+			(at 125.73 64.77 180)
 			(uuid "a7027489-2638-470d-be02-b041daf4c635")
 			(effects
 				(font
@@ -3539,14 +3539,74 @@
 				(justify left)
 			)
 		)
-		(pin "ADC_Input4" input
-			(at 137.16 63.5 180)
-			(uuid "7a55866b-ff5c-4668-8e16-03bc9294e2e4")
+		(pin "A0" input
+			(at 156.21 50.8 0)
+			(uuid "572aff20-56ca-4eb2-adcb-bb2fa53107ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "A1" input
+			(at 156.21 53.34 0)
+			(uuid "387fdcc4-81ab-4aa2-b420-028eb8bd6f0a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "LATCH" input
+			(at 156.21 58.42 0)
+			(uuid "735c5658-4f21-42b7-8878-e50f4feb01a8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MOSI" input
+			(at 156.21 60.96 0)
+			(uuid "f01ef52d-6d44-4172-acdd-713c262803a8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "sCLK" input
+			(at 156.21 63.5 0)
+			(uuid "4d9c7f32-f84d-4dcd-a87d-346333d65e27")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "V_CM" input
+			(at 125.73 71.12 180)
+			(uuid "3e7ac400-b85b-4ea0-8509-5022956beb64")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "V_COMP" output
+			(at 156.21 66.04 0)
+			(uuid "23b33c9c-6796-4478-9477-1cc4c0c090bf")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
@@ -3558,7 +3618,7 @@
 		)
 	)
 	(sheet
-		(at 194.31 46.99)
+		(at 172.72 46.99)
 		(size 22.86 21.59)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3574,7 +3634,7 @@
 		)
 		(uuid "c9d7a52b-c624-454d-af83-5076e9ccc3d1")
 		(property "Sheetname" "MCU_Display"
-			(at 194.31 46.2784 0)
+			(at 172.72 46.2784 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3586,7 +3646,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU_Display.kicad_sch"
-			(at 194.31 69.1646 0)
+			(at 172.72 69.1646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
