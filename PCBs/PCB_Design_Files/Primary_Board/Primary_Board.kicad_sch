@@ -3530,8 +3530,8 @@
 		)
 	)
 	(sheet
-		(at 86.36 46.99)
-		(size 24.13 27.94)
+		(at 81.28 46.99)
+		(size 29.21 27.94)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -3546,7 +3546,7 @@
 		)
 		(uuid "8bef796a-ecae-4493-960e-95186824da14")
 		(property "Sheetname" "AFE"
-			(at 86.36 46.2784 0)
+			(at 81.28 46.2784 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3558,7 +3558,7 @@
 			)
 		)
 		(property "Sheetfile" "AFE.kicad_sch"
-			(at 86.36 75.5146 0)
+			(at 81.28 75.5146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3587,7 +3587,7 @@
 			)
 		)
 		(pin "V_bandgap" input
-			(at 86.36 55.88 180)
+			(at 81.28 55.88 180)
 			(uuid "cdd6f24a-d7d3-4850-a989-a3ddee902fd6")
 			(effects
 				(font
