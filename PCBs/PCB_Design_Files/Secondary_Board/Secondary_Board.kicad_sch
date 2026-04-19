@@ -2133,8 +2133,9 @@
 		(start 22.86 35.56)
 		(end 50.8 80.01)
 		(stroke
-			(width 0)
+			(width 0.3)
 			(type dash)
+			(color 0 0 0 1)
 		)
 		(fill
 			(type none)
@@ -2145,8 +2146,9 @@
 		(start 22.86 87.63)
 		(end 69.85 128.27)
 		(stroke
-			(width 0)
+			(width 0.3)
 			(type dash)
+			(color 0 0 0 1)
 		)
 		(fill
 			(type none)
