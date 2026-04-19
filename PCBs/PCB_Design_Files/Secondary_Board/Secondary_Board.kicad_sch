@@ -2476,7 +2476,7 @@
 		)
 		(uuid "edb7d08a-15a3-4fab-9241-f4fe687bc63f")
 	)
-	(label "V_bandgap"
+	(label "V_ptat"
 		(at 41.91 107.95 0)
 		(effects
 			(font
@@ -2484,7 +2484,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1d038a3e-1206-4236-ac12-f82b7b17299e")
+		(uuid "1bcf7e19-71d0-4327-a51c-c53f94263654")
 	)
 	(label "PWM_IR"
 		(at 41.91 113.03 0)
@@ -2507,6 +2507,16 @@
 		(uuid "7acb1883-4a59-4ab6-81ec-657fae4fdf6d")
 	)
 	(label "V_bandgap"
+		(at 41.91 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7ff95817-aef5-4972-b3dc-5ba5f78e594f")
+	)
+	(label "V_bandgap"
 		(at 238.76 52.07 0)
 		(effects
 			(font
@@ -2525,16 +2535,6 @@
 			(justify left bottom)
 		)
 		(uuid "bf694f9b-845f-40a8-9de2-5b1facdf59dd")
-	)
-	(label "V_ptat"
-		(at 41.91 105.41 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ce1d8aca-1918-40fd-991a-103c8e7d8bc6")
 	)
 	(symbol
 		(lib_id "power:GND")
