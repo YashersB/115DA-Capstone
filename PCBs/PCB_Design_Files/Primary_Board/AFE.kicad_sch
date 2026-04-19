@@ -2067,6 +2067,16 @@
 		)
 		(uuid "9af43b48-705f-4734-9cc5-ee9699b3d4aa")
 	)
+	(text "short\n"
+		(exclude_from_sim no)
+		(at 63.5 145.288 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b186ac21-e87c-4e8e-b0e5-502197b0bbc8")
+	)
 	(text "7Hz Active LPF\nNon-Inverting Amplifier (380 Gain)\n\n"
 		(exclude_from_sim no)
 		(at 126.746 113.538 0)
@@ -2079,6 +2089,26 @@
 			)
 		)
 		(uuid "c6c6e24d-f305-49bd-b3b8-d05161e2ca13")
+	)
+	(text "open\n"
+		(exclude_from_sim no)
+		(at 69.342 148.844 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "dcf0a4ae-f5e3-4df5-9765-6fd7fcb48dc4")
+	)
+	(text "fc = 1/(2pi(100k)(220n)) ~= 7Hz\n\nAv = (1+380k/1k) ~= 380"
+		(exclude_from_sim no)
+		(at 71.374 121.666 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "fd73d3ab-d838-426c-a8ab-9f6af17d7a8a")
 	)
 	(junction
 		(at 54.61 74.93)
