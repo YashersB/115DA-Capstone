@@ -1351,6 +1351,503 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "project_symbols:AD5621AKSZ-REEL7"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "AD5621AKSZ-REEL7_0_0"
+				(rectangle
+					(start -10.16 -1.27)
+					(end 11.43 -21.59)
+					(stroke
+						(width 0.4064)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "AD5621AKSZ-REEL7_1_0"
+				(pin passive line
+					(at -15.24 -5.08 0)
+					(length 5.08)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 -8.89 0)
+					(length 5.08)
+					(name "SDIN"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 -11.43 0)
+					(length 5.08)
+					(name "SCLK"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 -13.97 0)
+					(length 5.08)
+					(name "~{SYNC}"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 -19.05 0)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 16.51 -5.08 180)
+					(length 5.08)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(symbol "AD5621AKSZ-REEL7_1_1"
+				(text "AD5621"
+					(at 6.858 -20.066 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "project_symbols:LF398N/NOPB"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 1.27 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "LF398N/NOPB_0_1"
+				(polyline
+					(pts
+						(xy -2.54 -19.05) (xy -1.27 -19.05) (xy -1.27 -16.51)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -6.35) (xy 3.81 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -15.24) (xy 3.81 -13.97)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 8.89 -8.89) (xy 8.89 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 8.89 -11.43) (xy 8.89 -12.7)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "LF398N/NOPB_1_1"
+				(polyline
+					(pts
+						(xy -1.27 -3.81) (xy 11.43 -10.16) (xy -1.27 -16.51) (xy -1.27 -3.81)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(text "Logic In"
+					(at -3.302 -20.066 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(text "A_IN"
+					(at -3.048 -11.684 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(text "Logic\nRef"
+					(at 1.524 -18.288 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(text "V+"
+					(at 5.08 -4.318 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(text "LF398N"
+					(at 5.334 -10.16 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "V-"
+					(at 9.906 -6.858 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(text "Ch"
+					(at 10.922 -13.716 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(text "Output"
+					(at 13.97 -11.43 0)
+					(effects
+						(font
+							(size 0.635 0.635)
+						)
+					)
+				)
+				(pin output line
+					(at -5.08 -19.05 0)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -3.81 -10.16 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 3.81 -2.54 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 3.81 -17.78 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 8.89 -5.08 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 8.89 -15.24 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 13.97 -10.16 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "project_symbols:MCP6561T-E/OT"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2808,6 +3305,19 @@
 		(uuid 49132b1f-9758-4f7d-b5f2-20d5935c3a99)
 	)
 	(rectangle
+		(start 270.51 254)
+		(end 439.42 389.89)
+		(stroke
+			(width 0.508)
+			(type dash)
+			(color 72 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(uuid dc80fd69-4cb6-4ca8-bea2-4edc807a9cbc)
+	)
+	(rectangle
 		(start 17.78 90.17)
 		(end 266.7 391.16)
 		(stroke
@@ -3014,6 +3524,19 @@
 			)
 		)
 		(uuid "9a0fc11e-b69e-4c90-a38a-cda22009fdc3")
+	)
+	(text "Voltage Search DAC"
+		(exclude_from_sim no)
+		(at 312.42 261.62 0)
+		(effects
+			(font
+				(face "Menlo")
+				(size 5.08 5.08)
+				(bold yes)
+				(italic yes)
+			)
+		)
+		(uuid "9e4765d7-94c6-474a-b181-1aeba1bc0f2b")
 	)
 	(text "Bit 0"
 		(exclude_from_sim no)
@@ -8693,6 +9216,88 @@
 		)
 	)
 	(symbol
+		(lib_id "project_symbols:LF398N/NOPB")
+		(at 359.41 294.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "05917453-fa24-4f85-9452-6081b461dd50")
+		(property "Reference" "U3"
+			(at 377.19 298.3798 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 377.19 300.9198 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 359.41 294.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 359.41 294.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 359.41 294.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "f816ca10-754f-47d8-b50a-633c326be13c")
+		)
+		(pin "6"
+			(uuid "617c3dc3-dd6c-4c39-85c3-26507dc6b736")
+		)
+		(pin "7"
+			(uuid "4139ece1-3717-42a9-bb06-ef295b39d4e4")
+		)
+		(pin "7"
+			(uuid "2e9eca26-62bb-4b88-a15c-7ebf05d839c1")
+		)
+		(pin "1"
+			(uuid "0efdd0cb-9c17-43ab-8b67-3e4c5d1985f7")
+		)
+		(pin "3"
+			(uuid "1056474b-88b9-4411-b610-d82c15cf9a8e")
+		)
+		(pin "4"
+			(uuid "f0b266e8-b21a-47fd-88e7-20d2b27be130")
+		)
+		(instances
+			(project ""
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 342.9 45.72 0)
 		(unit 1)
@@ -12313,6 +12918,86 @@
 			(project "Primary_Board"
 				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
 					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "project_symbols:AD5621AKSZ-REEL7")
+		(at 364.49 323.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "67b53fb6-ceb9-47e3-bc6d-1106e73dacc7")
+		(property "Reference" "U10"
+			(at 365.125 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 365.125 322.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 364.49 323.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 364.49 323.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 364.49 323.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "d81a4612-cd11-4edc-a1d2-ae1c4bde266e")
+		)
+		(pin "6"
+			(uuid "ec6d262d-6d15-4520-8e2c-a23314165f68")
+		)
+		(pin "5"
+			(uuid "a08cb02f-d28c-4203-9f92-e21cd216c476")
+		)
+		(pin "1"
+			(uuid "0cfea423-8d82-40cf-a241-46e5098e56fd")
+		)
+		(pin "2"
+			(uuid "9a7ee9f7-ca3e-4bcb-b8c4-6ce7088fb53c")
+		)
+		(pin "3"
+			(uuid "df239d7d-1e39-415f-bf64-2bc1621c3d29")
+		)
+		(instances
+			(project ""
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
+					(reference "U10")
 					(unit 1)
 				)
 			)
