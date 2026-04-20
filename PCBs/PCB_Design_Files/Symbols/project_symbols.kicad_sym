@@ -936,7 +936,7 @@
 				)
 			)
 		)
-		(property "Value" ""
+		(property "Value" "AD5621AKSZ"
 			(at 0 0 0)
 			(effects
 				(font
@@ -3682,7 +3682,7 @@
 				)
 			)
 		)
-		(property "Value" ""
+		(property "Value" "LF398N/NOPB"
 			(at 0 0 0)
 			(effects
 				(font
@@ -3801,7 +3801,7 @@
 				)
 			)
 			(text "A_IN"
-				(at -3.048 -11.684 0)
+				(at -3.048 -4.826 0)
 				(effects
 					(font
 						(size 0.635 0.635)
@@ -3866,7 +3866,7 @@
 						)
 					)
 				)
-				(number "7"
+				(number "8"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -3875,7 +3875,7 @@
 				)
 			)
 			(pin input line
-				(at -3.81 -10.16 0)
+				(at -3.81 -7.62 0)
 				(length 2.54)
 				(name "A"
 					(effects
@@ -3885,6 +3885,24 @@
 					)
 				)
 				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin input line
+				(at -3.81 -13.97 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
 					(effects
 						(font
 							(size 1.27 1.27)
