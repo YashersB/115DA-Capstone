@@ -1,0 +1,17 @@
+LTspice 26.0.1 for Windows
+Circuit: C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\OTS_SAR_ADC_SIM.net
+Start Time: Tue Apr 21 18:37:44 2026
+solver = Normal
+Maximum thread count: 6
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 0.920 seconds.
+
+Files loaded:
+C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\OTS_SAR_ADC_SIM.net
+C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\ADG701.cir
+C:\Mac\Home\Documents\115DA-Capstone\SAR ADC\OPAx320-Q1.LIB
+C:\Users\oreoturkey\AppData\Local\LTspice\lib\sub\UniversalOpAmp2.lib
+
