@@ -650,7 +650,7 @@
 					)
 				)
 			)
-			(property "Value" "OPA320"
+			(property "Value" "OPA320SAIDBVR"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2161,7 +2161,7 @@
 					)
 				)
 			)
-			(property "Value" "OPA320"
+			(property "Value" "OPA320SAIDBVR"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4167,27 +4167,6 @@
 		)
 		(uuid "c523eb8c-17bd-4ec6-aa8f-5f6360cb7a61")
 	)
-	(text_box "R1 = 1k\nR2 = 1k\nCh = 1nF\n\nRth = (1k * 1k) / (1k + 1k)\nRth = 1000000 / 2000\nRth = 500 Ohms\n\nTau = 500 * 0.000000001\nTau = 0.0000005 s\nTau = 500 ns\n\nTacq = 10 * 500 ns\nTacq = 5000 ns\nTacq = 5 us\n\nR1 = 10k\nR2 = 10k\nCh = 1nF\n\nRth = (10k * 10k) / (10k + 10k)\nRth = 100000000 / 20000\nRth = 5000 Ohms\n\nTau = 5000 * 0.000000001\nTau = 0.000005 s\nTau = 5000 ns\n\nTacq = 10 * 5000 ns\nTacq = 50000 ns\nTacq = 50 us\n\nChoose 1k for 10x faster acquisition speed and better immunity to LF398 input bias leakage."
-		(exclude_from_sim no)
-		(at 400.05 303.53 0)
-		(size 49.53 72.39)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill
-			(type color)
-			(color 0 0 255 0.1)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "f7ed4b9e-5948-45df-a59f-36fa1758c7bc")
-	)
 	(junction
 		(at 307.34 54.61)
 		(diameter 0)
@@ -4321,6 +4300,12 @@
 		(uuid "44576978-7d3c-45ad-9801-93c59aea85c2")
 	)
 	(junction
+		(at 383.54 287.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4a880c6e-a705-4050-adfd-f4724b08c3ee")
+	)
+	(junction
 		(at 345.44 309.88)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4435,12 +4420,6 @@
 		(uuid "70e852ca-bae3-48be-b5b8-6bab665c3978")
 	)
 	(junction
-		(at 351.79 289.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "71c81886-1d95-4a4e-a36f-90091f193b52")
-	)
-	(junction
 		(at 162.56 275.59)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4457,6 +4436,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "768ce331-b4f9-4b8c-9b51-b2f8b3f381d1")
+	)
+	(junction
+		(at 351.79 289.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "79e5666d-5ae7-4b42-bc6b-fa95721734e3")
 	)
 	(junction
 		(at 334.01 54.61)
@@ -4559,12 +4544,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "aba3d25c-a763-410d-8b5a-cc86fc0aa28b")
-	)
-	(junction
-		(at 374.65 287.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b0b07349-0052-4ecd-a275-31ac2162d523")
 	)
 	(junction
 		(at 289.56 99.06)
@@ -4795,6 +4774,16 @@
 			(type default)
 		)
 		(uuid "010cb009-c433-45a1-a0f0-91e8b171f47c")
+	)
+	(wire
+		(pts
+			(xy 383.54 287.02) (xy 406.4 287.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01b9df46-2bd4-4972-a461-d2b5662a758d")
 	)
 	(wire
 		(pts
@@ -6468,7 +6457,7 @@
 	)
 	(wire
 		(pts
-			(xy 374.65 292.1) (xy 374.65 295.91)
+			(xy 383.54 294.64) (xy 383.54 297.18)
 		)
 		(stroke
 			(width 0)
@@ -6485,16 +6474,6 @@
 			(type default)
 		)
 		(uuid "65903fee-1017-460f-bfb0-b1bd7f935ab7")
-	)
-	(wire
-		(pts
-			(xy 374.65 287.02) (xy 406.4 287.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65a37768-51c4-48ec-a976-27e99f969602")
 	)
 	(wire
 		(pts
@@ -7088,7 +7067,7 @@
 	)
 	(wire
 		(pts
-			(xy 367.03 287.02) (xy 374.65 287.02)
+			(xy 367.03 287.02) (xy 383.54 287.02)
 		)
 		(stroke
 			(width 0)
@@ -7735,6 +7714,16 @@
 			(type default)
 		)
 		(uuid "aed5e046-e44e-45fd-be43-560eb693f556")
+	)
+	(wire
+		(pts
+			(xy 383.54 289.56) (xy 383.54 287.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0cc068f-545b-4544-a411-7f35d3236b37")
 	)
 	(wire
 		(pts
@@ -9987,7 +9976,7 @@
 		(uuid "e351c809-195f-4d0d-ae80-365c8c94334c")
 	)
 	(label "HOLD"
-		(at 379.73 287.02 0)
+		(at 388.62 287.02 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11170,7 +11159,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 374.65 289.56 0)
+		(at 383.54 292.1 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11179,7 +11168,7 @@
 		(dnp no)
 		(uuid "101d9a6c-5fc3-4cf0-8011-007abccb3bba")
 		(property "Reference" "C65"
-			(at 377.19 288.2962 0)
+			(at 386.08 290.8362 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11188,7 +11177,7 @@
 			)
 		)
 		(property "Value" "1nF"
-			(at 377.19 290.8362 0)
+			(at 386.08 293.3762 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11197,7 +11186,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 374.65 289.56 0)
+			(at 383.54 292.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11206,7 +11195,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 374.65 289.56 0)
+			(at 383.54 292.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11215,7 +11204,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 374.65 289.56 0)
+			(at 383.54 292.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11224,7 +11213,7 @@
 			)
 		)
 		(property "Package" "0402"
-			(at 379.73 293.37 0)
+			(at 388.62 295.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14859,87 +14848,6 @@
 		)
 	)
 	(symbol
-		(lib_name "OPA320_1")
-		(lib_id "project_symbols:OPA320")
-		(at 361.95 304.8 0)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6d0e8d10-4147-442f-81ca-15af6b0e21b8")
-		(property "Reference" "U16"
-			(at 361.315 303.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "OPA320"
-			(at 361.315 306.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 361.95 304.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 361.95 304.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 361.95 304.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "42eea9c4-0e23-4ad5-96f1-5be4e1cf563b")
-		)
-		(pin "1"
-			(uuid "c3e7dc6b-c2a5-4c42-9d29-8e39ade61ed0")
-		)
-		(pin "3"
-			(uuid "ffe35407-ba38-485b-b431-55dd5efd2749")
-		)
-		(pin "2"
-			(uuid "2d03229d-807a-4719-a2cf-be8b1af4d58f")
-		)
-		(pin "6"
-			(uuid "2959948d-61d9-4170-a401-9b1a7c5d1867")
-		)
-		(pin "4"
-			(uuid "6b2ae6fa-43ae-4558-bce1-36c2c5bfe61f")
-		)
-		(instances
-			(project ""
-				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
-					(reference "U16")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
 		(at 162.56 273.05 0)
 		(unit 1)
@@ -16597,86 +16505,6 @@
 			(project ""
 				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
 					(reference "R13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "project_symbols:OPA320")
-		(at 361.95 281.94 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "997c58ef-4e3a-43c5-8736-7928680cbaea")
-		(property "Reference" "U16"
-			(at 359.41 279.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "OPA320"
-			(at 359.41 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 361.95 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 361.95 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 361.95 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "42eea9c4-0e23-4ad5-96f1-5be4e1cf563b")
-		)
-		(pin "1"
-			(uuid "c3e7dc6b-c2a5-4c42-9d29-8e39ade61ed0")
-		)
-		(pin "3"
-			(uuid "ffe35407-ba38-485b-b431-55dd5efd2749")
-		)
-		(pin "2"
-			(uuid "2d03229d-807a-4719-a2cf-be8b1af4d58f")
-		)
-		(pin "6"
-			(uuid "2959948d-61d9-4170-a401-9b1a7c5d1867")
-		)
-		(pin "4"
-			(uuid "6b2ae6fa-43ae-4558-bce1-36c2c5bfe61f")
-		)
-		(instances
-			(project ""
-				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
-					(reference "U16")
 					(unit 1)
 				)
 			)
@@ -19423,7 +19251,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 374.65 295.91 0)
+		(at 383.54 297.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19431,7 +19259,7 @@
 		(dnp no)
 		(uuid "cc09fa2f-594d-4b2e-ae1c-daba40ac2db9")
 		(property "Reference" "#PWR073"
-			(at 374.65 302.26 0)
+			(at 383.54 303.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19440,7 +19268,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 374.65 299.72 0)
+			(at 383.54 300.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19448,7 +19276,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 374.65 295.91 0)
+			(at 383.54 297.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19457,7 +19285,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 374.65 295.91 0)
+			(at 383.54 297.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19466,7 +19294,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 374.65 295.91 0)
+			(at 383.54 297.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19782,6 +19610,87 @@
 				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
 					(reference "C13")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "OPA320_1")
+		(lib_id "project_symbols:OPA320")
+		(at 361.95 304.8 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d338a338-10d3-4c9a-b370-bdd7414b142b")
+		(property "Reference" "U13"
+			(at 361.315 303.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OPA320SAIDBVR"
+			(at 361.315 306.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6_Handsoldering"
+			(at 361.95 304.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 361.95 304.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 361.95 304.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43fe9d2c-8bb9-406d-b686-1baba551b3af")
+		)
+		(pin "3"
+			(uuid "eafa3c51-9f4a-43ad-a325-90a822f80016")
+		)
+		(pin "4"
+			(uuid "66927686-c278-4344-a300-9488d73217ca")
+		)
+		(pin "6"
+			(uuid "2fa310a2-9461-4ab8-b86f-ec824655ccf4")
+		)
+		(pin "2"
+			(uuid "188a36f2-1106-44c5-af19-7c4ddf26e402")
+		)
+		(pin "2"
+			(uuid "dce790fe-2b0c-49ad-899e-694ade6a11ce")
+		)
+		(instances
+			(project ""
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
+					(reference "U13")
+					(unit 2)
 				)
 			)
 		)
@@ -20576,6 +20485,87 @@
 			(project "Primary_Board"
 				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
 					(reference "S/H_EN1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "project_symbols:OPA320")
+		(at 361.95 281.94 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e13be0ba-6d9c-4a2f-8774-b80158afb9c0")
+		(property "Reference" "U13"
+			(at 359.41 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OPA320SAIDBVR"
+			(at 359.41 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6_Handsoldering"
+			(at 361.95 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 361.95 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 361.95 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43fe9d2c-8bb9-406d-b686-1baba551b3af")
+		)
+		(pin "3"
+			(uuid "eafa3c51-9f4a-43ad-a325-90a822f80016")
+		)
+		(pin "4"
+			(uuid "66927686-c278-4344-a300-9488d73217ca")
+		)
+		(pin "6"
+			(uuid "2fa310a2-9461-4ab8-b86f-ec824655ccf4")
+		)
+		(pin "2"
+			(uuid "188a36f2-1106-44c5-af19-7c4ddf26e402")
+		)
+		(pin "2"
+			(uuid "dce790fe-2b0c-49ad-899e-694ade6a11ce")
+		)
+		(instances
+			(project ""
+				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/bd61ebda-1522-4e1f-a5c5-93272ab69f44"
+					(reference "U13")
 					(unit 1)
 				)
 			)
@@ -21893,7 +21883,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5_HandSoldering"
 			(at 421.005 269.24 0)
 			(effects
 				(font

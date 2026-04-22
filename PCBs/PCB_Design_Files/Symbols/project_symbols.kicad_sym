@@ -6990,7 +6990,7 @@
 				)
 			)
 		)
-		(property "Value" "OPA320"
+		(property "Value" "OPA320SAIDBVR"
 			(at 0 0 0)
 			(effects
 				(font
