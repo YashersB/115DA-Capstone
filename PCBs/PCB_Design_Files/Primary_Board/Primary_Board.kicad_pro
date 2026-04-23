@@ -498,7 +498,9 @@
     "meta": {
       "version": 4
     },
-    "net_colors": null,
+    "net_colors": {
+      "/ADC/VSMP": "rgb(101, 249, 255)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": []
   },

@@ -7017,6 +7017,16 @@
 	)
 	(wire
 		(pts
+			(xy 364.49 218.44) (xy 374.65 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "827ff2a7-7a2b-40fb-92be-5af976cd717f")
+	)
+	(wire
+		(pts
 			(xy 298.45 157.48) (xy 309.88 157.48)
 		)
 		(stroke
@@ -9704,6 +9714,16 @@
 			(justify right bottom)
 		)
 		(uuid "a511a1f7-948c-4634-b4ea-c42af99a590f")
+	)
+	(label "S{slash}H_OUT"
+		(at 364.49 218.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a515d43c-4af4-4ac3-8632-9ad7c01e6126")
 	)
 	(label "VSMP"
 		(at 173.99 342.9 0)
@@ -20545,22 +20565,22 @@
 			)
 		)
 		(pin "1"
-			(uuid "43fe9d2c-8bb9-406d-b686-1baba551b3af")
+			(uuid "43fe9d2c-8bb9-406d-b686-1baba551b3b0")
 		)
 		(pin "3"
-			(uuid "eafa3c51-9f4a-43ad-a325-90a822f80016")
+			(uuid "eafa3c51-9f4a-43ad-a325-90a822f80017")
 		)
 		(pin "4"
-			(uuid "66927686-c278-4344-a300-9488d73217ca")
+			(uuid "66927686-c278-4344-a300-9488d73217cb")
 		)
 		(pin "6"
-			(uuid "2fa310a2-9461-4ab8-b86f-ec824655ccf4")
+			(uuid "2fa310a2-9461-4ab8-b86f-ec824655ccf5")
 		)
 		(pin "2"
-			(uuid "188a36f2-1106-44c5-af19-7c4ddf26e402")
+			(uuid "188a36f2-1106-44c5-af19-7c4ddf26e403")
 		)
 		(pin "2"
-			(uuid "dce790fe-2b0c-49ad-899e-694ade6a11ce")
+			(uuid "dce790fe-2b0c-49ad-899e-694ade6a11cf")
 		)
 		(instances
 			(project ""
