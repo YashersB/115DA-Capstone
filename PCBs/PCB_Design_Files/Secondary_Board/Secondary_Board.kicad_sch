@@ -2488,16 +2488,6 @@
 		)
 		(uuid "1bcf7e19-71d0-4327-a51c-c53f94263654")
 	)
-	(label "MCU_IR"
-		(at 41.91 113.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2a56cd3c-7e76-42f6-bf78-785991b5b89e")
-	)
 	(label "V_ptat"
 		(at 238.76 59.69 0)
 		(effects
@@ -2528,15 +2518,49 @@
 		)
 		(uuid "b87163cb-c43f-4c15-85fb-e4efba0dce37")
 	)
-	(label "MCU_Red"
-		(at 41.91 115.57 0)
+	(global_label "MCU_IR"
+		(shape input)
+		(at 41.91 113.03 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "bf694f9b-845f-40a8-9de2-5b1facdf59dd")
+		(uuid "0ab58fb3-4cec-4424-b19a-a5c6467565ac")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 32.0305 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "MCU_Red"
+		(shape input)
+		(at 41.91 115.57 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8d23308a-4f2f-4a8b-9498-ffdc1dc53b4b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 30.3977 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")

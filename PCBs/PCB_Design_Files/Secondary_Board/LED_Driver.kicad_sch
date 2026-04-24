@@ -2501,6 +2501,16 @@
 	)
 	(wire
 		(pts
+			(xy 180.34 137.16) (xy 186.69 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a269fdb-4610-448d-9760-31b2c6755cb7")
+	)
+	(wire
+		(pts
 			(xy 135.89 83.82) (xy 135.89 73.66)
 		)
 		(stroke
@@ -2689,16 +2699,6 @@
 		)
 		(uuid "fd62f977-05fc-4be9-816c-ac84a825ed92")
 	)
-	(label "MCU_IR"
-		(at 116.84 128.27 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "04c6997d-a609-48bf-aa9b-b810c952245f")
-	)
 	(label "Current Sink"
 		(at 107.95 73.66 180)
 		(effects
@@ -2718,16 +2718,6 @@
 			(justify left bottom)
 		)
 		(uuid "1c3641ea-8a22-4532-b97f-6b1e0ce09f1f")
-	)
-	(label "MCU_Red"
-		(at 80.01 127 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "4fd3d7d5-0791-4978-a3e1-7f7325e885a3")
 	)
 	(label "Current Sink"
 		(at 152.4 62.23 180)
@@ -2749,15 +2739,93 @@
 		)
 		(uuid "67c7f920-d356-469b-97a6-4646a0ee4a30")
 	)
-	(label "Vbandgap"
-		(at 195.58 121.92 0)
+	(global_label "MCU_IR"
+		(shape input)
+		(at 116.84 128.27 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "dcc5102d-e99c-486d-8024-0f2024684169")
+		(uuid "4a06b807-8d31-4a1d-83ae-018a01b8d42f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.9605 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "MCU_Red"
+		(shape input)
+		(at 80.01 127 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "76535f24-1026-4684-8efe-86985abbe409")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 68.4977 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "MCU_OPA_CTRL"
+		(shape input)
+		(at 172.72 137.16 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "bde71cb6-dd83-4cb2-96ee-62250921f1ad")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 155.5229 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vbandgap"
+		(shape input)
+		(at 195.58 121.92 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f2cf1746-b1a0-4e25-bc39-5e3c20e6b72e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 207.6968 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:+5V")
@@ -2897,6 +2965,74 @@
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 176.53 137.16 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "15568b07-aa81-4aa1-97b6-2d52a307c005")
+		(property "Reference" "R19"
+			(at 176.53 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 176.53 133.35 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 176.53 135.382 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 176.53 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 176.53 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e1ecbc68-fdb7-49b6-a45a-01f7a98510bb")
+		)
+		(pin "1"
+			(uuid "1659bb91-fe5f-4d39-a3dd-760f929505f5")
+		)
+		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R19")
 					(unit 1)
 				)
 			)
@@ -3084,7 +3220,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 178.308 115.57 90)
 			(effects
 				(font
@@ -3158,7 +3294,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 120.65 130.048 90)
 			(effects
 				(font
@@ -3467,7 +3603,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 126.238 111.76 90)
 			(effects
 				(font
@@ -3743,7 +3879,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 83.82 128.778 90)
 			(effects
 				(font
@@ -4266,7 +4402,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 107.188 111.76 90)
 			(effects
 				(font
