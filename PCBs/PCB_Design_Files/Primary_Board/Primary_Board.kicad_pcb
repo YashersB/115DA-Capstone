@@ -30889,6 +30889,28 @@
 		(net 37)
 		(uuid "3f34fede-0f3e-42bf-973c-e789fb3a2424")
 	)
+	(gr_rect
+		(start 148.209 87.617533)
+		(end 165.890411 97.003066)
+		(stroke
+			(width 0.1)
+			(type dash)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "71e931da-f474-4160-9f7d-27f492be8e1e")
+	)
+	(gr_rect
+		(start 148.209 77.597)
+		(end 165.890411 87.617533)
+		(stroke
+			(width 0.1)
+			(type dash)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "bd42e64c-d50b-45e5-add0-bc3844dcf9c3")
+	)
 	(gr_arc
 		(start 161.29 73.2)
 		(mid 164.825534 74.664466)
@@ -31070,26 +31092,26 @@
 		(uuid "e283c1d9-9e80-4a74-9513-08399fe7d002")
 	)
 	(gr_text "MSB\n"
-		(at 160.775 80.775 0)
+		(at 162.589297 80.552645 0)
 		(layer "F.SilkS")
 		(uuid "5867c539-4bc2-4e65-893f-9d7737b0d93e")
 		(effects
 			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
+				(size 1 1)
+				(thickness 0.2)
 				(bold yes)
 			)
 			(justify left bottom)
 		)
 	)
 	(gr_text "LSB\n"
-		(at 161.212398 96.077902 0)
+		(at 162.687 96.077902 0)
 		(layer "F.SilkS")
 		(uuid "b682d0a0-24a4-4d51-ab81-bb909e791eaf")
 		(effects
 			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
+				(size 1 1)
+				(thickness 0.2)
 				(bold yes)
 			)
 			(justify left bottom)

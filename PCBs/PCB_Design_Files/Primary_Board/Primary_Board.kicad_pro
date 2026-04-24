@@ -500,6 +500,7 @@
       "version": 4
     },
     "net_colors": {
+      "+3V3A": "rgb(100, 255, 0)",
       "/ADC/VSMP": "rgb(101, 249, 255)"
     },
     "netclass_assignments": null,
