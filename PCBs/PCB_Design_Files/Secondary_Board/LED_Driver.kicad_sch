@@ -2805,7 +2805,7 @@
 			)
 		)
 	)
-	(global_label "Vbandgap"
+	(global_label "V_bandgap"
 		(shape input)
 		(at 195.58 121.92 0)
 		(fields_autoplaced yes)
@@ -2817,7 +2817,7 @@
 		)
 		(uuid "f2cf1746-b1a0-4e25-bc39-5e3c20e6b72e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.6968 121.92 0)
+			(at 208.6644 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)

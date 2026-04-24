@@ -2499,16 +2499,6 @@
 		(uuid "7acb1883-4a59-4ab6-81ec-657fae4fdf6d")
 	)
 	(label "V_bandgap"
-		(at 41.91 105.41 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7ff95817-aef5-4972-b3dc-5ba5f78e594f")
-	)
-	(label "V_bandgap"
 		(at 238.76 52.07 0)
 		(effects
 			(font
@@ -2553,6 +2543,28 @@
 		(uuid "8d23308a-4f2f-4a8b-9498-ffdc1dc53b4b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 30.3977 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V_bandgap"
+		(shape input)
+		(at 41.91 105.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fcc933a4-1037-41b0-a9cb-671d0cfd8399")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 28.8256 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
