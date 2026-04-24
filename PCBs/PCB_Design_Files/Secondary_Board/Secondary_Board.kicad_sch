@@ -2488,7 +2488,7 @@
 		)
 		(uuid "1bcf7e19-71d0-4327-a51c-c53f94263654")
 	)
-	(label "PWM_IR"
+	(label "MCU_IR"
 		(at 41.91 113.03 0)
 		(effects
 			(font
@@ -2528,7 +2528,7 @@
 		)
 		(uuid "b87163cb-c43f-4c15-85fb-e4efba0dce37")
 	)
-	(label "PWM_Red"
+	(label "MCU_Red"
 		(at 41.91 115.57 0)
 		(effects
 			(font

@@ -2719,7 +2719,7 @@
 		)
 		(uuid "1c3641ea-8a22-4532-b97f-6b1e0ce09f1f")
 	)
-	(label "MCU_RED"
+	(label "MCU_Red"
 		(at 80.01 127 180)
 		(effects
 			(font
@@ -2749,7 +2749,7 @@
 		)
 		(uuid "67c7f920-d356-469b-97a6-4646a0ee4a30")
 	)
-	(label "V_ptat"
+	(label "Vbandgap"
 		(at 195.58 121.92 0)
 		(effects
 			(font
@@ -2768,7 +2768,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "02fbfca9-1059-43bf-a80c-02109941b38d")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR0111"
 			(at 105.41 111.76 0)
 			(effects
 				(font
@@ -2816,6 +2816,12 @@
 			(uuid "1cb90424-3016-43c7-8509-30e418638b2b")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0111")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR05")
@@ -2834,7 +2840,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "14927dc4-aa52-4b88-ae5d-fba365b5af19")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR0113"
 			(at 116.84 146.05 0)
 			(effects
 				(font
@@ -2882,6 +2888,12 @@
 			(uuid "24a9be25-3a41-45d2-ba79-251bcd7c30da")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0113")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR02")
@@ -2900,7 +2912,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "15979f5b-b7d4-4c2f-9ef0-3027f66f7371")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR0116"
 			(at 176.53 125.73 0)
 			(effects
 				(font
@@ -2948,6 +2960,12 @@
 			(uuid "ff38ea1f-ffe9-4450-88ba-b7dfd238494a")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0116")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR09")
@@ -3024,6 +3042,12 @@
 			(uuid "cb217d16-39d6-4519-89bd-bfa2fbabb8b8")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "Q1")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "Q1")
@@ -3042,7 +3066,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "22e599db-881b-484d-a192-92d75457044d")
-		(property "Reference" "R5"
+		(property "Reference" "R18"
 			(at 179.07 114.2999 0)
 			(effects
 				(font
@@ -3094,6 +3118,12 @@
 			(uuid "56da0b87-8093-4b63-b060-345e9c6aa3fc")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R18")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "R5")
@@ -3112,7 +3142,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3079efae-9dd7-4d3f-a084-7f21b49ad27d")
-		(property "Reference" "R2"
+		(property "Reference" "R16"
 			(at 120.65 121.92 90)
 			(effects
 				(font
@@ -3162,6 +3192,12 @@
 			(uuid "90dd82d3-6621-4e51-9346-041e139e9fda")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R16")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "R2")
@@ -3180,7 +3216,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4b33d9b7-81df-4469-9d29-4578fe05937e")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR0114"
 			(at 124.46 111.76 0)
 			(effects
 				(font
@@ -3228,6 +3264,12 @@
 			(uuid "11ba448f-7d3c-4e21-b4c1-f05e8230fbaa")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0114")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR06")
@@ -3246,7 +3288,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4ff12869-d0ae-4236-b828-4a20a1cceac5")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR0118"
 			(at 231.14 99.06 0)
 			(effects
 				(font
@@ -3294,6 +3336,12 @@
 			(uuid "db2afc01-d9c9-466d-ad30-ce84b34a2a8a")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0118")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR07")
@@ -3311,7 +3359,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "53562b59-504c-429a-b127-7f78e1d27463")
-		(property "Reference" "Q?"
+		(property "Reference" "Q6"
 			(at 102.87 91.4399 0)
 			(effects
 				(font
@@ -3385,7 +3433,7 @@
 			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
-					(reference "Q?")
+					(reference "Q3")
 					(unit 1)
 				)
 			)
@@ -3401,7 +3449,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5a0b0723-b35c-4318-98bb-2f7d21c1e51c")
-		(property "Reference" "R4"
+		(property "Reference" "R17"
 			(at 127 110.4899 0)
 			(effects
 				(font
@@ -3453,6 +3501,12 @@
 			(uuid "68aef9b9-7d90-4a40-8a5e-039e234443f9")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R17")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "R4")
@@ -3529,6 +3583,12 @@
 			(uuid "34879045-b63f-4870-b79c-9deb26e8dad2")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "Q2")
@@ -3547,7 +3607,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5d2d1c6d-cf58-4c1a-a83a-c9222d7c61b0")
-		(property "Reference" "Q?"
+		(property "Reference" "Q5"
 			(at 172.72 73.6599 0)
 			(effects
 				(font
@@ -3651,7 +3711,7 @@
 			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
-					(reference "Q?")
+					(reference "Q5")
 					(unit 1)
 				)
 			)
@@ -3667,7 +3727,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "61179cef-9aae-408a-b19c-3c236a92b643")
-		(property "Reference" "R1"
+		(property "Reference" "R14"
 			(at 83.82 120.65 90)
 			(effects
 				(font
@@ -3717,6 +3777,12 @@
 			(uuid "e0b20866-f378-43d2-b679-e7fa01e7d88d")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R14")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "R1")
@@ -3735,7 +3801,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8d9a389d-ffc0-4189-8c1d-064478690661")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR0112"
 			(at 86.36 99.06 0)
 			(effects
 				(font
@@ -3783,6 +3849,12 @@
 			(uuid "2a1dd7f9-f989-4470-b07f-31cf5d49fd01")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0112")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR01")
@@ -3801,7 +3873,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a67d557c-21d9-4c15-9982-3172f7cf75ad")
-		(property "Reference" "Q?"
+		(property "Reference" "Q8"
 			(at 139.7 90.1699 0)
 			(effects
 				(font
@@ -3875,7 +3947,7 @@
 			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
-					(reference "Q?")
+					(reference "Q4")
 					(unit 1)
 				)
 			)
@@ -3891,7 +3963,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b1de813b-1d8d-4df7-95ed-3610058047b4")
-		(property "Reference" "U?"
+		(property "Reference" "U8"
 			(at 213.36 87.63 0)
 			(effects
 				(font
@@ -3959,7 +4031,7 @@
 			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
-					(reference "U?")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -4152,6 +4224,12 @@
 			(uuid "33d98e96-4e52-4e7f-8fc2-a06dbb9f4242")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "D1")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "D1")
@@ -4170,7 +4248,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2794f3b-ba44-41e8-9cd9-7672c15e3dc6")
-		(property "Reference" "R3"
+		(property "Reference" "R15"
 			(at 107.95 110.4899 0)
 			(effects
 				(font
@@ -4222,6 +4300,12 @@
 			(uuid "07b5a239-8013-4252-b90e-86500b870237")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R15")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "R3")
@@ -4240,7 +4324,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e239febe-ebef-4815-9689-158416a7ea5d")
-		(property "Reference" "Q?"
+		(property "Reference" "Q7"
 			(at 195.58 133.3499 0)
 			(effects
 				(font
@@ -4344,7 +4428,7 @@
 			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
-					(reference "Q?")
+					(reference "Q6")
 					(unit 1)
 				)
 			)
@@ -4360,7 +4444,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e610ff20-3433-451c-9c54-7c7227b5b343")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR0117"
 			(at 191.77 146.05 0)
 			(effects
 				(font
@@ -4408,6 +4492,12 @@
 			(uuid "0d3d4063-1356-4bd8-af09-2f4c8d64be84")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0117")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR08")
@@ -4426,7 +4516,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ea09e580-bd1b-40a7-a72f-8a70c770dfbe")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR0115"
 			(at 125.73 97.79 0)
 			(effects
 				(font
@@ -4474,6 +4564,12 @@
 			(uuid "5f878172-7177-4088-a53d-a5b5fce2e3e9")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0115")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR04")
@@ -4492,7 +4588,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fd541ca9-c137-44f0-96ff-cc4a017591a0")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR0119"
 			(at 231.14 116.84 0)
 			(effects
 				(font
@@ -4540,6 +4636,12 @@
 			(uuid "c43b42c1-bd55-48f6-8e3d-463fad1013e2")
 		)
 		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "#PWR0119")
+					(unit 1)
+				)
+			)
 			(project "LED_Driver"
 				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
 					(reference "#PWR03")
