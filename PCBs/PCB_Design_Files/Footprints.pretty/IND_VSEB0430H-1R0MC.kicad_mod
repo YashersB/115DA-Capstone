@@ -1,25 +1,201 @@
-
-(footprint IND_VSEB0430H-1R0MC (layer F.Cu) (tedit 69ECD00E)
-  (descr "")
-  (attr smd)
-  (fp_text reference REF** (at 0.775 -4.035 0) (layer F.SilkS)
-    (effects (font (size 1.0 1.0) (thickness 0.15)))
-  )
-  (fp_text value IND_VSEB0430H-1R0MC (at 9.665 4.035 0) (layer F.Fab)
-    (effects (font (size 1.0 1.0) (thickness 0.15)))
-  )
-  (pad 1 smd rect (at -1.225 0.0) (size 1.2 3.8) (layers F.Cu F.Mask F.Paste) (solder_mask_margin 0.102))
-  (pad 2 smd rect (at 1.225 0.0) (size 1.2 3.8) (layers F.Cu F.Mask F.Paste) (solder_mask_margin 0.102))
-  (fp_line (start -2.15 2.15) (end -2.15 -2.15) (layer F.Fab) (width 0.127))
-  (fp_line (start -2.15 -2.15) (end 2.15 -2.15) (layer F.Fab) (width 0.127))
-  (fp_line (start 2.15 -2.15) (end 2.15 2.15) (layer F.Fab) (width 0.127))
-  (fp_line (start 2.15 2.15) (end -2.15 2.15) (layer F.Fab) (width 0.127))
-  (fp_line (start -2.15 2.15) (end -2.15 -2.15) (layer F.SilkS) (width 0.127))
-  (fp_line (start 2.15 -2.15) (end 2.15 2.15) (layer F.SilkS) (width 0.127))
-  (fp_line (start -2.4 -2.4) (end -2.4 2.4) (layer F.CrtYd) (width 0.05))
-  (fp_line (start -2.4 2.4) (end 2.4 2.4) (layer F.CrtYd) (width 0.05))
-  (fp_line (start 2.4 2.4) (end 2.4 -2.4) (layer F.CrtYd) (width 0.05))
-  (fp_line (start 2.4 -2.4) (end -2.4 -2.4) (layer F.CrtYd) (width 0.05))
-  (fp_circle (center -2.9 0.0) (end -2.8 0.0) (layer F.SilkS) (width 0.2))
-  (fp_circle (center -2.9 0.0) (end -2.8 0.0) (layer F.Fab) (width 0.2))
+(footprint "IND_VSEB0430H-1R0MC"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0.775 -4.035 0)
+		(layer "F.SilkS")
+		(uuid "4fd56537-172c-4739-8ba5-126efe995e4e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "IND_VSEB0430H-1R0MC"
+		(at 9.665 4.035 0)
+		(layer "F.Fab")
+		(uuid "7147ba08-2ebc-4227-92c3-c671fcbcae58")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f23dab15-0fb2-47b4-bf1a-8cfa69bca524")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cb218e80-f421-4fa3-85a2-c53c71d56695")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.15 2.15)
+		(end -2.15 -2.15)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3f6c4812-ea51-4bf0-8b88-f2d46320d292")
+	)
+	(fp_line
+		(start 2.15 -2.15)
+		(end 2.15 2.15)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "fedff278-c3d5-4f6e-9572-ed0d6d7aef44")
+	)
+	(fp_circle
+		(center -2.9 0)
+		(end -2.8 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "078d92fd-b8ac-4d82-bbc3-073f4a659b66")
+	)
+	(fp_line
+		(start -2.4 -2.4)
+		(end -2.4 2.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ad01509e-716c-4eb4-a0f3-0c7d0d7ef958")
+	)
+	(fp_line
+		(start -2.4 2.4)
+		(end 2.4 2.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6c06dee3-fe05-4f92-8709-0eb5ed99b392")
+	)
+	(fp_line
+		(start 2.4 -2.4)
+		(end -2.4 -2.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "f353ee5a-890a-496d-b399-40522f570563")
+	)
+	(fp_line
+		(start 2.4 2.4)
+		(end 2.4 -2.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "0873e786-beaa-46c1-bb4d-7bede3932eb2")
+	)
+	(fp_line
+		(start -2.15 -2.15)
+		(end 2.15 -2.15)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "78d90ef4-4e43-481e-a550-07c4607261b5")
+	)
+	(fp_line
+		(start -2.15 2.15)
+		(end -2.15 -2.15)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "8669f3e7-f514-4c04-9e6a-cb8b2f1a63dd")
+	)
+	(fp_line
+		(start 2.15 -2.15)
+		(end 2.15 2.15)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "7d78d5e4-3bec-424f-b6ae-434071f69b11")
+	)
+	(fp_line
+		(start 2.15 2.15)
+		(end -2.15 2.15)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "f15683e2-8340-496d-a61f-7ee6984f8bae")
+	)
+	(fp_circle
+		(center -2.9 0)
+		(end -2.8 0)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "f0478504-c113-494a-827e-ae887d14a987")
+	)
+	(pad "1" smd rect
+		(at -1.225 0)
+		(size 1.2 3.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "ac6c1a4d-927e-4fd1-bbd7-d74575739169")
+	)
+	(pad "2" smd rect
+		(at 1.225 0)
+		(size 1.2 3.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "3842ddff-c5af-4485-8d48-05bc2fc0c05a")
+	)
+	(embedded_fonts no)
+	(model "C:/Users/Adam Amir/115DA-Capstone/PCBs/PCB_Design_Files/3D_Models/VSEB0430H-1R0MC.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
 )
