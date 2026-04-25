@@ -1,6 +1,6 @@
 (sym_lib_table
   (version 7)
-  (lib (name "Snapeda")(type "KiCad")(uri "${KIPRJMOD}/Snapeda.kicad_sym")(options "")(descr ""))
+  (lib (name "Snapeda")(type "KiCad")(uri "${KIPRJMOD}/Snapeda.kicad_sym")(options "")(descr "")(disabled))
   (lib (name "UltraLibrarian")(type "KiCad")(uri "${KIPRJMOD}/UltraLibrarian.kicad_sym")(options "")(descr ""))
   (lib (name "Samacsys")(type "KiCad")(uri "${KIPRJMOD}/Samacsys.kicad_sym")(options "")(descr ""))
   (lib (name "bfr_master")(type "KiCad")(uri "/Users/oreoturkey/Library/CloudStorage/Box-Box/BFR/BFRUH/Electronics/symbols/bfr_master.kicad_sym")(options "")(descr ""))
@@ -18,5 +18,6 @@
   (lib (name "bfr_utilities")(type "KiCad")(uri "${BFRSYM}/bfr_utilities.kicad_sym")(options "")(descr ""))
   (lib (name "bfr_utilities (tony.wang@bruinracing.org 2)")(type "KiCad")(uri "${BFRSYM}/bfr_utilities (tony.wang@bruinracing.org 2).kicad_sym")(options "")(descr ""))
   (lib (name "bfr_utilities (tony.wang@bruinracing.org)")(type "KiCad")(uri "${BFRSYM}/bfr_utilities (tony.wang@bruinracing.org).kicad_sym")(options "")(descr ""))
-  (lib (name "project_symbols")(type "KiCad")(uri "${KIPRJMOD}/project_symbols.kicad_sym")(options "")(descr ""))
+  (lib (name "project_symbols")(type "KiCad")(uri "${MY_SYM}/project_symbols.kicad_sym")(options "")(descr ""))
+  (lib (name "seed_esp_sym")(type "KiCad")(uri "${MY_SYM}/Seeed_Studio_XIAO_Series_lib.kicad_sym")(options "")(descr ""))
 )
