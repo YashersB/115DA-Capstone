@@ -2122,12 +2122,6 @@
 		(uuid "c6cd3bd4-ac9a-42fc-a838-3435a7842cdd")
 	)
 	(junction
-		(at 228.6 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0c5ead7a-7ff9-4c57-af60-fede4048167a")
-	)
-	(junction
 		(at 123.19 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2200,6 +2194,12 @@
 		(uuid "9a5eb5d2-e7c2-4196-960e-fc6f08fc8c92")
 	)
 	(junction
+		(at 204.47 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a701ef95-b5b9-4b76-abe9-13696ee93290")
+	)
+	(junction
 		(at 29.21 77.47)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2228,6 +2228,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dedef485-fa33-4b7f-911c-f451600ff7f3")
+	)
+	(junction
+		(at 200.66 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e5c31f91-c1ea-4e9a-a9a0-7802d9edf6d8")
 	)
 	(junction
 		(at 27.94 39.37)
@@ -2369,7 +2375,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 91.44) (xy 232.41 90.17)
+			(xy 232.41 85.09) (xy 232.41 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2469,6 +2475,16 @@
 	)
 	(wire
 		(pts
+			(xy 224.79 85.09) (xy 232.41 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "342c4a2c-f73c-4799-afaf-38882fe34b07")
+	)
+	(wire
+		(pts
 			(xy 256.54 91.44) (xy 259.08 91.44)
 		)
 		(stroke
@@ -2529,6 +2545,16 @@
 	)
 	(wire
 		(pts
+			(xy 204.47 88.9) (xy 204.47 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d279317-27f1-427b-8f1a-42727aec6bef")
+	)
+	(wire
+		(pts
 			(xy 29.21 77.47) (xy 36.83 77.47)
 		)
 		(stroke
@@ -2536,16 +2562,6 @@
 			(type default)
 		)
 		(uuid "5d8e5ab5-faec-40b1-8c1f-7193e89be049")
-	)
-	(wire
-		(pts
-			(xy 232.41 80.01) (xy 232.41 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6446ee76-e548-4588-ad2e-0bf5f139973b")
 	)
 	(wire
 		(pts
@@ -2566,6 +2582,16 @@
 			(type default)
 		)
 		(uuid "72739984-d9cf-4f87-8a18-dbec3a65debe")
+	)
+	(wire
+		(pts
+			(xy 204.47 78.74) (xy 205.74 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7413778b-a9fc-4131-9548-f5e3c655f7ef")
 	)
 	(wire
 		(pts
@@ -2629,7 +2655,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 114.3) (xy 200.66 81.28)
+			(xy 200.66 81.28) (xy 200.66 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2759,6 +2785,16 @@
 	)
 	(wire
 		(pts
+			(xy 204.47 91.44) (xy 200.66 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd0d1c5f-0fd2-4924-adef-accc1c8ea7a3")
+	)
+	(wire
+		(pts
 			(xy 27.94 26.67) (xy 36.83 26.67)
 		)
 		(stroke
@@ -2769,7 +2805,17 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 78.74) (xy 205.74 78.74)
+			(xy 200.66 91.44) (xy 200.66 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccecb1c8-2df7-410e-a2d8-b56215242a14")
+	)
+	(wire
+		(pts
+			(xy 200.66 78.74) (xy 204.47 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2799,13 +2845,13 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 60.96) (xy 232.41 60.96)
+			(xy 204.47 78.74) (xy 204.47 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d5898b10-71ef-4998-8ae5-04001a865b01")
+		(uuid "d653320a-2719-43ce-b5fc-fded51b3548f")
 	)
 	(wire
 		(pts
@@ -3005,88 +3051,6 @@
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:MMBT3904")
-		(at 229.87 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0e83cfb0-b43a-4c5b-b699-01f1de32faf8")
-		(property "Reference" "Q4"
-			(at 234.95 83.8199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MMBT3904"
-			(at 234.95 86.3599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Project Footprints:SOT23_FAS"
-			(at 234.95 86.995 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3904-d.pdf"
-			(at 229.87 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23"
-			(at 229.87 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b6ec7078-733d-4c43-984f-60ef3652c3b5")
-		)
-		(pin "1"
-			(uuid "6de30764-e0b5-437e-b89c-e76ad7dc8c2f")
-		)
-		(pin "3"
-			(uuid "bda97b0c-40f9-4d6c-b9b2-76fed6e78566")
-		)
-		(instances
-			(project "Secondary_Board"
-				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
-					(reference "Q4")
-					(unit 1)
-				)
-			)
-			(project "power_mgmt"
-				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
-					(reference "Q4")
 					(unit 1)
 				)
 			)
@@ -4179,6 +4143,76 @@
 			(project "power_mgmt"
 				(path "/c7abdc65-9966-45f8-babc-768b62a50249"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 204.47 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7591ea50-3bec-44da-864a-317eb1556f70")
+		(property "Reference" "C9"
+			(at 208.28 83.8199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "180p"
+			(at 208.28 86.3599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 205.4352 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 204.47 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 204.47 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "26be4c73-43f8-4ef9-8d72-10eb31e73b8c")
+		)
+		(pin "1"
+			(uuid "efd85f80-2384-48de-aec1-c98f2ec61cb4")
+		)
+		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "C9")
 					(unit 1)
 				)
 			)
