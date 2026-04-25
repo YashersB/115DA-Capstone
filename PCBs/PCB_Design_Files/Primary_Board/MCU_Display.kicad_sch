@@ -2226,6 +2226,10 @@
 		(uuid "d8019a1f-26d0-4ac6-ab31-d5deb07f20b7")
 	)
 	(no_connect
+		(at 144.78 60.96)
+		(uuid "d9b3aaed-9544-4b82-be5d-78d69c1e50a0")
+	)
+	(no_connect
 		(at 114.3 39.37)
 		(uuid "f9546f3d-b0c9-4d9c-94ec-8f5d447e49d4")
 	)
@@ -2435,16 +2439,6 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 60.96) (xy 152.4 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7601a59d-af9a-4281-a5b0-3980152c46dc")
-	)
-	(wire
-		(pts
 			(xy 82.55 73.66) (xy 82.55 80.01)
 		)
 		(stroke
@@ -2585,16 +2579,6 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 57.15) (xy 152.4 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d2ae2151-4d58-4545-8e65-93cc9769ec0d")
-	)
-	(wire
-		(pts
 			(xy 124.46 31.75) (xy 124.46 34.29)
 		)
 		(stroke
@@ -2707,6 +2691,17 @@
 		)
 		(uuid "4246da1e-ea7f-48c7-b216-ec4964ec33c3")
 	)
+	(hierarchical_label "PWM_IR"
+		(shape output)
+		(at 154.94 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7324baef-f168-406e-a2d9-20f69d80c0f4")
+	)
 	(hierarchical_label "sCLK"
 		(shape output)
 		(at 158.75 80.01 0)
@@ -2717,6 +2712,17 @@
 			(justify left)
 		)
 		(uuid "987cbb36-7453-4c3d-bbe5-92e55b652328")
+	)
+	(hierarchical_label "OP_CTRL"
+		(shape output)
+		(at 154.94 50.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "aae105db-c93a-406e-a7f6-cd20d69848ce")
 	)
 	(hierarchical_label "ADC_OUT"
 		(shape input)
@@ -2739,6 +2745,17 @@
 			(justify left)
 		)
 		(uuid "c21d4efc-9d51-451f-853b-8125953ab781")
+	)
+	(hierarchical_label "PWM_Red"
+		(shape output)
+		(at 154.94 40.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c5eac52c-b499-4c15-a7cd-42735f337581")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3811,71 +3828,6 @@
 			(project "Primary_Board"
 				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/c9d7a52b-c624-454d-af83-5076e9ccc3d1"
 					(reference "ESP_3V3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 152.4 57.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "cb51de0f-a322-4bd8-acaf-523394d3a8f8")
-		(property "Reference" "#PWR084"
-			(at 152.4 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 152.4 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 152.4 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 152.4 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 152.4 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a54c140a-e33c-4eb5-8f5a-4dca14eb2955")
-		)
-		(instances
-			(project "Primary_Board"
-				(path "/8c3d01e8-a984-4e4e-9220-7d351336a99b/c9d7a52b-c624-454d-af83-5076e9ccc3d1"
-					(reference "#PWR084")
 					(unit 1)
 				)
 			)
