@@ -2322,22 +2322,10 @@
 		)
 	)
 	(junction
-		(at 99.06 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "09958135-e429-4b2d-9395-6960c29305b3")
-	)
-	(junction
 		(at 191.77 121.92)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "32c13444-b1b1-471e-a118-93a58bdfd3d9")
-	)
-	(junction
-		(at 135.89 83.82)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5198f462-4559-447a-9b4c-163fd212702a")
 	)
 	(junction
 		(at 176.53 102.87)
@@ -2349,13 +2337,7 @@
 		(at 99.06 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a68d7959-0648-4998-a0f3-f515387f54d0")
-	)
-	(junction
-		(at 99.06 121.92)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bf785e5c-1b32-4f4c-bf64-e253ae4eaf69")
+		(uuid "7759be8b-d8c4-4442-aabb-326d38c3089b")
 	)
 	(junction
 		(at 135.89 115.57)
@@ -2418,16 +2400,6 @@
 			(type default)
 		)
 		(uuid "212d67be-75fa-493f-975e-4400bafe91cc")
-	)
-	(wire
-		(pts
-			(xy 99.06 121.92) (xy 99.06 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2476350c-f01f-4a0f-a119-6e6fcad96f8e")
 	)
 	(wire
 		(pts
@@ -2498,6 +2470,16 @@
 			(type default)
 		)
 		(uuid "53346f72-9e37-4012-849b-c14fc8c7a323")
+	)
+	(wire
+		(pts
+			(xy 170.18 137.16) (xy 172.72 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "579447a2-7dd6-4d03-95e4-7df214591617")
 	)
 	(wire
 		(pts
@@ -2581,16 +2563,6 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 92.71) (xy 135.89 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8cabf454-3dcf-46e5-bdca-fef0dc0a6e26")
-	)
-	(wire
-		(pts
 			(xy 245.11 100.33) (xy 231.14 100.33)
 		)
 		(stroke
@@ -2621,13 +2593,13 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 93.98) (xy 99.06 85.09)
+			(xy 77.47 127) (xy 80.01 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b0efccec-452b-42aa-8940-8170472f5aaa")
+		(uuid "ca80bfe0-2f4c-4b6c-a4bf-5560d6f7f8ea")
 	)
 	(wire
 		(pts
@@ -2687,7 +2659,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ecce0b23-9cf8-4ca6-a5c2-fcad1b04ea02")
+		(uuid "fbada683-2924-408e-bb31-39dfab4c1580")
 	)
 	(wire
 		(pts
@@ -2720,16 +2692,6 @@
 		(uuid "1c3641ea-8a22-4532-b97f-6b1e0ce09f1f")
 	)
 	(label "Current Sink"
-		(at 152.4 62.23 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5244f60f-a532-4c3f-86dd-d818cdb32a94")
-	)
-	(label "Current Sink"
 		(at 128.27 78.74 0)
 		(effects
 			(font
@@ -2739,93 +2701,49 @@
 		)
 		(uuid "67c7f920-d356-469b-97a6-4646a0ee4a30")
 	)
-	(global_label "MCU_IR"
-		(shape input)
-		(at 116.84 128.27 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "4a06b807-8d31-4a1d-83ae-018a01b8d42f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 106.9605 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "MCU_Red"
-		(shape input)
-		(at 80.01 127 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "76535f24-1026-4684-8efe-86985abbe409")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 68.4977 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "MCU_OPA_CTRL"
-		(shape input)
-		(at 172.72 137.16 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "bde71cb6-dd83-4cb2-96ee-62250921f1ad")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 155.5229 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "V_bandgap"
+	(hierarchical_label "V_bandgap"
 		(shape input)
 		(at 195.58 121.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "f2cf1746-b1a0-4e25-bc39-5e3c20e6b72e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.6644 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
+		(uuid "00dd290e-8418-4e4c-81d5-57efeb2fd400")
+	)
+	(hierarchical_label "OP_CTRL"
+		(shape input)
+		(at 170.18 137.16 180)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify right)
 		)
+		(uuid "01ef3527-6f81-436c-a2d7-3c2a0a4f1c2c")
+	)
+	(hierarchical_label "PWM_IR"
+		(shape input)
+		(at 116.84 128.27 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0c4ccb63-e847-4ef1-861f-fee40fe6aa89")
+	)
+	(hierarchical_label "PWM_Red"
+		(shape input)
+		(at 77.47 127 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e68c9cc2-f07b-4351-b9ea-ed598aab9ad0")
 	)
 	(symbol
 		(lib_id "power:+5V")
@@ -3118,7 +3036,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "201936b2-c0aa-4391-bc3e-48674570e74e")
 		(property "Reference" "Q1"
 			(at 101.6 125.7299 0)
@@ -3130,7 +3047,7 @@
 			)
 		)
 		(property "Value" "2N3904"
-			(at 101.6 128.2699 0)
+			(at 100.33 129.794 0)
 			(effects
 				(font
 					(size 1.27 1.27)
