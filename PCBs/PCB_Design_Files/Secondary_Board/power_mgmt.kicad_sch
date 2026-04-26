@@ -1137,6 +1137,191 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Switch:SW_Nidec_CAS-120A1"
+			(pin_names
+				(offset 1)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 4.318 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_Nidec_CAS-120A1"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Button_Switch_SMD:Nidec_Copal_CAS-120A"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.nidec-components.com/e/catalog/switch/cas.pdf"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Switch, single pole double throw"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch single-pole double-throw spdt ON-ON"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*Nidec?Copal?CAS?120A*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_Nidec_CAS-120A1_0_1"
+				(circle
+					(center -2.032 0)
+					(radius 0.4572)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.651 0.254) (xy 1.651 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 2.54)
+					(radius 0.4572)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -2.54)
+					(radius 0.4572)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_Nidec_CAS-120A1_1_1"
+				(rectangle
+					(start -3.175 3.81)
+					(end 3.175 -3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "TLV9101:TLV9101IDCKR"
 			(pin_names
 				(offset 0.254)
@@ -2062,10 +2247,22 @@
 		(uuid "c6cd3bd4-ac9a-42fc-a838-3435a7842cdd")
 	)
 	(junction
+		(at 25.4 77.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "06e08996-f155-4a34-9545-9c9b3536f4e3")
+	)
+	(junction
 		(at 123.19 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0f31c645-a586-4095-a86a-ae0f2f3e703a")
+	)
+	(junction
+		(at 17.78 77.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "11bf7c6e-84e8-495c-b169-a2b35d8cd62f")
 	)
 	(junction
 		(at 91.44 93.98)
@@ -2086,6 +2283,12 @@
 		(uuid "40354612-82e6-4118-bd57-a0c5c192789e")
 	)
 	(junction
+		(at 34.29 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "434df949-c116-42d0-bebb-5cafd5842cca")
+	)
+	(junction
 		(at 256.54 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2102,6 +2305,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "53f61f1d-c181-4426-8975-f17eec53f0a4")
+	)
+	(junction
+		(at 80.01 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5e1907d1-aab7-4eac-87bc-72ced85b1baf")
 	)
 	(junction
 		(at 236.22 91.44)
@@ -2140,10 +2349,10 @@
 		(uuid "a701ef95-b5b9-4b76-abe9-13696ee93290")
 	)
 	(junction
-		(at 29.21 77.47)
+		(at 33.02 77.47)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d17a6936-0bb7-4032-989b-c3e0291f5e5a")
+		(uuid "d09ef2e9-4f56-49f5-9731-1faf4c04bba3")
 	)
 	(junction
 		(at 91.44 82.55)
@@ -2152,16 +2361,10 @@
 		(uuid "d339e85e-5987-4bb5-9245-363fd1480e81")
 	)
 	(junction
-		(at 25.4 85.09)
+		(at 21.59 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d90703c6-7596-49b4-b3c7-87b956d63ab0")
-	)
-	(junction
-		(at 21.59 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d9893334-ba6c-4eaa-9e64-cd01657b97fe")
 	)
 	(junction
 		(at 113.03 110.49)
@@ -2180,12 +2383,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "eca057e7-d46a-45ab-a4f0-887d97e35d61")
-	)
-	(junction
-		(at 36.83 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f7d4e9f7-ba44-4ba9-a460-5a7b49e12857")
 	)
 	(junction
 		(at 91.44 110.49)
@@ -2225,7 +2422,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 82.55) (xy 91.44 82.55)
+			(xy 73.66 82.55) (xy 80.01 82.55)
 		)
 		(stroke
 			(width 0)
@@ -2235,7 +2432,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 93.98) (xy 73.66 87.63)
+			(xy 80.01 93.98) (xy 80.01 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2245,7 +2442,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 87.63) (xy 36.83 87.63)
+			(xy 31.75 87.63) (xy 34.29 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2305,7 +2502,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 60.96) (xy 73.66 77.47)
+			(xy 80.01 60.96) (xy 80.01 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2335,7 +2532,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 60.96) (xy 73.66 60.96)
+			(xy 62.23 60.96) (xy 80.01 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2352,16 +2549,6 @@
 			(type default)
 		)
 		(uuid "1d5882c2-955e-48ae-a586-a4dfdbb6d788")
-	)
-	(wire
-		(pts
-			(xy 21.59 77.47) (xy 29.21 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "205dfe34-2657-445a-a728-c433e9b413b3")
 	)
 	(wire
 		(pts
@@ -2445,13 +2632,33 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 85.09) (xy 25.4 88.9)
+			(xy 21.59 85.09) (xy 21.59 88.9)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "4fbac474-24ab-4621-8d67-d036aa0797c3")
+	)
+	(wire
+		(pts
+			(xy 33.02 77.47) (xy 44.45 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ff328fd-5dfe-499b-8438-9b0d1445aaf9")
+	)
+	(wire
+		(pts
+			(xy 33.02 80.01) (xy 33.02 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5238bdcc-802a-40b0-985c-925d04406b14")
 	)
 	(wire
 		(pts
@@ -2465,7 +2672,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 77.47) (xy 38.1 77.47)
+			(xy 25.4 77.47) (xy 33.02 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2495,17 +2702,17 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 77.47) (xy 36.83 77.47)
+			(xy 34.29 87.63) (xy 36.83 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5d8e5ab5-faec-40b1-8c1f-7193e89be049")
+		(uuid "60af5883-63c6-4773-8781-237fb69faf5d")
 	)
 	(wire
 		(pts
-			(xy 91.44 93.98) (xy 73.66 93.98)
+			(xy 91.44 93.98) (xy 80.01 93.98)
 		)
 		(stroke
 			(width 0)
@@ -2615,16 +2822,6 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 82.55) (xy 36.83 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8686b051-a8da-4992-8a02-26d33b446155")
-	)
-	(wire
-		(pts
 			(xy 245.11 115.57) (xy 250.19 115.57)
 		)
 		(stroke
@@ -2635,7 +2832,17 @@
 	)
 	(wire
 		(pts
-			(xy 21.59 85.09) (xy 25.4 85.09)
+			(xy 34.29 85.09) (xy 34.29 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "915b54ab-c3cf-4aeb-939a-7c799b33b6d6")
+	)
+	(wire
+		(pts
+			(xy 17.78 85.09) (xy 21.59 85.09)
 		)
 		(stroke
 			(width 0)
@@ -2645,7 +2852,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 85.09) (xy 29.21 85.09)
+			(xy 21.59 85.09) (xy 25.4 85.09)
 		)
 		(stroke
 			(width 0)
@@ -2705,7 +2912,17 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 87.63) (xy 38.1 87.63)
+			(xy 34.29 80.01) (xy 33.02 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ade6d6e2-9391-47f2-a8b5-e79bdf27aef1")
+	)
+	(wire
+		(pts
+			(xy 36.83 87.63) (xy 44.45 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2795,7 +3012,7 @@
 	)
 	(wire
 		(pts
-			(xy 17.78 77.47) (xy 21.59 77.47)
+			(xy 17.78 77.47) (xy 25.4 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2865,13 +3082,13 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 77.47) (xy 36.83 82.55)
+			(xy 80.01 82.55) (xy 91.44 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f1d56ce7-c588-46f5-bd41-b72908532562")
+		(uuid "f3279cae-ac66-485b-98e5-4c9efd193869")
 	)
 	(wire
 		(pts
@@ -3872,7 +4089,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 25.4 88.9 0)
+		(at 21.59 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3881,7 +4098,7 @@
 		(fields_autoplaced yes)
 		(uuid "61b5251f-97ab-4340-8246-ca6fd073769c")
 		(property "Reference" "#PWR0109"
-			(at 25.4 95.25 0)
+			(at 21.59 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3890,7 +4107,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 25.4 93.98 0)
+			(at 21.59 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3898,7 +4115,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 25.4 88.9 0)
+			(at 21.59 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3907,7 +4124,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 25.4 88.9 0)
+			(at 21.59 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3916,7 +4133,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 25.4 88.9 0)
+			(at 21.59 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5159,6 +5376,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Nidec_CAS-120A1")
+		(at 39.37 82.55 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dc29aa78-a41c-402a-a5a6-43ebfd91f9bf")
+		(property "Reference" "SW1"
+			(at 39.37 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Nidec_CAS-120A1"
+			(at 39.37 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:Nidec_Copal_CAS-120A"
+			(at 39.37 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.nidec-components.com/e/catalog/switch/cas.pdf"
+			(at 39.37 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, single pole double throw"
+			(at 39.37 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b6e2c024-ae4d-4022-8dda-e6415f21da13")
+		)
+		(pin "1"
+			(uuid "aa84b6a5-b040-4b82-a6e3-35078f51b802")
+		)
+		(pin "3"
+			(uuid "43ad58a9-7a0a-4888-b504-dc8578ef60f2")
+		)
+		(instances
+			(project ""
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/3db8306c-5846-4ae5-ba17-fe529edf9e71"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 209.55 78.74 90)
 		(unit 1)
@@ -5315,7 +5603,7 @@
 	)
 	(symbol
 		(lib_id "Project_Symbols:TPS61023DRLR")
-		(at 55.88 82.55 0)
+		(at 62.23 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5324,7 +5612,7 @@
 		(fields_autoplaced yes)
 		(uuid "e7fc4755-41f0-4df4-a665-842ea09d155b")
 		(property "Reference" "U5"
-			(at 55.88 67.31 0)
+			(at 62.23 67.31 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -5332,7 +5620,7 @@
 			)
 		)
 		(property "Value" "TPS61023DRLR"
-			(at 55.88 69.85 0)
+			(at 62.23 69.85 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -5340,7 +5628,7 @@
 			)
 		)
 		(property "Footprint" "Project Footprints:DRL0006A"
-			(at 55.372 95.25 0)
+			(at 61.722 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5350,7 +5638,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.ti.com/lit/gpn/tps61023"
-			(at 57.15 93.472 0)
+			(at 63.5 93.472 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5360,7 +5648,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 55.88 82.55 0)
+			(at 62.23 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5397,7 +5685,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 21.59 81.28 0)
+		(at 17.78 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5405,7 +5693,7 @@
 		(dnp no)
 		(uuid "eaf83f85-7c51-43d8-af10-9e48772b786f")
 		(property "Reference" "C2"
-			(at 14.732 81.026 0)
+			(at 10.922 81.026 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5414,7 +5702,7 @@
 			)
 		)
 		(property "Value" "4.7u"
-			(at 14.224 83.566 0)
+			(at 10.414 83.566 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5423,7 +5711,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 22.5552 85.09 0)
+			(at 18.7452 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5432,7 +5720,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 21.59 81.28 0)
+			(at 17.78 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5441,7 +5729,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 21.59 81.28 0)
+			(at 17.78 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5544,7 +5832,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 29.21 81.28 0)
+		(at 25.4 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5553,7 +5841,7 @@
 		(fields_autoplaced yes)
 		(uuid "fd323e8a-d45a-449a-b939-7e5f2744326c")
 		(property "Reference" "C3"
-			(at 33.02 80.0099 0)
+			(at 29.21 80.0099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5562,7 +5850,7 @@
 			)
 		)
 		(property "Value" "4.7u"
-			(at 33.02 82.5499 0)
+			(at 29.21 82.5499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5571,7 +5859,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 30.1752 85.09 0)
+			(at 26.3652 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5580,7 +5868,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 29.21 81.28 0)
+			(at 25.4 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5589,7 +5877,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 29.21 81.28 0)
+			(at 25.4 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
