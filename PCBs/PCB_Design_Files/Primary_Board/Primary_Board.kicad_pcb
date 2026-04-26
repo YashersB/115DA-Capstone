@@ -9098,6 +9098,18 @@
 				)
 			)
 		)
+		(property "LCSC" "C127355"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "c67777bc-40d2-4d93-95ed-fb500a628d42")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "CON_5034801000_MOL")
 		(path "/3afa3cb7-1c0a-46e8-afcc-dfa2e59b8d12")
 		(sheetname "/")
@@ -51144,6 +51156,18 @@
 					(thickness 0.15)
 				)
 				(justify mirror)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "d922fe73-27b4-45fb-a250-5f3d7d660dd2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
 			)
 		)
 		(property ki_fp_filters "STA_RMCF0603_STP STA_RMCF0603_STP-M STA_RMCF0603_STP-L")
