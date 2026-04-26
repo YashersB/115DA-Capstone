@@ -949,46 +949,45 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Project_Symbols:OPA333AIDCKR"
+		(symbol "Project_Symbols:OPA333AIDBVR"
 			(pin_names
-				(offset 1.016)
+				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at -12.7 11.16 0)
+				(at 27.94 10.16 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(justify left bottom)
 				)
 			)
-			(property "Value" "OPA333AIDCKR"
-				(at -12.954 -13.462 0)
+			(property "Value" "OPA333AIDBVR"
+				(at 27.94 7.62 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(justify left bottom)
 				)
 			)
-			(property "Footprint" "Project Footprints:OPA333"
-				(at -0.508 -18.542 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
+			(property "Footprint" "Project Footprints:DBV5"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/gpn/opa333"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
 					)
 					(hide yes)
 				)
@@ -1002,104 +1001,159 @@
 					(hide yes)
 				)
 			)
-			(symbol "OPA333AIDCKR_0_0"
-				(rectangle
-					(start -12.7 -10.16)
-					(end 12.7 10.16)
+			(property "ki_keywords" "OPA333AIDBVR"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "DBV5 DBV5-M DBV5-L"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "OPA333AIDBVR_0_1"
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 -10.16)
+					)
 					(stroke
-						(width 0.41)
+						(width 0.127)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(pin input line
-					(at -17.78 2.54 0)
-					(length 5.08)
-					(name "+IN"
+				(polyline
+					(pts
+						(xy 7.62 -10.16) (xy 48.26 -10.16)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 48.26 5.08) (xy 7.62 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 48.26 -10.16) (xy 48.26 5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin output line
+					(at 0 0 0)
+					(length 7.62)
+					(name "OUT"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 0 0)
-					(length 5.08)
-					(name "-IN"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 				(pin power_in line
-					(at 17.78 7.62 180)
-					(length 5.08)
-					(name "V+"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 17.78 2.54 180)
-					(length 5.08)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 17.78 -7.62 180)
-					(length 5.08)
+					(at 0 -2.54 0)
+					(length 7.62)
 					(name "V-"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 55.88 0 180)
+					(length 7.62)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 55.88 -2.54 180)
+					(length 7.62)
+					(name "IN-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 55.88 -5.08 180)
+					(length 7.62)
+					(name "IN+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -2322,12 +2376,6 @@
 		)
 	)
 	(junction
-		(at 191.77 121.92)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "32c13444-b1b1-471e-a118-93a58bdfd3d9")
-	)
-	(junction
 		(at 176.53 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2338,6 +2386,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7759be8b-d8c4-4442-aabb-326d38c3089b")
+	)
+	(junction
+		(at 191.77 121.92)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "805e0a90-b395-4977-81e0-a27552b991d2")
 	)
 	(junction
 		(at 135.89 115.57)
@@ -2353,16 +2407,6 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 77.47) (xy 245.11 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08f2b015-4627-476e-9827-b6e6a08af653")
-	)
-	(wire
-		(pts
 			(xy 191.77 121.92) (xy 191.77 129.54)
 		)
 		(stroke
@@ -2373,7 +2417,17 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 77.47) (xy 245.11 77.47)
+			(xy 191.77 121.92) (xy 191.77 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12860a5d-5a47-41ab-a6d0-6aa797917caf")
+	)
+	(wire
+		(pts
+			(xy 181.61 77.47) (xy 251.46 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2430,16 +2484,6 @@
 			(type default)
 		)
 		(uuid "393c7e28-38ed-4aae-b123-b6dbdc5bfa80")
-	)
-	(wire
-		(pts
-			(xy 195.58 100.33) (xy 191.77 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c81d85e-de71-4c90-8643-23491c445680")
 	)
 	(wire
 		(pts
@@ -2573,13 +2617,13 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 100.33) (xy 231.14 100.33)
+			(xy 191.77 105.41) (xy 195.58 105.41)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9e06d1cb-4032-4ebc-a90b-b19ac2d9915d")
+		(uuid "8cd08e1b-bb8a-448d-bb4a-8ab927547687")
 	)
 	(wire
 		(pts
@@ -2653,13 +2697,13 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 100.33) (xy 191.77 121.92)
+			(xy 251.46 77.47) (xy 251.46 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ec673740-0678-4177-bd32-56310b906f9b")
+		(uuid "ecbb0460-a434-4f38-aa32-c0925dd0d2c6")
 	)
 	(wire
 		(pts
@@ -2713,7 +2757,11 @@
 	)
 	(hierarchical_label "V_bandgap"
 		(shape input)
+<<<<<<< HEAD
+		(at 203.2 121.92 0)
+=======
 		(at 208.28 121.92 0)
+>>>>>>> 036021e0ddb748cbc72db9e0af6d83c3fe36516b
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2961,6 +3009,12 @@
 			(project "Secondary_Board"
 				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
 					(reference "R19")
+					(unit 1)
+				)
+			)
+			(project "LED_Driver"
+				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
+					(reference "R?")
 					(unit 1)
 				)
 			)
@@ -3343,7 +3397,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 231.14 95.25 0)
+		(at 195.58 100.33 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3352,7 +3406,7 @@
 		(fields_autoplaced yes)
 		(uuid "4ff12869-d0ae-4236-b828-4a20a1cceac5")
 		(property "Reference" "#PWR0118"
-			(at 231.14 99.06 0)
+			(at 195.58 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3361,7 +3415,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 231.14 90.17 0)
+			(at 195.58 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3369,7 +3423,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 231.14 95.25 0)
+			(at 195.58 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3378,7 +3432,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 231.14 95.25 0)
+			(at 195.58 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3387,7 +3441,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 231.14 95.25 0)
+			(at 195.58 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4085,17 +4139,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Project_Symbols:OPA333AIDCKR")
-		(at 213.36 102.87 0)
+		(lib_id "Project_Symbols:OPA333AIDBVR")
+		(at 251.46 100.33 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "b1de813b-1d8d-4df7-95ed-3610058047b4")
 		(property "Reference" "U8"
-			(at 213.36 87.63 0)
+			(at 223.52 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4103,34 +4157,35 @@
 			)
 		)
 		(property "Value" "OPA333AIDCKR"
-			(at 213.36 90.17 0)
+			(at 223.52 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Project Footprints:OPA333"
-			(at 212.852 121.412 0)
+		(property "Footprint" "Project Footprints:DBV5"
+			(at 251.46 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 213.36 102.87 0)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/opa333"
+			(at 251.46 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 				(hide yes)
 			)
 		)
 		(property "Description" ""
-			(at 213.36 102.87 0)
+			(at 251.46 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4710,8 +4765,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 199.39 121.92 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f90041f0-d8fe-4b60-8490-1db30e31acb7")
+		(property "Reference" "R?"
+			(at 199.39 115.57 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 199.39 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 199.39 120.142 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 199.39 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 199.39 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "379dac44-2136-4edf-8823-80c82de6a751")
+		)
+		(pin "1"
+			(uuid "eb6ff45b-37b5-406f-a1e1-f464ce2c4224")
+		)
+		(instances
+			(project "Secondary_Board"
+				(path "/2f5986e4-77b2-4f5d-ab91-80ba6228eb8b/16ecf950-1853-427b-9137-65792483b2a5"
+					(reference "R?")
+					(unit 1)
+				)
+			)
+			(project "LED_Driver"
+				(path "/ed36e940-b5c2-4fa7-8175-f729e6b712de"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 231.14 110.49 0)
+		(at 251.46 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4720,7 +4849,7 @@
 		(fields_autoplaced yes)
 		(uuid "fd541ca9-c137-44f0-96ff-cc4a017591a0")
 		(property "Reference" "#PWR0119"
-			(at 231.14 116.84 0)
+			(at 251.46 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4729,7 +4858,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 231.14 115.57 0)
+			(at 251.46 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4737,7 +4866,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 231.14 110.49 0)
+			(at 251.46 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4746,7 +4875,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 231.14 110.49 0)
+			(at 251.46 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4755,7 +4884,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 231.14 110.49 0)
+			(at 251.46 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
