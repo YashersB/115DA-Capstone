@@ -2383,7 +2383,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 121.92) (xy 195.58 121.92)
+			(xy 191.77 121.92) (xy 208.28 121.92)
 		)
 		(stroke
 			(width 0)
@@ -2703,7 +2703,7 @@
 	)
 	(hierarchical_label "V_bandgap"
 		(shape input)
-		(at 195.58 121.92 0)
+		(at 208.28 121.92 0)
 		(effects
 			(font
 				(size 1.27 1.27)
