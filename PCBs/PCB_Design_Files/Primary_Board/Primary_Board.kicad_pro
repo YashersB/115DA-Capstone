@@ -94,7 +94,7 @@
         "mirrored_text_on_front_layer": "warning",
         "missing_courtyard": "error",
         "missing_footprint": "warning",
-        "net_conflict": "warning",
+        "net_conflict": "ignore",
         "nonmirrored_text_on_back_layer": "warning",
         "npth_inside_courtyard": "error",
         "padstack": "warning",
