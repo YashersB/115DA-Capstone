@@ -36,3 +36,5 @@ TLV9101IDCKR,U6,SC70-5_DCK_TEX,,1
 R,R16,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,,1
 DMMT5401-7-F,U1,DMMT5401_Dual_PNP,,1
 Battery_Cell,BT2,bat_pads,,1
+100k,R21,0603_resistor,,1
+Conn_01x03_Pin,J2,PinHeader_1x03_P2.54mm_Vertical,,1

@@ -38,3 +38,5 @@ MCP6561T-E/OT,U11,SOT-23-5_HandSoldering,,1
 Conn_01x10_Pin,J4,PinHeader_1x10_P2.54mm_Vertical,,1
 XIAO-ESP32-S3-SMD,U16,XIAO-ESP32-S3-SMD,,1
 100n,C73,0603_capacitor,,1
+100k,R25,0603_resistor,,1
+100k,R26,0603_resistor,,1
