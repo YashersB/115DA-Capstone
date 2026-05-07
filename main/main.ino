@@ -1,42 +1,55 @@
 #include "gui.h"
 
-// --- Placeholder Vitals Data ---
-float readPTAT() { return 95.6; }          // Dummy Temperature
-float calculateOxygen() { return 98.5; }   // Dummy SpO2
-int calculateHeartRate() { return 72; }    // Dummy BPM
-int readBatteryMv() { return 4200; }       // Dummy Battery Voltage mV (3.3 to 4.2 range)
+TaskHandle_t TaskSampling;
+TaskHandle_t TaskDisplay;
+
+volatile float currentTemp = 36.8;
+volatile float currentSpO2 = 98.0;
+volatile int currentBPM = 72;
+volatile int currentBatt = 3800;
+
+// ADJUST THIS FOR WAVEFORM SPEED
+// 1 = Very fast, 4-6 = Condensed/Medical look, 10 = Slow
+const int DECIMATION = 7; 
+
+void samplingCode(void * pvParameters) {
+    int sampleCounter = 0;
+    for(;;) {
+        // Your future analogRead(A0) goes here
+        float t = millis() / 120.0; // Slightly slowed the sim frequency too
+        uint16_t raw = 2048 + (sin(t) * 500) + (sin(t * 2.3) * 100); 
+        
+        // Decimation: Only push every N-th sample to the screen
+        sampleCounter++;
+        if(sampleCounter >= DECIMATION) {
+            updateBuffer(raw);
+            sampleCounter = 0;
+        }
+        
+        vTaskDelay(pdMS_TO_TICKS(2)); // Still sampling at 500Hz for accuracy
+    }
+}
+
+void displayCode(void * pvParameters) {
+    for(;;) {
+        drawGUI(currentSpO2, currentBPM, currentTemp, currentBatt);
+        vTaskDelay(pdMS_TO_TICKS(33)); // Fixed 30 FPS refresh
+    }
+}
 
 void setup() {
-    delay(2000); 
     Serial.begin(115200);
+    analogSetAttenuation(ADC_11db);
+    analogReadResolution(12);
 
-    // Set ADC range from 0 to 3.3V
-    analogSetAttenuation(ADC_11db); 
-    
-    // XIAO ESP32-C3 I2C: SDA=GPIO6 (D4), SCL=GPIO7 (D5)
-    Wire.begin(6, 7); 
-    Wire.setClock(400000); // 400kHz Fast Mode
-    
+    Wire.begin(5, 6);
+    Wire.setClock(400000);
     setupGUI();
-    Serial.println("Capstone Pulse Ox: System Online");
+
+    xTaskCreatePinnedToCore(samplingCode, "Sampling", 4096, NULL, 3, &TaskSampling, 0);
+    xTaskCreatePinnedToCore(displayCode, "Display", 4096, NULL, 1, &TaskDisplay, 1);
 }
 
 void loop() {
-    //Gather all data
-    float currentTemp = readPTAT();
-    float currentSpO2 = calculateOxygen();
-    int currentBPM = calculateHeartRate();
-    int batteryMv = readBatteryMv();
-
-    //Simulate Waveform (Merging two Sine waves for a "Pulse" look)
-    float time = millis() / 150.0;
-    int rawPPG = 512 + (sin(time) * 200) + (sin(time * 2.5) * 50);
-    
-    updateBuffer(rawPPG);
-
-    // Draw the GUI
-    drawGUI(currentSpO2, currentBPM, currentTemp, batteryMv);
-
-    // Short delay to keep the loop responsive
-    delay(10); 
+    vTaskDelay(pdMS_TO_TICKS(1000));
 }
