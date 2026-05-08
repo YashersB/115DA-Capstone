@@ -2594,6 +2594,32 @@
 		)
 		(uuid "1504dd37-e11f-48ea-8ec7-edfe499c60bf")
 	)
+	(text "100\n\n"
+		(exclude_from_sim no)
+		(at 134.366 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+			)
+		)
+		(uuid "5eb94dd8-ec3b-4caa-bb0c-f454f73fcff8")
+	)
+	(text "2k\n"
+		(exclude_from_sim no)
+		(at 45.72 110.236 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+				(italic yes)
+			)
+		)
+		(uuid "8deb04b2-7e0b-4c79-9925-99646cfbc7df")
+	)
 	(text "3x NPN\n"
 		(exclude_from_sim no)
 		(at 134.366 132.588 0)

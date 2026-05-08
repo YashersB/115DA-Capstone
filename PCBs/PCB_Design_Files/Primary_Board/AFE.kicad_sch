@@ -3698,7 +3698,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" ".1u"
 			(at 129.54 68.326 90)
 			(effects
 				(font
@@ -3993,7 +3993,7 @@
 				)
 			)
 		)
-		(property "Value" "40k"
+		(property "Value" "39k"
 			(at 242.062 56.642 90)
 			(effects
 				(font
@@ -4334,7 +4334,7 @@
 				)
 			)
 		)
-		(property "Value" "1u"
+		(property "Value" ".1u"
 			(at 48.26 87.376 90)
 			(effects
 				(font
@@ -5034,7 +5034,7 @@
 				)
 			)
 		)
-		(property "Value" "380k"
+		(property "Value" "390k"
 			(at 182.372 142.748 0)
 			(effects
 				(font
