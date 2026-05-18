@@ -12,6 +12,10 @@ volatile int currentBatt = 3800;
 // 1 = Very fast, 4-6 = Condensed/Medical look, 10 = Slow
 const int DECIMATION = 7; 
 
+void muxControl (pin0, pin1) {
+    
+}
+
 void samplingCode(void * pvParameters) {
     int sampleCounter = 0;
     for(;;) {
