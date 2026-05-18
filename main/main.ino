@@ -15,6 +15,8 @@ volatile float battery_voltage = 0.0f;
 #define ADC_PIN 1 // GPIO 1 (A0)
 #define ADC_BAT 4 // GPIO 4 (A4)
 
+int activeMuxChannel = 3;
+
 // Resistor Divider Scaling Factors
 const float DIVIDER_FACTOR_ADC = 2.0039801f;
 const float DIVIDER_FACTOR_BAT = 2.0109f;
@@ -57,6 +59,60 @@ void muxControl (int channel) {
             return;
     }
     delayMicroseconds(10);
+}
+
+void processTempAndBattery() {
+    // ESP ADC Sampling
+    long sum = 0;
+    long sum_bat = 0; 
+    const int numSamples = 64;
+
+    for(int i = 0; i < numSamples; i++) {
+        sum += analogReadMilliVolts(ADC_PIN);
+        sum_bat += analogReadMilliVolts(ADC_BAT);
+        delayMicroseconds(50); // Gives the internal ADC time to reset
+    }
+
+    // Calculate averages
+    float rawAdc = (float)sum / numSamples;
+    float rawBatAdc = (float)sum_bat / numSamples;
+
+    // Convert to true voltages 
+    float current_ptat = ((rawAdc / 1000.0f)) * DIVIDER_FACTOR_ADC + PTAT_CAL_OFFSET;
+    float current_bat = ((rawBatAdc / 1000.0f)) * DIVIDER_FACTOR_BAT + BATT_CAL_OFFSET;
+    
+    // --- EXPONENTIAL MOVING AVERAGE (EMA) FILTER ---
+    // These static variables remember their state between loop executions
+    static float smooth_ptat = 0.0f;
+    static float smooth_bat = 0.0f;
+    static bool firstRun = true;
+    const float ALPHA = 0.05f; 
+
+    if (firstRun) {
+        smooth_ptat = current_ptat;
+        smooth_bat  = current_bat;
+        firstRun = false;
+    }
+
+    smooth_ptat = (ALPHA * current_ptat) + ((1.0f - ALPHA) * smooth_ptat);
+    smooth_bat  = (ALPHA * current_bat)  + ((1.0f - ALPHA) * smooth_bat);
+
+    // PTAT Math and Battery Voltage
+    temp = (smooth_ptat-PTAT_BASELINE) / PTAT_SLOPE;
+    battery_voltage = smooth_bat;
+
+    // Output to Serial
+    Serial.print("PTAT True V: ");
+    Serial.print(smooth_ptat, 3);
+    Serial.print(" V  ||  Battery True V: ");
+    Serial.print(battery_voltage, 3);
+    Serial.println(" V");
+
+    Serial.print(" || Celcius C: ");
+    Serial.println(temp, 1);
+
+    // Read twice per second
+    delay(500);
 }
 /*
 void samplingCode(void * pvParameters) {
@@ -111,59 +167,30 @@ void setup() {
 }
 
 void loop() {
-    //vTaskDelay(pdMS_TO_TICKS(1000));
-    muxControl(3);
-
-    // ESP ADC Sampling
-    long sum = 0;
-    long sum_bat = 0; 
-    const int numSamples = 64;
-
-    for(int i = 0; i < numSamples; i++) {
-        sum += analogReadMilliVolts(ADC_PIN);
-        sum_bat += analogReadMilliVolts(ADC_BAT);
-        delayMicroseconds(50); // Gives the internal ADC time to reset
-    }
-
-    // Calculate averages
-    float rawAdc = (float)sum / numSamples;
-    float rawBatAdc = (float)sum_bat / numSamples;
-
-    // Convert to true voltages 
-    float current_ptat = ((rawAdc / 1000.0f)) * DIVIDER_FACTOR_ADC + PTAT_CAL_OFFSET;
-    float current_bat = ((rawBatAdc / 1000.0f)) * DIVIDER_FACTOR_BAT + BATT_CAL_OFFSET;
     
-    // --- EXPONENTIAL MOVING AVERAGE (EMA) FILTER ---
-    // These static variables remember their state between loop executions
-    static float smooth_ptat = 0.0f;
-    static float smooth_bat = 0.0f;
-    static bool firstRun = true;
-    const float ALPHA = 0.05f; 
+    //vTaskDelay(pdMS_TO_TICKS(1000));
+    muxControl(activeMuxChannel);
 
-    if (firstRun) {
-        smooth_ptat = current_ptat;
-        smooth_bat  = current_bat;
-        firstRun = false;
+    switch (activeMuxChannel) {
+        case 1:
+            // TODO: High-speed SpO2 AC/DC logic goes here
+            break;
+            
+        case 2:
+            // TODO: High-speed BPM logic goes here
+            break;
+            
+        case 3:
+            //Temperature and Battery
+            processTemperatureAndBattery();
+            break;
+        
+        default:
+            return;
     }
 
-    smooth_ptat = (ALPHA * current_ptat) + ((1.0f - ALPHA) * smooth_ptat);
-    smooth_bat  = (ALPHA * current_bat)  + ((1.0f - ALPHA) * smooth_bat);
-
-    // PTAT Math and Battery Voltage
-    temp = (smooth_ptat-PTAT_BASELINE) / PTAT_SLOPE;
-    battery_voltage = smooth_bat;
-
-    // Output to Serial
-    Serial.print("PTAT True V: ");
-    Serial.print(smooth_ptat, 3);
-    Serial.print(" V  ||  Battery True V: ");
-    Serial.print(battery_voltage, 3);
-    Serial.println(" V");
-
-    Serial.print(" || Celcius C: ");
-    Serial.println(temp, 1);
-
-    // Read twice per second
-    delay(500);
-
+    // Write logic here to switch channels rapidly
+    activeMuxChannel = 3; 
+    
+    delay(500); // Temporary loop delay
 }
