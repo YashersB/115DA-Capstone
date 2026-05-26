@@ -5,12 +5,10 @@
 
 #ifndef OXYGEN_H
 #define OXYGEN_H
-#include <Arduino.h>
 #include <math.h>
-#include <Wire.h>
 #include "driver.h"
 #include "gui.h"
-#include "cap_adc"
+#include "cap_adc.h"
 #include "ots_adc.h"
 #include "temperature.h"
 
