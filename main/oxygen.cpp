@@ -12,7 +12,7 @@ static bool isBufferFull = false;
  * intialize buffer
  */
 
- void oxygeninit()
+ void oxygenInit()
 {
   bufferIdx = 0;
   isBufferFull = false;
@@ -54,7 +54,7 @@ static bool isBufferFull = false;
  static float calcRMS_ac(float *buffer, float dc, int size)
  {
   float sumSquares = 0.0f;
-  for (int i =0; i < size, i++)
+  for (int i =0; i < size; i++)
   {
     float ac = buffer[i] - dc;
     sumSquares += ac*ac;
@@ -73,7 +73,7 @@ static bool isBufferFull = false;
   result.dcIR = calcMean(irBuffer, BUFFER_SIZE);
 
   
-  result.acRed = calcRMS_ac(refBuffer, result.dcRed BUFFER_SIZE);
+  result.acRed = calcRMS_ac(redBuffer, result.dcRed, BUFFER_SIZE);
   result.acIR = calcRMS_ac(irBuffer, result.dcIR, BUFFER_SIZE);
 
   //initiate testing statements
@@ -107,5 +107,11 @@ static bool isBufferFull = false;
     result.valid = true;
 
     return result;
+
+ 
+  
+
+  
+  
  }
  

@@ -5,16 +5,18 @@
 
 #ifndef OXYGEN_H
 #define OXYGEN_H
+#include <Arduino.h>
 #include <math.h>
+#include <Wire.h>
 #include "driver.h"
 #include "gui.h"
 #include "cap_adc.h"
 #include "ots_adc.h"
+#include "temperature.h"
 
-*************************************
+//*************************************
 //LED Driver: controls LED timing and source
-//main.cpp gather sample from red/IR
-//this-> computes AC/DC/R/SpO2
+//main.cpp gather sample from red/IR this-> computes AC/DC/R/SpO2
 
 typedef struct{
   float spo2;
@@ -50,3 +52,6 @@ bool oxygenReady();
 spo2calc oxygencompute();
 
 #endif
+
+
+  
