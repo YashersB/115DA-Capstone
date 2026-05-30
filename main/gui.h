@@ -12,7 +12,7 @@
 static Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 static volatile uint16_t ppgBuffer[SCREEN_WIDTH]; 
 
-void setupGUI() {
+inline void setupGUI() {
     if(!display.begin(i2c_Address, true)) {
         Serial.println(F("SH1106 Failed"));
     }
@@ -20,13 +20,13 @@ void setupGUI() {
     display.clearDisplay();
 }
 
-void updateBuffer(uint16_t newSample) {
+inline void updateBuffer(uint16_t newSample) {
     // High-speed memory shift
     memmove((void*)ppgBuffer, (void*)(ppgBuffer + 1), (SCREEN_WIDTH - 1) * sizeof(uint16_t));
     ppgBuffer[SCREEN_WIDTH - 1] = newSample;
 }
 
-void drawGUI(float spo2, int bpm, float temp, int battMv) {
+inline void drawGUI(float spo2, int bpm, float temp, int battMv) {
     display.clearDisplay();
     display.setTextColor(SH110X_WHITE);
 

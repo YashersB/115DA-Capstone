@@ -1,24 +1,11 @@
-// Blood Oxygen Level Algorithm : Adam
-
-//Libraries
-//////////////////////////////////////////////////////////
-
 #ifndef OXYGEN_H
 #define OXYGEN_H
+
 #include <Arduino.h>
 #include <math.h>
-#include <Wire.h>
-#include "driver.h"
-#include "gui.h"
-#include "cap_adc.h"
-#include "ots_adc.h"
-#include "temperature.h"
 
-//*************************************
-//LED Driver: controls LED timing and source
-//main.cpp gather sample from red/IR this-> computes AC/DC/R/SpO2
-
-typedef struct{
+// Struct to hold calculated values
+typedef struct {
   float spo2;
   float ratio;
   float dcRed;
@@ -26,32 +13,13 @@ typedef struct{
   float acRed;
   float acIR;
   bool valid;
-}spo2calc;
+} spo2calc;
 
-/*
- * For max accuracy, dont use linear lookup table for R, use 2nd order polynomial 
- * spo2 = aR^2 + bR + c
- * R = (acRed/dcRed)/(acIR/dcIR)
- * 
- * a, b, and c are calibration coeff
- * 
- */
+const int ADC_PIN_OXYGEN = A0;
 
-//use output of MUX and short to input of esp gpio - adc_bypass to esp
-//Pin: GPIO_A0_D0
-//
-const int ADC_PIN = A0;
-
-
-void oxygenInit();  //initialization function
-
-void oxygenAddSample(float redSample, float irSample); //
-
+void oxygenInit(); 
+void oxygenAddSample(float redSample, float irSample); 
 bool oxygenReady();
-
 spo2calc oxygencompute();
 
 #endif
-
-
-  

@@ -1,13 +1,12 @@
-// --- LEDDriver.h ---
 #pragma once
-#include <Arduino.h> // Required so the compiler understands digitalWrite, HIGH, LOW, etc.
+#include <Arduino.h> 
 
 class LEDDriver {
   private:
-    // HARDCODED PIN ASSIGNMENTS
+    // UPDATED HARDCODED PIN ASSIGNMENTS
     const uint8_t pinMute = 39;
-    const uint8_t pinRed = 40;
-    const uint8_t pinIR = 42;
+    const uint8_t pinRed = 41; // Changed to GPIO 41
+    const uint8_t pinIR = 42;  // GPIO 42
 
     // timing variables
     unsigned long lastMicros;
@@ -15,9 +14,13 @@ class LEDDriver {
     uint8_t phaseStep;
 
   public:
-    // TIMING CONSTANTS
-    unsigned long settleTimeUS = 2000; 
-    unsigned long readTimeUS = 500;    
+    // --- TESTING TIMING CONSTANTS ---
+    // Slowed down to 0.5 seconds so your eyes can see the flashes.
+    // When you are ready for medical sampling, change these back to:
+    // settleTimeUS = 2000;
+    // readTimeUS = 500;
+    unsigned long settleTimeUS = 500000; 
+    unsigned long readTimeUS = 500000;    
 
     LEDDriver() {
       lastMicros = 0;
@@ -26,10 +29,6 @@ class LEDDriver {
     }
 
     void begin() {
-      pinMatrixOutDetach(pinMute, false, false);
-      pinMatrixOutDetach(pinRed, false, false);
-      pinMatrixOutDetach(pinIR, false, false);
-
       pinMode(pinMute, OUTPUT);
       pinMode(pinRed, OUTPUT);
       pinMode(pinIR, OUTPUT);
@@ -38,6 +37,7 @@ class LEDDriver {
       lastMicros = micros();
     }
 
+    // This MUST be called as fast as possible in the main loop
     void update() {
       unsigned long currentMicros = micros();
       

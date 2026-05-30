@@ -1,30 +1,24 @@
 #include "oxygen.h"
-#define BUFFER_SIZE 400 //buffer to store ir and red samples to establish baseline
+
+#define BUFFER_SIZE 400 
 
 static float redBuffer[BUFFER_SIZE];
 static float irBuffer[BUFFER_SIZE];
 
 static uint16_t bufferIdx = 0;
-
 static bool isBufferFull = false;
 
-/*
- * intialize buffer
- */
-
- void oxygenInit()
-{
-  bufferIdx = 0;
-  isBufferFull = false;
-  // Clear out any old garbage data
+void oxygenInit() {
+    bufferIdx = 0;
+    isBufferFull = false;
+    // Clear out any old garbage data
     for (int i = 0; i < BUFFER_SIZE; i++) {
         redBuffer[i] = 0.0f;
         irBuffer[i] = 0.0f;
     }
-    
- }
+}
 
- void oxygenAddSample(float redSample, float irSample) {
+void oxygenAddSample(float redSample, float irSample) {
     redBuffer[bufferIdx] = redSample;
     irBuffer[bufferIdx] = irSample;
     bufferIdx++;
@@ -34,84 +28,64 @@ static bool isBufferFull = false;
     }
 }
 
- bool oxygenReady()
- {
-  return isBufferFull;
-  
- }
+bool oxygenReady() {
+    return isBufferFull;
+}
 
- static float calcMean(float *buffer, int size)
- {
-  float sum = 0.0f;
-  for(int i = 0; i < size; i++)
-  {
-    sum += buffer[i];
-  }
-  return sum/size;
-  
- }
+static float calcMean(float *buffer, int size) {
+    float sum = 0.0f;
+    for(int i = 0; i < size; i++) {
+        sum += buffer[i];
+    }
+    return sum / size;
+}
 
- static float calcRMS_ac(float *buffer, float dc, int size)
- {
-  float sumSquares = 0.0f;
-  for (int i =0; i < size; i++)
-  {
-    float ac = buffer[i] - dc;
-    sumSquares += ac*ac;
-    
-  }
-  return sqrt(sumSquares/size);
- }
+static float calcRMS_ac(float *buffer, float dc, int size) {
+    float sumSquares = 0.0f;
+    for (int i = 0; i < size; i++) {
+        float ac = buffer[i] - dc;
+        sumSquares += ac * ac;
+    }
+    return sqrt(sumSquares / size);
+}
  
+spo2calc oxygencompute() {
+    spo2calc result;
 
- spo2calc oxygencompute()
- {
-  spo2calc result;
+    // Calc DC components
+    result.dcRed = calcMean(redBuffer, BUFFER_SIZE);
+    result.dcIR = calcMean(irBuffer, BUFFER_SIZE);
 
-  //calc dc and ac components
-  result.dcRed = calcMean(redBuffer, BUFFER_SIZE);
-  result.dcIR = calcMean(irBuffer, BUFFER_SIZE);
+    // Calc AC (RMS) components
+    result.acRed = calcRMS_ac(redBuffer, result.dcRed, BUFFER_SIZE);
+    result.acIR = calcRMS_ac(irBuffer, result.dcIR, BUFFER_SIZE);
 
-  
-  result.acRed = calcRMS_ac(redBuffer, result.dcRed, BUFFER_SIZE);
-  result.acIR = calcRMS_ac(irBuffer, result.dcIR, BUFFER_SIZE);
+    result.valid = false;
+    result.ratio = 0.0f;
+    result.spo2  = 0.0f;
 
-  //initiate testing statements
-  result.valid = false;
-  result.ratio = 0.0f;
-  result.spo2  = 0.0f;
-
-  //check for any invalid value 
-   if (result.dcRed <= 0.0f || result.dcIR <= 0.0f ||
-        result.acRed <= 0.0f || result.acIR <= 0.0f)
-    {
+    // Check for invalid data (prevents dividing by zero)
+    if (result.dcRed <= 0.0f || result.dcIR <= 0.0f ||
+        result.acRed <= 0.0f || result.acIR <= 0.0f) {
         return result;
     }
 
-    float redRatio = result.acRed/result.dcRed;
-    float irRatio = result.acIR/result.dcIR;
+    float redRatio = result.acRed / result.dcRed;
+    float irRatio = result.acIR / result.dcIR;
 
     if (irRatio <= 0.0f) {
         return result;
     }
 
-     result.ratio = redRatio / irRatio;
+    result.ratio = redRatio / irRatio;
 
-    // calculation with approximated coefficients, bound to fine-tuning. 
+    // Linear approximation of R curve
     result.spo2 = 110.0f - 25.0f * result.ratio;
 
-    // Clamp to reasonable physical range
+    // Clamp to realistic bounds
     if (result.spo2 > 100.0f) result.spo2 = 100.0f;
     if (result.spo2 < 0.0f)   result.spo2 = 0.0f;
 
     result.valid = true;
-
-    return result;
-
- 
-  
-
-  
-  
- }
- 
+    return result; 
+}
