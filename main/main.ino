@@ -1,196 +1,327 @@
-#include "gui.h"
+#include <Arduino.h>
 #include <WiFi.h>
 
-TaskHandle_t TaskSampling;
-TaskHandle_t TaskDisplay;
+#include "gui.h"
+#include "LEDDriver.h"
+#include "oxygen.h"
 
-volatile float temp = 0.0f;
-volatile float currentSpO2 = 98.0;
+namespace {
+
+constexpr uint8_t MUX_A0 = 8;
+constexpr uint8_t MUX_A1 = 44;
+constexpr uint8_t ADC_PIN = 1;
+constexpr uint8_t ADC_BAT = 4;
+
+constexpr uint8_t MUX_CHANNEL_PPG = 1;
+constexpr uint8_t MUX_CHANNEL_BPM = 2;
+constexpr uint8_t MUX_CHANNEL_PTAT = 3;
+constexpr uint8_t MUX_CHANNEL_AUX = 4;
+
+constexpr uint16_t MUX_SETTLE_US = 10;
+constexpr uint16_t ADC_RECOVERY_US = 50;
+constexpr uint16_t PTAT_SAMPLE_COUNT = 64;
+constexpr uint32_t TEMP_READ_INTERVAL_MS = 500;
+constexpr uint8_t WAVEFORM_DECIMATION = 6;
+constexpr bool ENABLE_PPG_DEBUG = false;
+constexpr uint32_t DEBUG_PRINT_INTERVAL_MS = 250;
+
+constexpr float DIVIDER_FACTOR_ADC = 2.0039801f;
+constexpr float DIVIDER_FACTOR_BAT = 2.0109f;
+constexpr float PTAT_CAL_OFFSET = 0.042f;
+constexpr float BATT_CAL_OFFSET = 0.0667f;
+constexpr float PTAT_BASELINE = 1.3188f;
+constexpr float PTAT_SLOPE = 0.0043f;
+
+struct PpgFrameAccumulator {
+    uint32_t redSum = 0;
+    uint32_t irSum = 0;
+    uint32_t amb1Sum = 0;
+    uint32_t amb2Sum = 0;
+    uint16_t redCount = 0;
+    uint16_t irCount = 0;
+    uint16_t amb1Count = 0;
+    uint16_t amb2Count = 0;
+    uint8_t decimationCounter = 0;
+    bool cycleComplete = false;
+};
+
+TaskHandle_t taskDisplay = nullptr;
+LEDDriver ledDriver;
+PpgFrameAccumulator ppgFrame;
+
+volatile float tempC = 0.0f;
+volatile float currentSpO2 = 98.0f;
 volatile int currentBPM = 72;
-volatile float battery_voltage = 0.0f;
+volatile int batteryMilliVolts = 3800;
 
-// Hardware Mapping for Multiplexer Control
-#define MUX_A0 8   // GPIO 8 (A9)
-#define MUX_A1 44  // GPIO 44 (D7)
-#define ADC_PIN 1 // GPIO 1 (A0)
-#define ADC_BAT 4 // GPIO 4 (A4)
+uint8_t currentMuxChannel = 0;
+bool ptatReadPending = false;
+unsigned long lastTempReadMs = 0;
+unsigned long lastDebugPrintMs = 0;
 
-int activeMuxChannel = 3;
+void resetPpgFrame() {
+    ppgFrame.redSum = 0;
+    ppgFrame.irSum = 0;
+    ppgFrame.amb1Sum = 0;
+    ppgFrame.amb2Sum = 0;
+    ppgFrame.redCount = 0;
+    ppgFrame.irCount = 0;
+    ppgFrame.amb1Count = 0;
+    ppgFrame.amb2Count = 0;
+    ppgFrame.cycleComplete = false;
+}
 
-// Resistor Divider Scaling Factors
-const float DIVIDER_FACTOR_ADC = 2.0039801f;
-const float DIVIDER_FACTOR_BAT = 2.0109f;
+void selectMuxChannel(uint8_t channel) {
+    if (channel == currentMuxChannel) {
+        return;
+    }
 
-// Software Calibration offsets
-const float PTAT_CAL_OFFSET = 0.042f;  
-const float BATT_CAL_OFFSET = 0.0667f;  
-
-// PTAT Constants
-const float PTAT_BASELINE = 1.3188f;  
-const float PTAT_SLOPE  = 0.0043f;  
-
-// ADJUST THIS FOR WAVEFORM SPEED
-// 1 = Very fast, 4-6 = Condensed/Medical look, 10 = Slow
-const int DECIMATION = 7; 
-
-void muxControl (int channel) {
-  switch (channel) {
-        case 1: // Binary: 00
+    switch (channel) {
+        case MUX_CHANNEL_PPG:
             digitalWrite(MUX_A0, LOW);
             digitalWrite(MUX_A1, LOW);
             break;
-            
-        case 2: // Binary: 01
+
+        case MUX_CHANNEL_BPM:
             digitalWrite(MUX_A0, HIGH);
             digitalWrite(MUX_A1, LOW);
             break;
-            
-        case 3: // Binary: 10
+
+        case MUX_CHANNEL_PTAT:
             digitalWrite(MUX_A0, LOW);
             digitalWrite(MUX_A1, HIGH);
             break;
-            
-        case 4: // Binary: 11
+
+        case MUX_CHANNEL_AUX:
             digitalWrite(MUX_A0, HIGH);
             digitalWrite(MUX_A1, HIGH);
             break;
-            
+
         default:
             return;
     }
-    delayMicroseconds(10);
+
+    currentMuxChannel = channel;
+    delayMicroseconds(MUX_SETTLE_US);
 }
 
-void processTempAndBattery() {
-    // ESP ADC Sampling
-    long sum = 0;
-    long sum_bat = 0; 
-    const int numSamples = 64;
+float readMuxAverageMilliVolts(uint8_t channel, uint16_t sampleCount) {
+    uint32_t sum = 0;
 
-    for(int i = 0; i < numSamples; i++) {
+    selectMuxChannel(channel);
+
+    for (uint16_t i = 0; i < sampleCount; i++) {
         sum += analogReadMilliVolts(ADC_PIN);
-        sum_bat += analogReadMilliVolts(ADC_BAT);
-        delayMicroseconds(50); // Gives the internal ADC time to reset
+        delayMicroseconds(ADC_RECOVERY_US);
     }
 
-    // Calculate averages
-    float rawAdc = (float)sum / numSamples;
-    float rawBatAdc = (float)sum_bat / numSamples;
+    return static_cast<float>(sum) / sampleCount;
+}
 
-    // Convert to true voltages 
-    float current_ptat = ((rawAdc / 1000.0f)) * DIVIDER_FACTOR_ADC + PTAT_CAL_OFFSET;
-    float current_bat = ((rawBatAdc / 1000.0f)) * DIVIDER_FACTOR_BAT + BATT_CAL_OFFSET;
-    
-    // --- EXPONENTIAL MOVING AVERAGE (EMA) FILTER ---
-    // These static variables remember their state between loop executions
-    static float smooth_ptat = 0.0f;
-    static float smooth_bat = 0.0f;
+float readBatteryAverageMilliVolts(uint16_t sampleCount) {
+    uint32_t sum = 0;
+
+    for (uint16_t i = 0; i < sampleCount; i++) {
+        sum += analogReadMilliVolts(ADC_BAT);
+        delayMicroseconds(ADC_RECOVERY_US);
+    }
+
+    return static_cast<float>(sum) / sampleCount;
+}
+
+void updateTempAndBattery(float rawPtatMilliVolts, float rawBatteryMilliVolts) {
+    float currentPtat = (rawPtatMilliVolts / 1000.0f) * DIVIDER_FACTOR_ADC + PTAT_CAL_OFFSET;
+    float currentBattery = (rawBatteryMilliVolts / 1000.0f) * DIVIDER_FACTOR_BAT + BATT_CAL_OFFSET;
+
+    static float smoothPtat = 0.0f;
+    static float smoothBattery = 0.0f;
     static bool firstRun = true;
-    const float ALPHA = 0.05f; 
+    constexpr float ALPHA = 0.05f;
 
     if (firstRun) {
-        smooth_ptat = current_ptat;
-        smooth_bat  = current_bat;
+        smoothPtat = currentPtat;
+        smoothBattery = currentBattery;
         firstRun = false;
     }
 
-    smooth_ptat = (ALPHA * current_ptat) + ((1.0f - ALPHA) * smooth_ptat);
-    smooth_bat  = (ALPHA * current_bat)  + ((1.0f - ALPHA) * smooth_bat);
+    smoothPtat = (ALPHA * currentPtat) + ((1.0f - ALPHA) * smoothPtat);
+    smoothBattery = (ALPHA * currentBattery) + ((1.0f - ALPHA) * smoothBattery);
 
-    // PTAT Math and Battery Voltage
-    temp = (smooth_ptat-PTAT_BASELINE) / PTAT_SLOPE;
-    battery_voltage = smooth_bat;
-
-    // Output to Serial
-    Serial.print("PTAT True V: ");
-    Serial.print(smooth_ptat, 3);
-    Serial.print(" V  ||  Battery True V: ");
-    Serial.print(battery_voltage, 3);
-    Serial.println(" V");
-
-    Serial.print(" || Celcius C: ");
-    Serial.println(temp, 1);
-
-    // Read twice per second
-    delay(500);
+    tempC = (smoothPtat - PTAT_BASELINE) / PTAT_SLOPE;
+    batteryMilliVolts = static_cast<int>(smoothBattery * 1000.0f);
 }
-/*
-void samplingCode(void * pvParameters) {
-    int sampleCounter = 0;
-    for(;;) {
-        // Your future analogRead(A0) goes here
-        float t = millis() / 120.0; // Slightly slowed the sim frequency too
-        uint16_t raw = 2048 + (sin(t) * 500) + (sin(t * 2.3) * 100); 
-        
-        // Decimation: Only push every N-th sample to the screen
-        sampleCounter++;
-        if(sampleCounter >= DECIMATION) {
-            updateBuffer(raw);
-            sampleCounter = 0;
+
+void serviceSlowAnalogChannels() {
+    float rawPtatMilliVolts = readMuxAverageMilliVolts(MUX_CHANNEL_PTAT, PTAT_SAMPLE_COUNT);
+    float rawBatteryMilliVolts = readBatteryAverageMilliVolts(PTAT_SAMPLE_COUNT);
+
+    updateTempAndBattery(rawPtatMilliVolts, rawBatteryMilliVolts);
+
+    selectMuxChannel(MUX_CHANNEL_PPG);
+    resetPpgFrame();
+    ledDriver.resetCycle();
+}
+
+void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
+    if (!ENABLE_PPG_DEBUG) {
+        return;
+    }
+
+    unsigned long now = millis();
+    if (now - lastDebugPrintMs < DEBUG_PRINT_INTERVAL_MS) {
+        return;
+    }
+
+    Serial.printf(
+        "SpO2: %.1f %% | Ratio: %.3f | trueRed: %.2f | trueIR: %.2f | counts R/A1/IR/A2 = %u/%u/%u/%u\n",
+        result.spo2,
+        result.ratio,
+        trueRed,
+        trueIR,
+        ppgFrame.redCount,
+        ppgFrame.amb1Count,
+        ppgFrame.irCount,
+        ppgFrame.amb2Count);
+
+    lastDebugPrintMs = now;
+}
+
+void processCompletedPpgFrame() {
+    if (ppgFrame.redCount == 0 || ppgFrame.amb1Count == 0 ||
+        ppgFrame.irCount == 0 || ppgFrame.amb2Count == 0) {
+        resetPpgFrame();
+        return;
+    }
+
+    float redAvg = static_cast<float>(ppgFrame.redSum) / ppgFrame.redCount;
+    float amb1Avg = static_cast<float>(ppgFrame.amb1Sum) / ppgFrame.amb1Count;
+    float irAvg = static_cast<float>(ppgFrame.irSum) / ppgFrame.irCount;
+    float amb2Avg = static_cast<float>(ppgFrame.amb2Sum) / ppgFrame.amb2Count;
+
+    float trueRed = redAvg - amb1Avg;
+    float trueIR = irAvg - amb2Avg;
+
+    if (trueRed < 0.0f) trueRed = 0.0f;
+    if (trueIR < 0.0f) trueIR = 0.0f;
+
+    oxygenAddSample(trueRed, trueIR);
+
+    if (oxygenReady()) {
+        spo2calc result = oxygencompute();
+        if (result.valid) {
+            currentSpO2 = result.spo2;
+            maybePrintDebug(result, trueRed, trueIR);
         }
-        
-        vTaskDelay(pdMS_TO_TICKS(2)); // Still sampling at 500Hz for accuracy
+    }
+
+    ppgFrame.decimationCounter++;
+    if (ppgFrame.decimationCounter >= WAVEFORM_DECIMATION) {
+        uint16_t waveformSample = static_cast<uint16_t>(constrain(trueIR, 0.0f, 4095.0f));
+        updateBuffer(waveformSample);
+        ppgFrame.decimationCounter = 0;
+    }
+
+    resetPpgFrame();
+}
+
+void processPpgChannel() {
+    ledDriver.update();
+
+    switch (ledDriver.getPhase()) {
+        case 1: // Red Read Window (500us)
+            ppgFrame.redSum += analogReadMilliVolts(ADC_PIN);
+            ppgFrame.redCount++;
+            break;
+
+        case 3: // Ambient 1 Read Window (500us)
+            ppgFrame.amb1Sum += analogReadMilliVolts(ADC_PIN);
+            ppgFrame.amb1Count++;
+            break;
+
+        case 5: // IR Read Window (500us)
+            ppgFrame.irSum += analogReadMilliVolts(ADC_PIN);
+            ppgFrame.irCount++;
+            break;
+
+        case 7: // Ambient 2 Read Window (500us)
+            ppgFrame.amb2Sum += analogReadMilliVolts(ADC_PIN);
+            ppgFrame.amb2Count++;
+            ppgFrame.cycleComplete = true;
+            break;
+
+        case 0: // Red Settle Window (2000us) - Start of a new cycle
+            if (ppgFrame.cycleComplete) {
+                processCompletedPpgFrame();
+            }
+            break;
+
+        default:
+            break;
     }
 }
 
-void displayCode(void * pvParameters) {
-    for(;;) {
-        drawGUI(currentSpO2, currentBPM, temp, battery_voltage);
-        vTaskDelay(pdMS_TO_TICKS(33)); // Fixed 30 FPS refresh
+void maybeServiceTelemetry() {
+    unsigned long now = millis();
+
+    if (now - lastTempReadMs >= TEMP_READ_INTERVAL_MS) {
+        ptatReadPending = true;
+    }
+
+    if (!ptatReadPending) {
+        return;
+    }
+
+    if (ledDriver.getPhase() != 0) { // Wait until we enter Phase 0 (Red Settle)
+        return;
+    }
+
+    serviceSlowAnalogChannels();
+    lastTempReadMs = millis();
+    ptatReadPending = false;
+}
+
+void displayCode(void *pvParameters) {
+    (void)pvParameters;
+
+    for (;;) {
+        drawGUI(currentSpO2, currentBPM, tempC, batteryMilliVolts);
+        vTaskDelay(pdMS_TO_TICKS(33));
     }
 }
-*/
+
+} // namespace
+
 void setup() {
     Serial.begin(115200);
+
     analogSetAttenuation(ADC_11db);
     analogReadResolution(12);
 
-    //MUX Pins
     pinMode(MUX_A0, OUTPUT);
     pinMode(MUX_A1, OUTPUT);
+    pinMode(ADC_PIN, INPUT);
+    pinMode(ADC_BAT, INPUT);
+
     digitalWrite(MUX_A0, LOW);
     digitalWrite(MUX_A1, LOW);
+    selectMuxChannel(MUX_CHANNEL_PPG);
 
-    //Battery ADC Pin
-    pinMode(ADC_BAT, INPUT);
+    oxygenInit();
+    oxygenSetCalibration(0.0f, -25.0f, 110.0f);
 
     Wire.begin(5, 6);
     Wire.setClock(400000);
     setupGUI();
 
-    //Turn off WIFI and Bluetooth
     WiFi.mode(WIFI_OFF);
     btStop();
 
-    //xTaskCreatePinnedToCore(samplingCode, "Sampling", 4096, NULL, 3, &TaskSampling, 0);
-    //xTaskCreatePinnedToCore(displayCode, "Display", 4096, NULL, 1, &TaskDisplay, 1);
+    ledDriver.begin();
+
+    xTaskCreatePinnedToCore(displayCode, "Display", 4096, nullptr, 1, &taskDisplay, 0);
 }
 
 void loop() {
-    
-    //vTaskDelay(pdMS_TO_TICKS(1000));
-    muxControl(activeMuxChannel);
-
-    switch (activeMuxChannel) {
-        case 1:
-            // TODO: High-speed SpO2 AC/DC logic goes here
-            break;
-            
-        case 2:
-            // TODO: High-speed BPM logic goes here
-            break;
-            
-        case 3:
-            //Temperature and Battery
-            processTemperatureAndBattery();
-            break;
-        
-        default:
-            return;
-    }
-
-    // Write logic here to switch channels rapidly
-    activeMuxChannel = 3; 
-    
-    delay(500); // Temporary loop delay
+    processPpgChannel();
+    maybeServiceTelemetry();
 }
