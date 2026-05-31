@@ -1,7 +1,7 @@
 #include "oxygen.h"
 #include <math.h>
 
-#define BUFFER_SIZE 400 // Buffer of completed red/IR frame samples.
+#define BUFFER_SIZE 100 // Buffer of completed red/IR frame samples (5 seconds at 20Hz).
 
 static float redAcBuffer[BUFFER_SIZE];
 static float redDcBuffer[BUFFER_SIZE];

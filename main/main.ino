@@ -23,8 +23,8 @@ constexpr uint16_t PTAT_SAMPLE_COUNT = 64;
 constexpr uint32_t TEMP_READ_INTERVAL_MS = 500;
 constexpr uint8_t ALGORITHM_DOWNSAMPLE = 5; // Accumulate and average this many frames (e.g. 5 = 20Hz effective rate)
 constexpr uint8_t WAVEFORM_DECIMATION = 2; // Decimate for OLED GUI display
-constexpr bool ENABLE_PPG_DEBUG = false; // Set to true for text stats
-constexpr bool ENABLE_SERIAL_PLOTTER = true; // Set to true to plot AC waveforms in Arduino Serial Plotter
+constexpr bool ENABLE_PPG_DEBUG = true; // Set to true to see SpO2, BPM, Temp, Battery in the Serial Monitor
+constexpr bool ENABLE_SERIAL_PLOTTER = false; // Set to true to plot AC waveforms in Arduino Serial Plotter
 constexpr uint32_t DEBUG_PRINT_INTERVAL_MS = 250;
 
 constexpr float DIVIDER_FACTOR_ADC = 2.0039801f;
@@ -48,7 +48,7 @@ struct PpgFrameAccumulator {
 // Simple peak-detection algorithm for BPM
 class BpmCalculator {
 private:
-    static const uint8_t FILTER_SIZE = 4;
+    static const uint8_t FILTER_SIZE = 8;
     float filterBuffer[FILTER_SIZE];
     uint8_t filterIdx = 0;
 
@@ -58,7 +58,7 @@ private:
     uint32_t lastPeakTimeMs = 0;
     float peakThreshold = 50.0f; 
 
-    static const uint8_t BPM_AVG_SIZE = 8;
+    static const uint8_t BPM_AVG_SIZE = 16;
     uint8_t bpmBuffer[BPM_AVG_SIZE];
     uint8_t bpmIdx = 0;
     uint8_t validBpmCount = 0;
@@ -90,24 +90,24 @@ public:
             uint32_t now = millis();
             uint32_t delta = now - lastPeakTimeMs;
 
-            // Refractory period: at least 300ms (max 200 BPM) to prevent double-counting dicrotic notches
-            if (delta > 300) {
+            // Refractory period: at least 400ms (max 150 BPM) to prevent double-counting dicrotic notches
+            if (delta > 400) {
                 float instantBpm = 60000.0f / delta;
 
-                // Validate realistic BPM (e.g., 40 to 200)
-                if (instantBpm >= 40 && instantBpm <= 200) {
+                // Validate realistic BPM (e.g., 40 to 150)
+                if (instantBpm >= 40 && instantBpm <= 150) {
                     bpmBuffer[bpmIdx] = (uint8_t)instantBpm;
                     bpmIdx = (bpmIdx + 1) % BPM_AVG_SIZE;
                     if (validBpmCount < BPM_AVG_SIZE) validBpmCount++;
                 }
                 
                 lastPeakTimeMs = now;
-                // Dynamic threshold: 60% of the peak, decays over time so it adapts to different fingers
-                peakThreshold = prevFiltered * 0.6f;
+                // Dynamic threshold: 75% of the peak, decays over time so it adapts to different fingers
+                peakThreshold = prevFiltered * 0.75f;
             }
         } else {
             // Decay the threshold slowly
-            peakThreshold *= 0.98f;
+            peakThreshold *= 0.99f;
             if (peakThreshold < 10.0f) peakThreshold = 10.0f;
         }
 
@@ -246,14 +246,14 @@ void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
     }
 
     Serial.printf(
-        "SpO2: %.1f %% | BPM: %d | Temp: %.1f C | Bat: %d mV | Ratio: %.3f | trueRedAC: %.2f | trueIrAC: %.2f\n",
+        "SpO2: %.1f %% | BPM: %d | Ratio: %.3f | rAC: %.1f | rDC: %.1f | iAC: %.1f | iDC: %.1f\n",
         result.spo2,
         currentBPM,
-        tempC,
-        batteryMilliVolts,
         result.ratio,
-        trueRed, // Used as trueRedAC in the caller
-        trueIR); // Used as trueIrAC in the caller
+        trueRed, // AC
+        result.dcRed, // DC baseline from the algorithm
+        trueIR,  // AC
+        result.dcIR); // DC baseline from the algorithm
 
     lastDebugPrintMs = now;
 }
