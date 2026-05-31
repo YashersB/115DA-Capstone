@@ -12,8 +12,8 @@ constexpr uint8_t MUX_A1 = 44;
 constexpr uint8_t ADC_PIN = 1;
 constexpr uint8_t ADC_BAT = 4;
 
-constexpr uint8_t MUX_CHANNEL_PPG = 1;
-constexpr uint8_t MUX_CHANNEL_BPM = 2;
+constexpr uint8_t MUX_CHANNEL_AC = 1;
+constexpr uint8_t MUX_CHANNEL_DC = 2;
 constexpr uint8_t MUX_CHANNEL_PTAT = 3;
 constexpr uint8_t MUX_CHANNEL_AUX = 4;
 
@@ -22,7 +22,7 @@ constexpr uint16_t ADC_RECOVERY_US = 50;
 constexpr uint16_t PTAT_SAMPLE_COUNT = 64;
 constexpr uint32_t TEMP_READ_INTERVAL_MS = 500;
 constexpr uint8_t WAVEFORM_DECIMATION = 6;
-constexpr bool ENABLE_PPG_DEBUG = false;
+constexpr bool ENABLE_PPG_DEBUG = true; // Set to true to see outputs on the terminal
 constexpr uint32_t DEBUG_PRINT_INTERVAL_MS = 250;
 
 constexpr float DIVIDER_FACTOR_ADC = 2.0039801f;
@@ -33,14 +33,12 @@ constexpr float PTAT_BASELINE = 1.3188f;
 constexpr float PTAT_SLOPE = 0.0043f;
 
 struct PpgFrameAccumulator {
-    uint32_t redSum = 0;
-    uint32_t irSum = 0;
-    uint32_t amb1Sum = 0;
-    uint32_t amb2Sum = 0;
-    uint16_t redCount = 0;
-    uint16_t irCount = 0;
-    uint16_t amb1Count = 0;
-    uint16_t amb2Count = 0;
+    uint32_t redAcSum = 0, irAcSum = 0, amb1AcSum = 0, amb2AcSum = 0;
+    uint32_t redDcSum = 0, irDcSum = 0, amb1DcSum = 0, amb2DcSum = 0;
+    
+    uint16_t redAcCount = 0, irAcCount = 0, amb1AcCount = 0, amb2AcCount = 0;
+    uint16_t redDcCount = 0, irDcCount = 0, amb1DcCount = 0, amb2DcCount = 0;
+    
     uint8_t decimationCounter = 0;
     bool cycleComplete = false;
 };
@@ -60,14 +58,12 @@ unsigned long lastTempReadMs = 0;
 unsigned long lastDebugPrintMs = 0;
 
 void resetPpgFrame() {
-    ppgFrame.redSum = 0;
-    ppgFrame.irSum = 0;
-    ppgFrame.amb1Sum = 0;
-    ppgFrame.amb2Sum = 0;
-    ppgFrame.redCount = 0;
-    ppgFrame.irCount = 0;
-    ppgFrame.amb1Count = 0;
-    ppgFrame.amb2Count = 0;
+    ppgFrame.redAcSum = 0; ppgFrame.irAcSum = 0; ppgFrame.amb1AcSum = 0; ppgFrame.amb2AcSum = 0;
+    ppgFrame.redDcSum = 0; ppgFrame.irDcSum = 0; ppgFrame.amb1DcSum = 0; ppgFrame.amb2DcSum = 0;
+    
+    ppgFrame.redAcCount = 0; ppgFrame.irAcCount = 0; ppgFrame.amb1AcCount = 0; ppgFrame.amb2AcCount = 0;
+    ppgFrame.redDcCount = 0; ppgFrame.irDcCount = 0; ppgFrame.amb1DcCount = 0; ppgFrame.amb2DcCount = 0;
+    
     ppgFrame.cycleComplete = false;
 }
 
@@ -77,12 +73,12 @@ void selectMuxChannel(uint8_t channel) {
     }
 
     switch (channel) {
-        case MUX_CHANNEL_PPG:
+        case MUX_CHANNEL_AC:
             digitalWrite(MUX_A0, LOW);
             digitalWrite(MUX_A1, LOW);
             break;
 
-        case MUX_CHANNEL_BPM:
+        case MUX_CHANNEL_DC:
             digitalWrite(MUX_A0, HIGH);
             digitalWrite(MUX_A1, LOW);
             break;
@@ -157,7 +153,7 @@ void serviceSlowAnalogChannels() {
 
     updateTempAndBattery(rawPtatMilliVolts, rawBatteryMilliVolts);
 
-    selectMuxChannel(MUX_CHANNEL_PPG);
+    // We don't restore MUX to PPG here because the fast loop toggles AC/DC dynamically
     resetPpgFrame();
     ledDriver.resetCycle();
 }
@@ -173,50 +169,61 @@ void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
     }
 
     Serial.printf(
-        "SpO2: %.1f %% | Ratio: %.3f | trueRed: %.2f | trueIR: %.2f | counts R/A1/IR/A2 = %u/%u/%u/%u\n",
+        "SpO2: %.1f %% | BPM: %d | Temp: %.1f C | Bat: %d mV | Ratio: %.3f | trueRedAC: %.2f | trueIrAC: %.2f\n",
         result.spo2,
+        currentBPM,
+        tempC,
+        batteryMilliVolts,
         result.ratio,
-        trueRed,
-        trueIR,
-        ppgFrame.redCount,
-        ppgFrame.amb1Count,
-        ppgFrame.irCount,
-        ppgFrame.amb2Count);
+        trueRed, // Used as trueRedAC in the caller
+        trueIR); // Used as trueIrAC in the caller
 
     lastDebugPrintMs = now;
 }
 
 void processCompletedPpgFrame() {
-    if (ppgFrame.redCount == 0 || ppgFrame.amb1Count == 0 ||
-        ppgFrame.irCount == 0 || ppgFrame.amb2Count == 0) {
+    if (ppgFrame.redAcCount == 0 || ppgFrame.amb1AcCount == 0 || ppgFrame.redDcCount == 0 || ppgFrame.amb1DcCount == 0) {
         resetPpgFrame();
         return;
     }
 
-    float redAvg = static_cast<float>(ppgFrame.redSum) / ppgFrame.redCount;
-    float amb1Avg = static_cast<float>(ppgFrame.amb1Sum) / ppgFrame.amb1Count;
-    float irAvg = static_cast<float>(ppgFrame.irSum) / ppgFrame.irCount;
-    float amb2Avg = static_cast<float>(ppgFrame.amb2Sum) / ppgFrame.amb2Count;
+    // Average the AC windows
+    float redAcAvg = static_cast<float>(ppgFrame.redAcSum) / ppgFrame.redAcCount;
+    float amb1AcAvg = static_cast<float>(ppgFrame.amb1AcSum) / ppgFrame.amb1AcCount;
+    float irAcAvg = static_cast<float>(ppgFrame.irAcSum) / ppgFrame.irAcCount;
+    float amb2AcAvg = static_cast<float>(ppgFrame.amb2AcSum) / ppgFrame.amb2AcCount;
 
-    float trueRed = redAvg - amb1Avg;
-    float trueIR = irAvg - amb2Avg;
+    // Average the DC windows
+    float redDcAvg = static_cast<float>(ppgFrame.redDcSum) / ppgFrame.redDcCount;
+    float amb1DcAvg = static_cast<float>(ppgFrame.amb1DcSum) / ppgFrame.amb1DcCount;
+    float irDcAvg = static_cast<float>(ppgFrame.irDcSum) / ppgFrame.irDcCount;
+    float amb2DcAvg = static_cast<float>(ppgFrame.amb2DcSum) / ppgFrame.amb2DcCount;
 
-    if (trueRed < 0.0f) trueRed = 0.0f;
-    if (trueIR < 0.0f) trueIR = 0.0f;
+    // Subtract ambient AC (rejects 50/60Hz optical noise)
+    float trueRedAc = redAcAvg - amb1AcAvg;
+    float trueIrAc = irAcAvg - amb2AcAvg;
 
-    oxygenAddSample(trueRed, trueIR);
+    // Subtract ambient DC (rejects baseline room lighting)
+    float trueRedDc = redDcAvg - amb1DcAvg;
+    float trueIrDc = irDcAvg - amb2DcAvg;
+
+    if (trueRedDc < 0.0f) trueRedDc = 0.0f;
+    if (trueIrDc < 0.0f) trueIrDc = 0.0f;
+
+    oxygenAddSample(trueRedAc, trueRedDc, trueIrAc, trueIrDc);
 
     if (oxygenReady()) {
         spo2calc result = oxygencompute();
         if (result.valid) {
             currentSpO2 = result.spo2;
-            maybePrintDebug(result, trueRed, trueIR);
+            maybePrintDebug(result, trueRedAc, trueIrAc);
         }
     }
 
     ppgFrame.decimationCounter++;
     if (ppgFrame.decimationCounter >= WAVEFORM_DECIMATION) {
-        uint16_t waveformSample = static_cast<uint16_t>(constrain(trueIR, 0.0f, 4095.0f));
+        // Offset the AC waveform so it plots nicely in the GUI (since it swings around 0)
+        uint16_t waveformSample = static_cast<uint16_t>(constrain(trueIrAc + 2048.0f, 0.0f, 4095.0f));
         updateBuffer(waveformSample);
         ppgFrame.decimationCounter = 0;
     }
@@ -227,25 +234,60 @@ void processCompletedPpgFrame() {
 void processPpgChannel() {
     ledDriver.update();
 
+    // Toggle flag to alternate reading AC and DC as fast as the loop runs
+    static bool sampleAC = true;
+
     switch (ledDriver.getPhase()) {
         case 1: // Red Read Window (500us)
-            ppgFrame.redSum += analogReadMilliVolts(ADC_PIN);
-            ppgFrame.redCount++;
+            if (sampleAC) {
+                selectMuxChannel(MUX_CHANNEL_AC);
+                ppgFrame.redAcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.redAcCount++;
+            } else {
+                selectMuxChannel(MUX_CHANNEL_DC);
+                ppgFrame.redDcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.redDcCount++;
+            }
+            sampleAC = !sampleAC;
             break;
 
         case 3: // Ambient 1 Read Window (500us)
-            ppgFrame.amb1Sum += analogReadMilliVolts(ADC_PIN);
-            ppgFrame.amb1Count++;
+            if (sampleAC) {
+                selectMuxChannel(MUX_CHANNEL_AC);
+                ppgFrame.amb1AcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.amb1AcCount++;
+            } else {
+                selectMuxChannel(MUX_CHANNEL_DC);
+                ppgFrame.amb1DcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.amb1DcCount++;
+            }
+            sampleAC = !sampleAC;
             break;
 
         case 5: // IR Read Window (500us)
-            ppgFrame.irSum += analogReadMilliVolts(ADC_PIN);
-            ppgFrame.irCount++;
+            if (sampleAC) {
+                selectMuxChannel(MUX_CHANNEL_AC);
+                ppgFrame.irAcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.irAcCount++;
+            } else {
+                selectMuxChannel(MUX_CHANNEL_DC);
+                ppgFrame.irDcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.irDcCount++;
+            }
+            sampleAC = !sampleAC;
             break;
 
         case 7: // Ambient 2 Read Window (500us)
-            ppgFrame.amb2Sum += analogReadMilliVolts(ADC_PIN);
-            ppgFrame.amb2Count++;
+            if (sampleAC) {
+                selectMuxChannel(MUX_CHANNEL_AC);
+                ppgFrame.amb2AcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.amb2AcCount++;
+            } else {
+                selectMuxChannel(MUX_CHANNEL_DC);
+                ppgFrame.amb2DcSum += analogReadMilliVolts(ADC_PIN);
+                ppgFrame.amb2DcCount++;
+            }
+            sampleAC = !sampleAC;
             ppgFrame.cycleComplete = true;
             break;
 
@@ -304,7 +346,7 @@ void setup() {
 
     digitalWrite(MUX_A0, LOW);
     digitalWrite(MUX_A1, LOW);
-    selectMuxChannel(MUX_CHANNEL_PPG);
+    selectMuxChannel(MUX_CHANNEL_AC);
 
     oxygenInit();
     oxygenSetCalibration(0.0f, -25.0f, 110.0f);

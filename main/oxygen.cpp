@@ -3,8 +3,10 @@
 
 #define BUFFER_SIZE 400 // Buffer of completed red/IR frame samples.
 
-static float redBuffer[BUFFER_SIZE];
-static float irBuffer[BUFFER_SIZE];
+static float redAcBuffer[BUFFER_SIZE];
+static float redDcBuffer[BUFFER_SIZE];
+static float irAcBuffer[BUFFER_SIZE];
+static float irDcBuffer[BUFFER_SIZE];
 
 static uint16_t bufferIdx = 0;
 static bool isBufferFull = false;
@@ -25,14 +27,18 @@ void oxygenInit() {
     isBufferFull = false;
 
     for (int i = 0; i < BUFFER_SIZE; i++) {
-        redBuffer[i] = 0.0f;
-        irBuffer[i] = 0.0f;
+        redAcBuffer[i] = 0.0f;
+        redDcBuffer[i] = 0.0f;
+        irAcBuffer[i] = 0.0f;
+        irDcBuffer[i] = 0.0f;
     }
 }
 
-void oxygenAddSample(float redSample, float irSample) {
-    redBuffer[bufferIdx] = redSample;
-    irBuffer[bufferIdx] = irSample;
+void oxygenAddSample(float redAC, float redDC, float irAC, float irDC) {
+    redAcBuffer[bufferIdx] = redAC;
+    redDcBuffer[bufferIdx] = redDC;
+    irAcBuffer[bufferIdx] = irAC;
+    irDcBuffer[bufferIdx] = irDC;
     bufferIdx++;
 
     if (bufferIdx >= BUFFER_SIZE) {
@@ -69,10 +75,13 @@ static float calcRMS_ac(const float *buffer, float dc, int size) {
 spo2calc oxygencompute() {
     spo2calc result;
 
-    result.dcRed = calcMean(redBuffer, BUFFER_SIZE);
-    result.dcIR = calcMean(irBuffer, BUFFER_SIZE);
-    result.acRed = calcRMS_ac(redBuffer, result.dcRed, BUFFER_SIZE);
-    result.acIR = calcRMS_ac(irBuffer, result.dcIR, BUFFER_SIZE);
+    // Hardware DC provides baseline
+    result.dcRed = calcMean(redDcBuffer, BUFFER_SIZE);
+    result.dcIR = calcMean(irDcBuffer, BUFFER_SIZE);
+    
+    // Hardware AC provides heartbeat waveform (calcRMS_ac automatically centers it)
+    result.acRed = calcRMS_ac(redAcBuffer, calcMean(redAcBuffer, BUFFER_SIZE), BUFFER_SIZE);
+    result.acIR = calcRMS_ac(irAcBuffer, calcMean(irAcBuffer, BUFFER_SIZE), BUFFER_SIZE);
 
     result.valid = false;
     result.ratio = 0.0f;

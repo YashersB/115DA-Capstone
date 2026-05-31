@@ -5,18 +5,17 @@
 
 class LEDDriver {
   private:
-    // Based on the pin mapping notes you shared from the schematic review.
-    const uint8_t pinMute = 42;
-    const uint8_t pinRed = 40;
-    const uint8_t pinIR = 41;
+    // LED Control Pins
+    const uint8_t pinRed = 2; // GPIO 2 controls the Red LED
+    const uint8_t pinIR = 3;  // GPIO 3 controls the IR LED
 
-    unsigned long lastMicros;
-    unsigned long currentDelay;
-    uint8_t phaseStep;
+    unsigned long lastMicros;   // Tracks the last timestamp a state changed
+    unsigned long currentDelay; // The duration to wait before the next state
+    uint8_t phaseStep;          // Tracks the current phase of the LED cycle
 
   public:
-    unsigned long settleTimeUS = 2000;
-    unsigned long readTimeUS = 500;
+    unsigned long settleTimeUS = 2000; // 2ms settle time to let LED fully turn on/off
+    unsigned long readTimeUS = 500;    // 500us read window for the ADC
 
     LEDDriver() {
       lastMicros = 0;
@@ -25,19 +24,20 @@ class LEDDriver {
     }
 
     uint8_t getPhase() const {
+      // Returns the CURRENT active phase (0 = Red Settle, 1 = Red Read, etc.)
       return phaseStep;
     }
 
     void begin() {
-      pinMatrixOutDetach(pinMute, false, false);
+      // Make sure the pins are not attached to hardware PWM
       pinMatrixOutDetach(pinRed, false, false);
       pinMatrixOutDetach(pinIR, false, false);
 
-      pinMode(pinMute, OUTPUT);
+      // Set pins as digital outputs
       pinMode(pinRed, OUTPUT);
       pinMode(pinIR, OUTPUT);
 
-      resetCycle();
+      resetCycle(); // Start the state machine
     }
 
     void resetCycle() {
@@ -95,19 +95,19 @@ class LEDDriver {
     }
 
     void turnRedOn() {
-      digitalWrite(pinMute, LOW);
+      // Turn off IR, turn on Red
       digitalWrite(pinIR, LOW);
       digitalWrite(pinRed, HIGH);
     }
 
     void turnIROn() {
-      digitalWrite(pinMute, LOW);
+      // Turn off Red, turn on IR
       digitalWrite(pinRed, LOW);
       digitalWrite(pinIR, HIGH);
     }
 
     void turnAllOff() {
-      digitalWrite(pinMute, HIGH);
+      // Turn both LEDs off to read ambient light
       digitalWrite(pinRed, LOW);
       digitalWrite(pinIR, LOW);
     }

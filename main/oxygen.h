@@ -26,7 +26,7 @@ void oxygenInit();
 
 void oxygenSetCalibration(float a, float b, float c);
 
-void oxygenAddSample(float redSample, float irSample);
+void oxygenAddSample(float redAC, float redDC, float irAC, float irDC);
 
 bool oxygenReady();
 
