@@ -45,18 +45,19 @@ struct PpgFrameAccumulator {
     bool cycleComplete = false;
 };
 
-// Simple peak-detection algorithm for BPM
+// Professional Digital Bandpass Filter for Peak Detection
 class BpmCalculator {
 private:
-    static const uint8_t FILTER_SIZE = 8;
-    float filterBuffer[FILTER_SIZE];
-    uint8_t filterIdx = 0;
+    // Filter states
+    float x_prev = 0.0f;
+    float y_hp_prev = 0.0f;
+    float y_lp_prev = 0.0f;
 
     float lastFiltered = 0.0f;
     float prevFiltered = 0.0f;
 
     uint32_t lastPeakTimeMs = 0;
-    float peakThreshold = 50.0f; 
+    float peakThreshold = 10.0f; 
 
     static const uint8_t BPM_AVG_SIZE = 16;
     uint8_t bpmBuffer[BPM_AVG_SIZE];
@@ -65,7 +66,6 @@ private:
 
 public:
     BpmCalculator() {
-        for(int i=0; i<FILTER_SIZE; i++) filterBuffer[i] = 0;
         for(int i=0; i<BPM_AVG_SIZE; i++) bpmBuffer[i] = 0;
     }
 
@@ -77,15 +77,18 @@ public:
     }
 
     void addSample(float acValue) {
-        // 1. Moving average filter to smooth out small jagged noise
-        filterBuffer[filterIdx] = acValue;
-        filterIdx = (filterIdx + 1) % FILTER_SIZE;
-        
-        float sum = 0;
-        for(int i=0; i<FILTER_SIZE; i++) sum += filterBuffer[i];
-        float filtered = sum / FILTER_SIZE;
+        // 1. High-Pass Filter (DC Blocker) at 0.5 Hz (Removes baseline wander/breathing artifacts)
+        // Calculated for Fs = 20Hz, cutoff = 0.5Hz. alpha_hp = 0.864
+        float y_hp = 0.864f * y_hp_prev + 0.864f * (acValue - x_prev);
+        x_prev = acValue;
+        y_hp_prev = y_hp;
 
-        // 2. Peak detection (looking for a local maximum)
+        // 2. Low-Pass Filter at 3.5 Hz (Removes high-frequency electrical/ADC noise)
+        // Calculated for Fs = 20Hz, cutoff = 3.5Hz. alpha_lp = 0.524
+        float filtered = 0.524f * y_hp + (1.0f - 0.524f) * y_lp_prev;
+        y_lp_prev = filtered;
+
+        // 3. Peak detection (looking for a local maximum on the beautifully filtered wave)
         if (prevFiltered > lastFiltered && prevFiltered > filtered && prevFiltered > peakThreshold) {
             uint32_t now = millis();
             uint32_t delta = now - lastPeakTimeMs;
@@ -108,7 +111,7 @@ public:
         } else {
             // Decay the threshold slowly
             peakThreshold *= 0.99f;
-            if (peakThreshold < 10.0f) peakThreshold = 10.0f;
+            if (peakThreshold < 2.0f) peakThreshold = 2.0f; // Lowered floor because bandpass limits amplitude
         }
 
         lastFiltered = prevFiltered;
