@@ -105,7 +105,7 @@ void setup() {
     oxygenInit();
     
     // Initialize the LED Driver pins
-    //ledDriver.begin();
+    ledDriver.begin();
 
     WiFi.mode(WIFI_OFF);
     btStop();
@@ -114,7 +114,7 @@ void setup() {
 void loop() {
     // 1. RUN THE LED DRIVER STATE MACHINE CONSTANTLY
     // This needs to execute as fast as possible to keep the microsecond timing accurate
-   //ledDriver.update();
+   ledDriver.update();
 
     // 2. NON-BLOCKING TIMER FOR TEMPERATURE AND PRINTING
     // Instead of delay(500), we check if 500ms have passed. 

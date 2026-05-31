@@ -1,26 +1,19 @@
 #pragma once
 #include <Arduino.h> 
+#include "driver/gpio.h"
 
 class LEDDriver {
   private:
-    // UPDATED HARDCODED PIN ASSIGNMENTS
-    const uint8_t pinMute = 39;
-    const uint8_t pinRed = 41; // Changed to GPIO 41
-    const uint8_t pinIR = 42;  // GPIO 42
+    const gpio_num_t pinRed = GPIO_NUM_2; 
+    const gpio_num_t pinIR  = GPIO_NUM_3;  
 
-    // timing variables
     unsigned long lastMicros;
     unsigned long currentDelay;
     uint8_t phaseStep;
 
   public:
-    // --- TESTING TIMING CONSTANTS ---
-    // Slowed down to 0.5 seconds so your eyes can see the flashes.
-    // When you are ready for medical sampling, change these back to:
-    // settleTimeUS = 2000;
-    // readTimeUS = 500;
-    unsigned long settleTimeUS = 500000; 
-    unsigned long readTimeUS = 500000;    
+    unsigned long settleTimeUS = 5000; 
+    unsigned long readTimeUS = 20000;    
 
     LEDDriver() {
       lastMicros = 0;
@@ -29,15 +22,16 @@ class LEDDriver {
     }
 
     void begin() {
-      pinMode(pinMute, OUTPUT);
-      pinMode(pinRed, OUTPUT);
-      pinMode(pinIR, OUTPUT);
+      gpio_reset_pin(pinRed);
+      gpio_reset_pin(pinIR);
+
+      gpio_set_direction(pinRed, GPIO_MODE_OUTPUT);
+      gpio_set_direction(pinIR, GPIO_MODE_OUTPUT);
 
       turnAllOff();
       lastMicros = micros();
     }
 
-    // This MUST be called as fast as possible in the main loop
     void update() {
       unsigned long currentMicros = micros();
       
@@ -88,20 +82,17 @@ class LEDDriver {
     }
 
     void turnRedOn() {
-      digitalWrite(pinMute, LOW);   
-      digitalWrite(pinIR, LOW);     
-      digitalWrite(pinRed, HIGH);   
+      gpio_set_level(pinIR, 0);     
+      gpio_set_level(pinRed, 1);   
     }
 
     void turnIROn() {
-      digitalWrite(pinMute, LOW);   
-      digitalWrite(pinRed, LOW);    
-      digitalWrite(pinIR, HIGH);    
+      gpio_set_level(pinRed, 0);    
+      gpio_set_level(pinIR, 1);    
     }
 
     void turnAllOff() {
-      digitalWrite(pinMute, HIGH);  
-      digitalWrite(pinRed, LOW);
-      digitalWrite(pinIR, LOW);
+      gpio_set_level(pinRed, 0);
+      gpio_set_level(pinIR, 0);
     }
 };
