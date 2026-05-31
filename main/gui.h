@@ -15,11 +15,24 @@ static Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, 
 static volatile uint16_t ppgBuffer[SCREEN_WIDTH]; 
 
 inline void setupGUI() {
+    delay(250); // Give the OLED time to physically power up before talking to it
+
     if(!display.begin(i2c_Address, true)) {
-        Serial.println(F("SH1106 Failed"));
+        Serial.println(F("\n\n************************************"));
+        Serial.println(F("CRITICAL ERROR: OLED DISPLAY NOT DETECTED!"));
+        Serial.println(F("Check your wiring to pins 5 (SDA) and 6 (SCL)."));
+        Serial.println(F("Also try changing the I2C address in gui.h to 0x3D."));
+        Serial.println(F("************************************\n\n"));
+    } else {
+        Serial.println(F("\n\n************************************"));
+        Serial.println(F("OLED DISPLAY INITIALIZED SUCCESSFULLY!"));
+        Serial.println(F("If the screen is STILL black, you likely have an SSD1306 chip instead of an SH1106."));
+        Serial.println(F("************************************\n\n"));
     }
+
     display.cp437(true); 
     display.clearDisplay();
+    display.display(); // Force the screen to turn on immediately
 }
 
 inline void updateBuffer(uint16_t newSample) {
@@ -32,15 +45,15 @@ inline void drawGUI(float spo2, int bpm, float temp, int battMv) {
     display.clearDisplay();
     display.setTextColor(SH110X_WHITE);
 
-    // 1. Battery (Original location)
+    // 1. Battery (Full at 3.7V)
     display.drawRect(105, 2, 18, 9, SH110X_WHITE);
     display.drawRect(123, 4, 2, 5, SH110X_WHITE);
-    int barWidth = map(battMv, 3200, 4200, 0, 16);
+    int barWidth = map(battMv, 3200, 3700, 0, 16);
     display.fillRect(106, 3, constrain(barWidth, 0, 16), 7, SH110X_WHITE);
 
     // 2. Vitals (Restored original locations)
     display.setTextSize(2);
-    display.setCursor(0, 5);  display.print((int)spo2);
+    display.setCursor(0, 5);  display.print(spo2, 1); // Show decimal so you can see it moving
     display.setCursor(0, 25); display.print(bpm);
     
     display.setTextSize(1);

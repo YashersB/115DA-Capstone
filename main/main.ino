@@ -315,8 +315,9 @@ void processCompletedPpgFrame() {
             spo2calc result = oxygencompute();
             if (result.valid) {
                 currentSpO2 = result.spo2;
-                maybePrintDebug(result, finalRedAc, finalIrAc);
             }
+            // Always print debug stats so we can see if DC is falling to 0
+            maybePrintDebug(result, finalRedAc, finalIrAc);
         }
 
         // Reset downsample accumulators
@@ -464,7 +465,7 @@ void setup() {
 
     ledDriver.begin();
 
-    xTaskCreatePinnedToCore(displayCode, "Display", 4096, nullptr, 1, &taskDisplay, 0);
+    xTaskCreatePinnedToCore(displayCode, "Display", 8192, nullptr, 1, &taskDisplay, 0);
 }
 
 void loop() {
