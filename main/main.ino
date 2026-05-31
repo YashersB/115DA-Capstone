@@ -400,6 +400,13 @@ void processPpgChannel() {
             break;
 
         case 0: // Red Settle Window (2000us) - Start of a new cycle
+            // We used to process the frame here, but doing heavy serial printing while the Red LED is ON 
+            // caused the ESP32 to stall and stretched the Red LED time to 75% duty cycle!
+            break;
+
+        case 2: // Ambient 1 Settle Window (2000us)
+            // By processing the frame here, both LEDs are guaranteed to be OFF.
+            // If the processing takes a long time, it just safely extends the OFF period without wasting battery!
             if (ppgFrame.cycleComplete) {
                 processCompletedPpgFrame();
             }

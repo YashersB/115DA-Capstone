@@ -95,19 +95,18 @@ class LEDDriver {
     }
 
     void turnRedOn() {
-      // Turn off IR, turn on Red
+      // Active-High logic: HIGH turns the LED ON
       digitalWrite(pinIR, LOW);
       digitalWrite(pinRed, HIGH);
     }
 
     void turnIROn() {
-      // Turn off Red, turn on IR
       digitalWrite(pinRed, LOW);
       digitalWrite(pinIR, HIGH);
     }
 
     void turnAllOff() {
-      // Turn both LEDs off to read ambient light
+      // Both LOW means both OFF
       digitalWrite(pinRed, LOW);
       digitalWrite(pinIR, LOW);
     }
