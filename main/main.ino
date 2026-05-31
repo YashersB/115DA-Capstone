@@ -21,7 +21,8 @@ constexpr uint16_t MUX_SETTLE_US = 10;
 constexpr uint16_t ADC_RECOVERY_US = 50;
 constexpr uint16_t PTAT_SAMPLE_COUNT = 64;
 constexpr uint32_t TEMP_READ_INTERVAL_MS = 500;
-constexpr uint8_t WAVEFORM_DECIMATION = 6;
+constexpr uint8_t ALGORITHM_DOWNSAMPLE = 5; // Accumulate and average this many frames (e.g. 5 = 20Hz effective rate)
+constexpr uint8_t WAVEFORM_DECIMATION = 2; // Decimate for OLED GUI display
 constexpr bool ENABLE_PPG_DEBUG = false; // Set to true for text stats
 constexpr bool ENABLE_SERIAL_PLOTTER = true; // Set to true to plot AC waveforms in Arduino Serial Plotter
 constexpr uint32_t DEBUG_PRINT_INTERVAL_MS = 250;
@@ -208,20 +209,40 @@ void processCompletedPpgFrame() {
     float trueRedDc = redDcAvg - amb1DcAvg;
     float trueIrDc = irDcAvg - amb2DcAvg;
 
-    if (trueRedDc < 0.0f) trueRedDc = 0.0f;
-    oxygenAddSample(trueRedAc, trueRedDc, trueIrAc, trueIrDc);
+    // Downsample (average) multiple frames to slow down the data rate, filter noise, and give the buffer more time history
+    static uint8_t downsampleCount = 0;
+    static float dsRedAcSum = 0, dsRedDcSum = 0, dsIrAcSum = 0, dsIrDcSum = 0;
 
-    // High-speed print for Arduino Serial Plotter (~100Hz)
-    if (ENABLE_SERIAL_PLOTTER) {
-        Serial.printf("RedAC:%.2f,IrAC:%.2f\n", trueRedAc, trueIrAc);
-    }
+    dsRedAcSum += trueRedAc;
+    dsRedDcSum += trueRedDc;
+    dsIrAcSum += trueIrAc;
+    dsIrDcSum += trueIrDc;
 
-    if (oxygenReady()) {
-        spo2calc result = oxygencompute();
-        if (result.valid) {
-            currentSpO2 = result.spo2;
-            maybePrintDebug(result, trueRedAc, trueIrAc);
+    downsampleCount++;
+    if (downsampleCount >= ALGORITHM_DOWNSAMPLE) {
+        float finalRedAc = dsRedAcSum / ALGORITHM_DOWNSAMPLE;
+        float finalRedDc = dsRedDcSum / ALGORITHM_DOWNSAMPLE;
+        float finalIrAc = dsIrAcSum / ALGORITHM_DOWNSAMPLE;
+        float finalIrDc = dsIrDcSum / ALGORITHM_DOWNSAMPLE;
+
+        oxygenAddSample(finalRedAc, finalRedDc, finalIrAc, finalIrDc);
+
+        // Print for Arduino Serial Plotter
+        if (ENABLE_SERIAL_PLOTTER) {
+            Serial.printf("RedAC:%.2f,IrAC:%.2f\n", finalRedAc, finalIrAc);
         }
+
+        if (oxygenReady()) {
+            spo2calc result = oxygencompute();
+            if (result.valid) {
+                currentSpO2 = result.spo2;
+                maybePrintDebug(result, finalRedAc, finalIrAc);
+            }
+        }
+
+        // Reset downsample accumulators
+        dsRedAcSum = 0; dsRedDcSum = 0; dsIrAcSum = 0; dsIrDcSum = 0;
+        downsampleCount = 0;
     }
 
     ppgFrame.decimationCounter++;
