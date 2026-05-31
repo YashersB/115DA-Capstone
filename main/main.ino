@@ -45,14 +45,89 @@ struct PpgFrameAccumulator {
     bool cycleComplete = false;
 };
 
+// Simple peak-detection algorithm for BPM
+class BpmCalculator {
+private:
+    static const uint8_t FILTER_SIZE = 4;
+    float filterBuffer[FILTER_SIZE];
+    uint8_t filterIdx = 0;
+
+    float lastFiltered = 0.0f;
+    float prevFiltered = 0.0f;
+
+    uint32_t lastPeakTimeMs = 0;
+    float peakThreshold = 50.0f; 
+
+    static const uint8_t BPM_AVG_SIZE = 8;
+    uint8_t bpmBuffer[BPM_AVG_SIZE];
+    uint8_t bpmIdx = 0;
+    uint8_t validBpmCount = 0;
+
+public:
+    BpmCalculator() {
+        for(int i=0; i<FILTER_SIZE; i++) filterBuffer[i] = 0;
+        for(int i=0; i<BPM_AVG_SIZE; i++) bpmBuffer[i] = 0;
+    }
+
+    uint8_t getBPM() {
+        if (validBpmCount == 0) return 0; // Return 0 until we get real beats
+        uint16_t sum = 0;
+        for(int i=0; i<validBpmCount; i++) sum += bpmBuffer[i];
+        return sum / validBpmCount;
+    }
+
+    void addSample(float acValue) {
+        // 1. Moving average filter to smooth out small jagged noise
+        filterBuffer[filterIdx] = acValue;
+        filterIdx = (filterIdx + 1) % FILTER_SIZE;
+        
+        float sum = 0;
+        for(int i=0; i<FILTER_SIZE; i++) sum += filterBuffer[i];
+        float filtered = sum / FILTER_SIZE;
+
+        // 2. Peak detection (looking for a local maximum)
+        if (prevFiltered > lastFiltered && prevFiltered > filtered && prevFiltered > peakThreshold) {
+            uint32_t now = millis();
+            uint32_t delta = now - lastPeakTimeMs;
+
+            // Refractory period: at least 300ms (max 200 BPM) to prevent double-counting dicrotic notches
+            if (delta > 300) {
+                float instantBpm = 60000.0f / delta;
+
+                // Validate realistic BPM (e.g., 40 to 200)
+                if (instantBpm >= 40 && instantBpm <= 200) {
+                    bpmBuffer[bpmIdx] = (uint8_t)instantBpm;
+                    bpmIdx = (bpmIdx + 1) % BPM_AVG_SIZE;
+                    if (validBpmCount < BPM_AVG_SIZE) validBpmCount++;
+                }
+                
+                lastPeakTimeMs = now;
+                // Dynamic threshold: 60% of the peak, decays over time so it adapts to different fingers
+                peakThreshold = prevFiltered * 0.6f;
+            }
+        } else {
+            // Decay the threshold slowly
+            peakThreshold *= 0.98f;
+            if (peakThreshold < 10.0f) peakThreshold = 10.0f;
+        }
+
+        lastFiltered = prevFiltered;
+        prevFiltered = filtered;
+    }
+};
+
+BpmCalculator bpmCalc;
+
+
 TaskHandle_t taskDisplay = nullptr;
 LEDDriver ledDriver;
 PpgFrameAccumulator ppgFrame;
 
-volatile float tempC = 0.0f;
-volatile float currentSpO2 = 98.0f;
-volatile int currentBPM = 72;
-volatile int batteryMilliVolts = 3800;
+// Global sensor values
+float currentSpO2 = 0.0f;
+int currentBPM = 0; // Starts at 0, updates with real heartbeats
+float tempC = 0.0f;
+int batteryMilliVolts = 3800;
 
 uint8_t currentMuxChannel = 0;
 bool ptatReadPending = false;
@@ -224,6 +299,10 @@ void processCompletedPpgFrame() {
         float finalRedDc = dsRedDcSum / ALGORITHM_DOWNSAMPLE;
         float finalIrAc = dsIrAcSum / ALGORITHM_DOWNSAMPLE;
         float finalIrDc = dsIrDcSum / ALGORITHM_DOWNSAMPLE;
+
+        // Feed the Red AC signal into the BPM calculator
+        bpmCalc.addSample(finalRedAc);
+        currentBPM = bpmCalc.getBPM();
 
         oxygenAddSample(finalRedAc, finalRedDc, finalIrAc, finalIrDc);
 
