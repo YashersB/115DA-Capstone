@@ -57,8 +57,8 @@ inline void drawGUI(float spo2, int bpm, float temp, int battMv) {
     display.setCursor(0, 25); display.print(bpm);
     
     display.setTextSize(1);
-    display.setCursor(30, 5); display.print("SpO2%");
-    display.setCursor(30, 25); display.print("BPM");
+    display.setCursor(62, 5); display.print("SpO2%");
+    display.setCursor(35, 25); display.print("BPM");
 
     // 3. Temperature (Restored original locations)
     display.setCursor(65, 25);
