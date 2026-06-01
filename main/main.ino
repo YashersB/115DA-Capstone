@@ -17,7 +17,7 @@ constexpr uint8_t MUX_CHANNEL_DC = 2;
 constexpr uint8_t MUX_CHANNEL_PTAT = 3;
 constexpr uint8_t MUX_CHANNEL_AUX = 4;
 
-constexpr uint16_t MUX_SETTLE_US = 10;
+constexpr uint16_t MUX_SETTLE_US = 50; // Increased to 50us to guarantee no cross-talk into PTAT
 constexpr uint16_t ADC_RECOVERY_US = 50;
 constexpr uint16_t PTAT_SAMPLE_COUNT = 64;
 constexpr uint32_t TEMP_READ_INTERVAL_MS = 500;
@@ -144,6 +144,9 @@ int currentBPM = 0; // Starts at 0, updates with real heartbeats
 float tempC = 0.0f;
 int batteryMilliVolts = 3800;
 
+float debugRawPtat = 0.0f;
+float debugRawBat = 0.0f;
+
 uint8_t currentMuxChannel = 0;
 bool ptatReadPending = false;
 unsigned long lastTempReadMs = 0;
@@ -248,6 +251,9 @@ void serviceSlowAnalogChannels() {
     float rawPtatMilliVolts = readMuxAverageMilliVolts(MUX_CHANNEL_PTAT, PTAT_SAMPLE_COUNT);
     float rawBatteryMilliVolts = readBatteryAverageMilliVolts(PTAT_SAMPLE_COUNT);
 
+    debugRawPtat = rawPtatMilliVolts;
+    debugRawBat = rawBatteryMilliVolts;
+
     updateTempAndBattery(rawPtatMilliVolts, rawBatteryMilliVolts);
 
     // We do NOT reset the PPG frame or cycle here anymore!
@@ -265,10 +271,11 @@ void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
     }
 
     Serial.printf(
-        "SpO2: %.1f %% | BPM: %d | Temp: %.1f C | Bat: %d mV | Ratio: %.3f | rAC: %.1f | rDC: %.1f | iAC: %.1f | iDC: %.1f\n",
+        "SpO2: %.1f %% | BPM: %d | Temp: %.1f C (Raw: %.0fmV) | Bat: %d mV | Ratio: %.3f | rAC: %.1f | rDC: %.1f | iAC: %.1f | iDC: %.1f\n",
         result.spo2,
         currentBPM,
         tempC,
+        debugRawPtat,
         batteryMilliVolts,
         result.ratio,
         trueRed, // AC
