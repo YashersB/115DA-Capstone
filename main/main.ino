@@ -50,7 +50,7 @@ struct PpgFrameAccumulator {
     bool cycleComplete = false;
 };
 
-// Professional Digital Bandpass Filter for Peak Detection
+// bandpass filter for peak detection
 class BpmCalculator {
 private:
     // Filter states
@@ -75,41 +75,41 @@ public:
     }
 
     uint8_t getBPM() {
-        if (validBpmCount == 0) return 0; // Return 0 until we get real beats
+        if (validBpmCount == 0) return 0; // return 0 till we get real beats
         uint16_t sum = 0;
         for(int i=0; i<validBpmCount; i++) sum += bpmBuffer[i];
         
         int calculatedBpm = sum / validBpmCount;
         
-        // Hardcoded calibration offset requested by user
-        calculatedBpm -= 20;
+        // hardcoded offset cuz it was reading high
+        calculatedBpm -= 10;
         
         if (calculatedBpm < 0) return 0;
         return (uint8_t)calculatedBpm;
     }
 
     void addSample(float acValue) {
-        // 1. High-Pass Filter (DC Blocker) at 0.5 Hz (Removes baseline wander/breathing artifacts)
-        // Calculated for Fs = 20Hz, cutoff = 0.5Hz. alpha_hp = 0.864
+        // 1. highpass filter at 0.5hz to block out dc wander (breathing etc)
+        // alpha_hp = 0.864 calculated for 20hz
         float y_hp = 0.864f * y_hp_prev + 0.864f * (acValue - x_prev);
         x_prev = acValue;
         y_hp_prev = y_hp;
 
-        // 2. Low-Pass Filter at 3.5 Hz (Removes high-frequency electrical/ADC noise)
-        // Calculated for Fs = 20Hz, cutoff = 3.5Hz. alpha_lp = 0.524
+        // 2. lowpass at 3.5Hz to remove adc noise
+        // calculaded for 20Hz with cutoff atr 3.5Hz etc
         float filtered = 0.524f * y_hp + (1.0f - 0.524f) * y_lp_prev;
         y_lp_prev = filtered;
 
-        // 3. Peak detection (looking for a local maximum on the beautifully filtered wave)
+        // 3. look for local max on the filtered wave
         if (prevFiltered > lastFiltered && prevFiltered > filtered && prevFiltered > peakThreshold) {
             uint32_t now = millis();
             uint32_t delta = now - lastPeakTimeMs;
 
-            // Refractory period: at least 450ms (max 133 BPM) to rigorously reject dicrotic notches
+            // refractory period: at least 450ms (max 133 bpm) so we dont double count the notch
             if (delta > 450) {
                 float instantBpm = 60000.0f / delta;
 
-                // Validate realistic BPM (e.g., 40 to 133)
+                // realistically should be around 40 to 133
                 if (instantBpm >= 40 && instantBpm <= 133) {
                     bpmBuffer[bpmIdx] = (uint8_t)instantBpm;
                     bpmIdx = (bpmIdx + 1) % BPM_AVG_SIZE;
@@ -117,13 +117,13 @@ public:
                 }
                 
                 lastPeakTimeMs = now;
-                // Dynamic threshold: 75% of the peak, decays over time so it adapts to different fingers
+                // lower threshold to 75% of peak so it adapts
                 peakThreshold = prevFiltered * 0.75f;
             }
         } else {
-            // Decay the threshold slowly (0.995 holds the threshold higher for longer)
+            // slowly decay the threshold (0.995 keeps it up longer)
             peakThreshold *= 0.995f;
-            if (peakThreshold < 2.0f) peakThreshold = 2.0f; // Lowered floor because bandpass limits amplitude
+            if (peakThreshold < 2.0f) peakThreshold = 2.0f; // min floor
         }
 
         lastFiltered = prevFiltered;
@@ -256,8 +256,8 @@ void serviceSlowAnalogChannels() {
 
     updateTempAndBattery(rawPtatMilliVolts, rawBatteryMilliVolts);
 
-    // We do NOT reset the PPG frame or cycle here anymore!
-    // Stalling for 6.4ms during an OFF phase is perfectly safe and won't break the cycle.
+    // dont reset the ppg frame here!
+    // stalling for 6.4ms during off phase is fine
 }
 
 void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
@@ -304,15 +304,16 @@ void processCompletedPpgFrame() {
     float irDcAvg = static_cast<float>(ppgFrame.irDcSum) / ppgFrame.irDcCount;
     float amb2DcAvg = static_cast<float>(ppgFrame.amb2DcSum) / ppgFrame.amb2DcCount;
 
-    // Subtract ambient AC (rejects 50/60Hz optical noise)
+    // subtract ambient ac to kill 50/60hz room light noise
     float trueRedAc = redAcAvg - amb1AcAvg;
     float trueIrAc = irAcAvg - amb2AcAvg;
 
-    // Subtract ambient DC (rejects baseline room lighting)
-    float trueRedDc = redDcAvg - amb1DcAvg;
-    float trueIrDc = irDcAvg - amb2DcAvg;
+    // subtract ambient dc to get rid of baseline room lighting
+    // clamp to 1.0f so a random noise spike doesn't make it negative and crash spo2
+    float trueRedDc = max(redDcAvg - amb1DcAvg, 1.0f);
+    float trueIrDc = max(irDcAvg - amb2DcAvg, 1.0f);
 
-    // Downsample (average) multiple frames to slow down the data rate, filter noise, and give the buffer more time history
+    // downsample to slow down data rate and filter out high frequency stuff
     static uint8_t downsampleCount = 0;
     static float dsRedAcSum = 0, dsRedDcSum = 0, dsIrAcSum = 0, dsIrDcSum = 0;
 
@@ -328,13 +329,13 @@ void processCompletedPpgFrame() {
         float finalIrAc = dsIrAcSum / ALGORITHM_DOWNSAMPLE;
         float finalIrDc = dsIrDcSum / ALGORITHM_DOWNSAMPLE;
 
-        // Feed the Red AC signal into the BPM calculator
+        // feed red ac into the bpm calc
         bpmCalc.addSample(finalRedAc);
         currentBPM = bpmCalc.getBPM();
 
         oxygenAddSample(finalRedAc, finalRedDc, finalIrAc, finalIrDc);
 
-        // Print for Arduino Serial Plotter
+        // for arduino serial plotter
         if (ENABLE_SERIAL_PLOTTER) {
             Serial.printf("RedAC:%.2f,IrAC:%.2f\n", finalRedAc, finalIrAc);
         }
@@ -344,28 +345,28 @@ void processCompletedPpgFrame() {
             if (result.valid) {
                 currentSpO2 = result.spo2;
             }
-            // Always print debug stats so we can see if DC is falling to 0
+            // always print this so we can debug if dc falls to 0
             maybePrintDebug(result, finalRedAc, finalIrAc);
         }
 
-        // Reset downsample accumulators
+        // reset downsample accumulators for the next batch
         dsRedAcSum = 0; dsRedDcSum = 0; dsIrAcSum = 0; dsIrDcSum = 0;
         downsampleCount = 0;
     }
 
     ppgFrame.decimationCounter++;
     if (ppgFrame.decimationCounter >= WAVEFORM_DECIMATION) {
-        // Generate a mathematically perfect, synthetic heartbeat wave synchronized to the BPM
-        uint16_t waveformSample = 2048; // Default flatline
+        // make a fake heartbeat wave that syncs with bpm for the oled
+        uint16_t waveformSample = 2048; // flatline by default
         if (currentBPM > 0) {
             float beatPeriodMs = 60000.0f / currentBPM;
             float phase = fmod(millis(), beatPeriodMs) / beatPeriodMs; // 0.0 to 1.0
             
-            // Create a smooth, sharp pulse using sin^4(x)
+            // use sin^4(x) to make it look like a smooth pulse
             float s = sin(phase * PI);
             float wave = s * s * s * s; // 0.0 to 1.0
             
-            // Map it beautifully to the OLED screen dimensions
+            // map it to the oled screen size
             waveformSample = 1000 + static_cast<uint16_t>(wave * 2000.0f);
         }
         
@@ -376,21 +377,20 @@ void processCompletedPpgFrame() {
     resetPpgFrame();
 }
 
-// Ultra-clean, deterministic ADC sampling block
+// deterministic adc sampling block to fix mux cross talk
 void readAcDc(uint32_t &acSum, uint16_t &acCount, uint32_t &dcSum, uint16_t &dcCount) {
-    // 1. Switch to AC and wait a massive 50us to let the MUX completely settle and 
-    // allow the ESP32 ADC capacitor to charge (prevents cross-talk).
+    // 1. switch to ac and wait 50us so the esp32 adc cap can charge (fixes cross-talk)
     selectMuxChannel(MUX_CHANNEL_AC);
     delayMicroseconds(50);
 
-    // Rapid-fire read 4 samples to average out ADC quantization noise
+    // read 4 times fast to average out quantization noise
     acSum += analogReadMilliVolts(ADC_PIN);
     acSum += analogReadMilliVolts(ADC_PIN);
     acSum += analogReadMilliVolts(ADC_PIN);
     acSum += analogReadMilliVolts(ADC_PIN);
     acCount += 4;
 
-    // 2. Switch to DC and let it completely settle
+    // 2. switch to dc and wait for it to settle
     selectMuxChannel(MUX_CHANNEL_DC);
     delayMicroseconds(50);
 
@@ -434,14 +434,13 @@ void processPpgChannel() {
             }
             break;
 
-        case 0: // Red Settle Window (2000us) - Start of a new cycle
-            // We used to process the frame here, but doing heavy serial printing while the Red LED is ON 
-            // caused the ESP32 to stall and stretched the Red LED time to 75% duty cycle!
+        case 0: // Red Settle Window (2000us)
+            // we used to process the frame here but serial printing stalled the esp32
+            // and made the red led stay on for like 75% of the cycle lol
             break;
 
         case 2: // Ambient 1 Settle Window (2000us)
-            // By processing the frame here, both LEDs are guaranteed to be OFF.
-            // If the processing takes a long time, it just safely extends the OFF period without wasting battery!
+            // processing here means both leds are off so if it stalls it just saves battery
             if (ppgFrame.cycleComplete) {
                 processCompletedPpgFrame();
             }

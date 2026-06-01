@@ -95,20 +95,19 @@ class LEDDriver {
     }
 
     void turnRedOn() {
-      // Hardware is mathematically proven to be Active-Low! 
-      // LOW = ON, HIGH = OFF
-      digitalWrite(pinIR, HIGH);
-      digitalWrite(pinRed, LOW);
+      // active high logic
+      digitalWrite(pinIR, LOW);
+      digitalWrite(pinRed, HIGH);
     }
 
     void turnIROn() {
-      digitalWrite(pinRed, HIGH);
-      digitalWrite(pinIR, LOW);
+      digitalWrite(pinRed, LOW);
+      digitalWrite(pinIR, HIGH);
     }
 
     void turnAllOff() {
-      // Both HIGH means both OFF
-      digitalWrite(pinRed, HIGH);
-      digitalWrite(pinIR, HIGH);
+      // both LOW means both off
+      digitalWrite(pinRed, LOW);
+      digitalWrite(pinIR, LOW);
     }
 };
