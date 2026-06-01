@@ -250,9 +250,8 @@ void serviceSlowAnalogChannels() {
 
     updateTempAndBattery(rawPtatMilliVolts, rawBatteryMilliVolts);
 
-    // We don't restore MUX to PPG here because the fast loop toggles AC/DC dynamically
-    resetPpgFrame();
-    ledDriver.resetCycle();
+    // We do NOT reset the PPG frame or cycle here anymore!
+    // Stalling for 6.4ms during an OFF phase is perfectly safe and won't break the cycle.
 }
 
 void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
@@ -266,14 +265,16 @@ void maybePrintDebug(const spo2calc &result, float trueRed, float trueIR) {
     }
 
     Serial.printf(
-        "SpO2: %.1f %% | BPM: %d | Ratio: %.3f | rAC: %.1f | rDC: %.1f | iAC: %.1f | iDC: %.1f\n",
+        "SpO2: %.1f %% | BPM: %d | Temp: %.1f C | Bat: %d mV | Ratio: %.3f | rAC: %.1f | rDC: %.1f | iAC: %.1f | iDC: %.1f\n",
         result.spo2,
         currentBPM,
+        tempC,
+        batteryMilliVolts,
         result.ratio,
         trueRed, // AC
-        result.dcRed, // DC baseline from the algorithm
+        result.dcRed, // DC baseline
         trueIR,  // AC
-        result.dcIR); // DC baseline from the algorithm
+        result.dcIR); // DC baseline
 
     lastDebugPrintMs = now;
 }
@@ -443,7 +444,7 @@ void maybeServiceTelemetry() {
         return;
     }
 
-    if (ledDriver.getPhase() != 0) { // Wait until we enter Phase 0 (Red Settle)
+    if (ledDriver.getPhase() != 6) { // Wait until we enter Phase 6 (Ambient 2 Settle - Both LEDs OFF)
         return;
     }
 
