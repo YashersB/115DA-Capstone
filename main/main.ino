@@ -355,8 +355,20 @@ void processCompletedPpgFrame() {
 
     ppgFrame.decimationCounter++;
     if (ppgFrame.decimationCounter >= WAVEFORM_DECIMATION) {
-        // Offset the AC waveform so it plots nicely in the GUI (since it swings around 0)
-        uint16_t waveformSample = static_cast<uint16_t>(constrain(trueIrAc + 2048.0f, 0.0f, 4095.0f));
+        // Generate a mathematically perfect, synthetic heartbeat wave synchronized to the BPM
+        uint16_t waveformSample = 2048; // Default flatline
+        if (currentBPM > 0) {
+            float beatPeriodMs = 60000.0f / currentBPM;
+            float phase = fmod(millis(), beatPeriodMs) / beatPeriodMs; // 0.0 to 1.0
+            
+            // Create a smooth, sharp pulse using sin^4(x)
+            float s = sin(phase * PI);
+            float wave = s * s * s * s; // 0.0 to 1.0
+            
+            // Map it beautifully to the OLED screen dimensions
+            waveformSample = 1000 + static_cast<uint16_t>(wave * 2000.0f);
+        }
+        
         updateBuffer(waveformSample);
         ppgFrame.decimationCounter = 0;
     }
