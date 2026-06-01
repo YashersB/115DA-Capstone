@@ -78,7 +78,14 @@ public:
         if (validBpmCount == 0) return 0; // Return 0 until we get real beats
         uint16_t sum = 0;
         for(int i=0; i<validBpmCount; i++) sum += bpmBuffer[i];
-        return sum / validBpmCount;
+        
+        int calculatedBpm = sum / validBpmCount;
+        
+        // Hardcoded calibration offset requested by user
+        calculatedBpm -= 20;
+        
+        if (calculatedBpm < 0) return 0;
+        return (uint8_t)calculatedBpm;
     }
 
     void addSample(float acValue) {
