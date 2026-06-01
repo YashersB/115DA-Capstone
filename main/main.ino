@@ -41,6 +41,11 @@ struct PpgFrameAccumulator {
     uint16_t redAcCount = 0, irAcCount = 0, amb1AcCount = 0, amb2AcCount = 0;
     uint16_t redDcCount = 0, irDcCount = 0, amb1DcCount = 0, amb2DcCount = 0;
     
+    bool phase1Read = false;
+    bool phase3Read = false;
+    bool phase5Read = false;
+    bool phase7Read = false;
+
     uint8_t decimationCounter = 0;
     bool cycleComplete = false;
 };
@@ -93,12 +98,12 @@ public:
             uint32_t now = millis();
             uint32_t delta = now - lastPeakTimeMs;
 
-            // Refractory period: at least 400ms (max 150 BPM) to prevent double-counting dicrotic notches
-            if (delta > 400) {
+            // Refractory period: at least 450ms (max 133 BPM) to rigorously reject dicrotic notches
+            if (delta > 450) {
                 float instantBpm = 60000.0f / delta;
 
-                // Validate realistic BPM (e.g., 40 to 150)
-                if (instantBpm >= 40 && instantBpm <= 150) {
+                // Validate realistic BPM (e.g., 40 to 133)
+                if (instantBpm >= 40 && instantBpm <= 133) {
                     bpmBuffer[bpmIdx] = (uint8_t)instantBpm;
                     bpmIdx = (bpmIdx + 1) % BPM_AVG_SIZE;
                     if (validBpmCount < BPM_AVG_SIZE) validBpmCount++;
@@ -109,8 +114,8 @@ public:
                 peakThreshold = prevFiltered * 0.75f;
             }
         } else {
-            // Decay the threshold slowly
-            peakThreshold *= 0.99f;
+            // Decay the threshold slowly (0.995 holds the threshold higher for longer)
+            peakThreshold *= 0.995f;
             if (peakThreshold < 2.0f) peakThreshold = 2.0f; // Lowered floor because bandpass limits amplitude
         }
 
@@ -143,6 +148,11 @@ void resetPpgFrame() {
     
     ppgFrame.redAcCount = 0; ppgFrame.irAcCount = 0; ppgFrame.amb1AcCount = 0; ppgFrame.amb2AcCount = 0;
     ppgFrame.redDcCount = 0; ppgFrame.irDcCount = 0; ppgFrame.amb1DcCount = 0; ppgFrame.amb2DcCount = 0;
+    
+    ppgFrame.phase1Read = false;
+    ppgFrame.phase3Read = false;
+    ppgFrame.phase5Read = false;
+    ppgFrame.phase7Read = false;
     
     ppgFrame.cycleComplete = false;
 }
@@ -339,64 +349,62 @@ void processCompletedPpgFrame() {
     resetPpgFrame();
 }
 
+// Ultra-clean, deterministic ADC sampling block
+void readAcDc(uint32_t &acSum, uint16_t &acCount, uint32_t &dcSum, uint16_t &dcCount) {
+    // 1. Switch to AC and wait a massive 50us to let the MUX completely settle and 
+    // allow the ESP32 ADC capacitor to charge (prevents cross-talk).
+    selectMuxChannel(MUX_CHANNEL_AC);
+    delayMicroseconds(50);
+
+    // Rapid-fire read 4 samples to average out ADC quantization noise
+    acSum += analogReadMilliVolts(ADC_PIN);
+    acSum += analogReadMilliVolts(ADC_PIN);
+    acSum += analogReadMilliVolts(ADC_PIN);
+    acSum += analogReadMilliVolts(ADC_PIN);
+    acCount += 4;
+
+    // 2. Switch to DC and let it completely settle
+    selectMuxChannel(MUX_CHANNEL_DC);
+    delayMicroseconds(50);
+
+    dcSum += analogReadMilliVolts(ADC_PIN);
+    dcSum += analogReadMilliVolts(ADC_PIN);
+    dcSum += analogReadMilliVolts(ADC_PIN);
+    dcSum += analogReadMilliVolts(ADC_PIN);
+    dcCount += 4;
+}
+
 void processPpgChannel() {
     ledDriver.update();
 
-    // Toggle flag to alternate reading AC and DC as fast as the loop runs
-    static bool sampleAC = true;
-
     switch (ledDriver.getPhase()) {
         case 1: // Red Read Window (500us)
-            if (sampleAC) {
-                selectMuxChannel(MUX_CHANNEL_AC);
-                ppgFrame.redAcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.redAcCount++;
-            } else {
-                selectMuxChannel(MUX_CHANNEL_DC);
-                ppgFrame.redDcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.redDcCount++;
+            if (!ppgFrame.phase1Read) {
+                readAcDc(ppgFrame.redAcSum, ppgFrame.redAcCount, ppgFrame.redDcSum, ppgFrame.redDcCount);
+                ppgFrame.phase1Read = true;
             }
-            sampleAC = !sampleAC;
             break;
 
         case 3: // Ambient 1 Read Window (500us)
-            if (sampleAC) {
-                selectMuxChannel(MUX_CHANNEL_AC);
-                ppgFrame.amb1AcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.amb1AcCount++;
-            } else {
-                selectMuxChannel(MUX_CHANNEL_DC);
-                ppgFrame.amb1DcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.amb1DcCount++;
+            if (!ppgFrame.phase3Read) {
+                readAcDc(ppgFrame.amb1AcSum, ppgFrame.amb1AcCount, ppgFrame.amb1DcSum, ppgFrame.amb1DcCount);
+                ppgFrame.phase3Read = true;
             }
-            sampleAC = !sampleAC;
             break;
 
         case 5: // IR Read Window (500us)
-            if (sampleAC) {
-                selectMuxChannel(MUX_CHANNEL_AC);
-                ppgFrame.irAcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.irAcCount++;
-            } else {
-                selectMuxChannel(MUX_CHANNEL_DC);
-                ppgFrame.irDcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.irDcCount++;
+            if (!ppgFrame.phase5Read) {
+                readAcDc(ppgFrame.irAcSum, ppgFrame.irAcCount, ppgFrame.irDcSum, ppgFrame.irDcCount);
+                ppgFrame.phase5Read = true;
             }
-            sampleAC = !sampleAC;
             break;
 
         case 7: // Ambient 2 Read Window (500us)
-            if (sampleAC) {
-                selectMuxChannel(MUX_CHANNEL_AC);
-                ppgFrame.amb2AcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.amb2AcCount++;
-            } else {
-                selectMuxChannel(MUX_CHANNEL_DC);
-                ppgFrame.amb2DcSum += analogReadMilliVolts(ADC_PIN);
-                ppgFrame.amb2DcCount++;
+            if (!ppgFrame.phase7Read) {
+                readAcDc(ppgFrame.amb2AcSum, ppgFrame.amb2AcCount, ppgFrame.amb2DcSum, ppgFrame.amb2DcCount);
+                ppgFrame.phase7Read = true;
+                ppgFrame.cycleComplete = true; // Mark frame ready for processing in Phase 2
             }
-            sampleAC = !sampleAC;
-            ppgFrame.cycleComplete = true;
             break;
 
         case 0: // Red Settle Window (2000us) - Start of a new cycle
